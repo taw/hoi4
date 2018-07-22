@@ -10,11 +10,11 @@ export default class Division extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      year: null,
+      year: 1936,
       doctrine: null,
       units: [
-        [7, "Infantry"],
-        [2, "Artillery"],
+        [7, "infantry"],
+        [2, "artillery_brigade"],
         [0, ""],
       ],
       support: {

@@ -7,7 +7,18 @@ export default class Database {
     this.technology = data.technology;
     this.doctrines = data.doctrines;
     this.equipment = data.equipment;
-    // this.units = data.units;
+    this.unitTypes = data.units;
+
+    /* workarounds for limited collections API */
+    for(let key in this.technology) {
+      this.technology[key].key = key;
+    }
+    for(let key in this.equipment) {
+      this.equipment[key].key = key;
+    }
+    for(let key in this.unitTypes) {
+      this.unitTypes[key].key = key;
+    }
   }
 
   availableYears() {

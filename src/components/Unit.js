@@ -12,13 +12,16 @@ export default class Unit extends Component {
     onChange(index, [count, type]);
   }
   render() {
-    let {db, country, unit} = this.props;
+    let {country, unit} = this.props;
     let [count, type] = unit;
+
+    let availableFrontline = country.availableUnits().filter(u => u.combat_width > 0);
+
     return <div>
       <input type={count} value={count} onChange={this.handleChangeCount} />
       <select value={type} onChange={this.handleChangeType}>
         {
-          country.availableUnits().map((name) => <option value={name}>{name}</option> )
+          availableFrontline.map(unit => <option value={unit.key}>{unit.name}</option> )
         }
       </select>
     </div>

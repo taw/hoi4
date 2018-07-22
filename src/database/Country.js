@@ -5,8 +5,20 @@ export default class Country {
   }
 
   availableUnits() {
-    // FIXME: actually calculate
-    return ["Infantry", "Artillery", "Medium Tanks"];
+    let {db} = this;
+    let result = [];
+    let enabledSubunits = this.enabledSubunits();
+    let enabledEquipmentArchetypes = this.enabledEquipmentArchetypes();
+    for(let name in db.unitTypes) {
+      let unitType = db.unitTypes[name];
+      if(unitType.active || enabledSubunits.has(name)) {
+        let equipmentNeeded = Object.keys(unitType.equipment);
+        if(equipmentNeeded.every(eq => enabledEquipmentArchetypes.has(eq))) {
+          result.push(unitType);
+        }
+      }
+    }
+    return result;
   }
 
   // PRIVATE
