@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // FIXME: This id generation is pile of nonsense
 export default class SupportEntry extends Component {
   handleChange = (event) => {
-    let value = (event.target.value === "true");
+    let value = event.target.checked;
     let {data, onSupportChange} = this.props;
     onSupportChange(data.name, value);
   }

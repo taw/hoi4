@@ -3,10 +3,17 @@ import data from './data.json';
 // TODO: support multiple databases so it can work with mods etc.
 export default class Database {
   availableYears() {
-    debugger;
+    let years = new Set();
+    for(let tech of Object.values(data.technology)) {
+      let year = tech.start_year;
+      if(year) {
+        years.add(year);
+      }
+    }
+    return [...years].sort();
   }
 
   availableDoctrines() {
-    debugger;
+    return Object.keys(data.doctrines);
   }
 }

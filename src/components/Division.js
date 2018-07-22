@@ -4,7 +4,7 @@ import Cost from './Cost';
 import Combat from './Combat';
 import Terrain from './Terrain';
 import Support from './Support';
-// import Choices from './Choices';
+import Choices from './Choices';
 
 export default class Division extends Component {
   constructor(props) {
@@ -19,10 +19,19 @@ export default class Division extends Component {
       },
     }
   }
-
+  changeYear = (year) => {
+    this.setState({year});
+  }
+  changeDoctrine = (doctrine) => {
+    this.setState({doctrine});
+  }
   render() {
+    let {db} = this.props;
+    let {year, doctrine, units} = this.state;
+    let {changeYear, changeDoctrine} = this;
+
     return <div className="division-box">
-      {/* <Choices db={this.props.db} /> */}
+      <Choices  {...{db, year, doctrine, units, changeYear, changeDoctrine}} />
       <Support data={this.support()} onSupportChange={this.handleSupportChange} />
       <Basics data={this.basics()} />
       <Cost data={this.cost()}/>
@@ -40,7 +49,6 @@ export default class Division extends Component {
   /* All these should be calculated obviously */
   support() {
     let { support } = this.state;
-    console.log("SUPPORT", support, !!(support["Artillery"]));
     return [
       {name: "Artillery", available: true, selected: !!(support["Artillery"])},
       {name: "Rocket Artillery", available: true, selected: !!(support["Rocket Artillery"])},
