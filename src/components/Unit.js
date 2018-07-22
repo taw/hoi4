@@ -12,13 +12,13 @@ export default class Unit extends Component {
     onChange(index, [count, type]);
   }
   render() {
-    let {db, unit} = this.props;
+    let {db, country, unit} = this.props;
     let [count, type] = unit;
     return <div>
       <input type={count} value={count} onChange={this.handleChangeCount} />
       <select value={type} onChange={this.handleChangeType}>
         {
-          db.availableUnits().map((name) => <option value={name}>{name}</option> )
+          country.availableUnits().map((name) => <option value={name}>{name}</option> )
         }
       </select>
     </div>

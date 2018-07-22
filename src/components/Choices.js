@@ -5,11 +5,11 @@ import Units from './Units';
 
 export default class Choices extends Component {
   render() {
-    let {db, year, doctrine, units, changeYear, changeDoctrine, changeUnits} = this.props;
+    let {db, country, year, doctrine, units, changeYear, changeDoctrine, changeUnits} = this.props;
     return <div className="choices">
       <Technology {...{db, year, changeYear}} />
       <Doctrine {...{db, doctrine, changeDoctrine}} />
-      <Units {...{db, units, changeUnits}} />
+      <Units {...{db, country, units, changeUnits}} />
     </div>
   }
 }

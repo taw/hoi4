@@ -36,9 +36,10 @@ export default class Division extends Component {
     let {db} = this.props;
     let {year, doctrine, units} = this.state;
     let {changeYear, changeDoctrine, changeUnits} = this;
+    let country = this.country();
 
     return <div className="division-box">
-      <Choices  {...{db, year, doctrine, units, changeYear, changeDoctrine, changeUnits}} />
+      <Choices {...{db, country, year, doctrine, units, changeYear, changeDoctrine, changeUnits}} />
       <Support data={this.support()} onSupportChange={this.handleSupportChange} />
       <Basics data={this.basics()} />
       <Cost data={this.cost()}/>
@@ -46,11 +47,16 @@ export default class Division extends Component {
       <Terrain data={this.terrain()}/>
     </div>
   }
-
   handleSupportChange = (company, state) => {
     let {support} = this.state;
     support = {...support, [company]: state};
     this.setState({support});
+  }
+  /* Not sure what should be the status of this */
+  country() {
+    let {db} = this.props;
+    let {year, doctrine} = this.state;
+    return db.country(year, doctrine);
   }
 
   /* All these should be calculated obviously */

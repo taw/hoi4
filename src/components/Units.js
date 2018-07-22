@@ -10,11 +10,11 @@ export default class Units extends Component {
   }
 
   render() {
-    let {db, units} = this.props;
+    let {db, country, units} = this.props;
     return <Fragment>
       <h4>Battalions</h4>
       {
-        units.map((unit,i) => <Unit db={db} unit={unit} key={i} index={i} onChange={this.handleChange}/>)
+        units.map((unit,i) => <Unit {...{db, unit, country}} key={i} index={i} onChange={this.handleChange}/>)
       }
     </Fragment>
   }
