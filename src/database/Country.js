@@ -15,7 +15,7 @@ export default class Country {
     for(let name of this.enabledEquipments()) {
       let equipment = this.db.equipment[name]
       let archetype = equipment.archetype;
-      if(!result[archetype] || !result[archetype].key < equipment.key) {
+      if(!result[archetype] || (equipment.key > result[archetype].key)) {
         result[archetype] = equipment;
       }
     }

@@ -27,6 +27,17 @@ function round6(x) {
   return Math.round(x * 1000000) / 1000000;
 }
 
+function cleanupReport(report) {
+  report = report.filter(([k,v]) => (v !== 0));
+  return report.map(([k,v]) => {
+    if(typeof(v) === "number") {
+      return [k,round6(v)];
+    } else {
+      return [k,v];
+    }
+  })
+}
+
 export default class Division {
   constructor(units) {
     this.units = units;
@@ -35,7 +46,7 @@ export default class Division {
   // Gather related numbers for frontend's convenience
   // This is sort of UI responsibility
   basics() {
-    return [
+    return cleanupReport([
       ["Speed", `${this.speed()} km/h`],
       ["HP", this.hp()],
       ["Organization", this.org()],
@@ -47,24 +58,23 @@ export default class Division {
       ["Entrenchment", this.entrenchment()],
       ["Can be parachuted", this.can_be_parachuted()],
       ["Special forces", this.special_forces()],
-    ]
+    ])
   }
 
   cost() {
-    // FIXME
-    return [
-      ["Manpower", "8600"],
-      ["Training Time", "120 days"],
-      // ["Infantry Equipment II", 650],
-      // ["Artillery Equipment II", 84],
-      // ["Support Equipment", 40],
-      // ["Medium Tanks II", 50],
-      ["IC Cost", this.ic_cost()],
-    ]
+    let result = [
+      ["Manpower", this.manpower()],
+      ["Training Time", `${this.training_time()} days`],
+    ];
+    for(let [equipment, count] of this.equipment()) {
+      result.push([equipment.name, equipment.build_cost_ic * count]);
+    }
+    result.push(["IC Cost", this.ic_cost()]);
+    return cleanupReport(result);
   }
 
   combat() {
-    return [
+    return cleanupReport([
       ["Soft Attack", this.soft_attack()],
       ["Hard Attack", this.hard_attack()],
       ["Defense", this.defense()],
@@ -73,7 +83,7 @@ export default class Division {
       ["Piercing", this.piercing()],
       ["Combat width", this.combat_width()],
       ["Hardness", `${this.hardness()} %`],
-    ]
+    ])
   }
 
   terrain() {
@@ -221,15 +231,11 @@ export default class Division {
   }
 
   equipment() {
-    let result = {};
+    let result = new Map();
     for(let unit of this.units) {
-      let unitEquipment = unit.equipment();
-      for(let name in unitEquipment) {
-        let count = unitEquipment[name];
-        if(!result[name]) {
-          result[name] = 0;
-        }
-        result[name] += count;
+      for(let [equipment, count] of unit.equipment) {
+        let otherCount = result.get(equipment) || 0;
+        result.set(equipment, count + otherCount);
       }
     }
     return result;
