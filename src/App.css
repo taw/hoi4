@@ -1,4 +1,4 @@
-.App {
+3.App {
   text-align: center;
 }
 
@@ -25,4 +25,85 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+document {
+  font-size: 12px;
+}
+
+body {
+  margin: 20px;
+}
+
+.division-box {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 30px;
+  grid-column-gap: 30px;
+  min-width: 1000px;
+}
+.choices {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+.support {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+.basics {
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+.cost {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+.combat {
+  grid-column-start: 3;
+  grid-row-start: 1;
+}
+.terrain {
+  grid-column-start: 3;
+  grid-row-start: 2;
+}
+.bonus {
+  color: #080;
+}
+.penalty {
+  color: #800;
+}
+.support .list {
+  columns: 2;
+}
+.support label {
+  margin: 0;
+}
+.select2 {
+  min-width: 200px;
+}
+.disabled_company {
+  color: #888;
+}
+.division-box ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.division-box li {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+}
+.division-box table th {
+  text-align: center;
+}
+.division-box table td {
+  width: 75px;
+  text-align: center;
+}
+input[type=number] {
+  width: 75px;
 }
