@@ -95,128 +95,143 @@ export default class Division {
 
   // Individual numbers
   manpower() {
-    return sum(this.units.map(u => u.manpower))
+    return sum(this.units.map(u => u.manpower()))
   }
 
   training_time() {
-    return max(this.units.map(u => u.training_time))
+    return max(this.units.map(u => u.training_time()))
   }
 
   combat_width() {
-    return sum(this.units.map(u => u.combat_width))
+    return sum(this.units.map(u => u.combat_width()))
   }
 
   suppression() {
-    return sum(this.units.map(u => u.suppression))
+    return sum(this.units.map(u => u.suppression()))
   }
 
   hp() {
-    return sum(this.units.map(u => u.hp))
+    return sum(this.units.map(u => u.hp()))
   }
 
   org() {
-    return round3(avg(this.units.map(u => u.org)))
+    return round3(avg(this.units.map(u => u.org())))
   }
 
   weight() {
-    return sum(this.units.map(u => u.weight))
+    return sum(this.units.map(u => u.weight()))
   }
 
   recovery_rate() {
-    return round3(avg(this.units.map(u => u.recovery_rate)))
+    return round3(avg(this.units.map(u => u.recovery_rate())))
   }
 
   supply_use() {
-    let base = sum(this.units.map(u => u.supply_use));
-    let factor = sum(this.units.map(u => u.supply_consumption_factor));
+    let base = sum(this.units.map(u => u.supply_use()));
+    let factor = sum(this.units.map(u => u.supply_consumption_factor()));
     return round6(base * (1+factor));
   }
 
   soft_attack() {
-    return round6(sum(this.units.map(u => u.soft_attack)))
+    return round6(sum(this.units.map(u => u.soft_attack())))
   }
 
   hard_attack() {
-    return round6(sum(this.units.map(u => u.hard_attack)))
+    return round6(sum(this.units.map(u => u.hard_attack())))
   }
 
   air_attack() {
-    return round6(sum(this.units.map(u => u.air_attack)))
+    return round6(sum(this.units.map(u => u.air_attack())))
   }
 
   defense() {
-    return round6(sum(this.units.map(u => u.defense)))
+    return round6(sum(this.units.map(u => u.defense())))
   }
 
   breakthrough() {
-    return round6(sum(this.units.map(u => u.breakthrough)))
+    return round6(sum(this.units.map(u => u.breakthrough())))
   }
 
   ic_cost() {
-    return sum(this.units.map(u => u.ic_cost))
+    return sum(this.units.map(u => u.ic_cost()))
   }
 
   entrenchment() {
-    return sum(this.units.map(u => u.entrenchment))
+    return sum(this.units.map(u => u.entrenchment()))
   }
 
   reliability_factor() {
-    return sum(this.units.map(u => u.reliability_factor))
+    return sum(this.units.map(u => u.reliability_factor()))
   }
 
   casualty_trickleback() {
-    return sum(this.units.map(u => u.casualty_trickleback))
+    return sum(this.units.map(u => u.casualty_trickleback()))
   }
 
   equipment_capture_factor() {
-    return sum(this.units.map(u => u.equipment_capture_factor))
+    return sum(this.units.map(u => u.equipment_capture_factor()))
   }
 
   experience_loss_factor() {
-    return sum(this.units.map(u => u.experience_loss_factor))
+    return sum(this.units.map(u => u.experience_loss_factor()))
   }
 
   recon() {
-    return sum(this.units.map(u => u.recon))
+    return sum(this.units.map(u => u.recon()))
   }
 
   initiative() {
-    return sum(this.units.map(u => u.initiative))
+    return sum(this.units.map(u => u.initiative()))
   }
 
   frontline_units() {
-    return this.units.filter(u => u.combat_width > 0)
+    return this.units.filter(u => u.combat_width() > 0)
   }
 
   support_units() {
-    return this.units.filter(u => !(u.combat_width > 0))
+    return this.units.filter(u => !(u.combat_width() > 0))
   }
 
   speed() {
-    return min(this.frontline_units().map(u => u.speed))
+    return min(this.frontline_units().map(u => u.speed()))
   }
 
   armor() {
-    let mx = max(this.units.map(u => u.armor));
-    let wa = avg(this.units.map(u => u.armor));
+    let mx = max(this.units.map(u => u.armor()));
+    let wa = avg(this.units.map(u => u.armor()));
     return round3(0.3 * mx + 0.7 * wa);
   }
 
   piercing() {
-    let mx = max(this.units.map(u => u.piercing));
-    let wa = avg(this.units.map(u => u.piercing));
+    let mx = max(this.units.map(u => u.piercing()));
+    let wa = avg(this.units.map(u => u.piercing()));
     return round3(0.4 * mx + 0.6 * wa)
   }
 
   can_be_parachuted() {
-    return this.units.every(u => u.can_be_parachuted) ? "Yes" : "No"
+    return this.units.every(u => u.can_be_parachuted()) ? "Yes" : "No"
   }
 
   special_forces() {
-    return this.units.filter(u => u.special_forces).length
+    return this.units.filter(u => u.special_forces()).length
   }
 
   hardness() {
-    return round6(avg(this.frontline_units().map(u => u.hardness)));
+    return round6(avg(this.frontline_units().map(u => u.hardness())));
+  }
+
+  equipment() {
+    let result = {};
+    for(let unit of this.units) {
+      let unitEquipment = unit.equipment();
+      for(let name in unitEquipment) {
+        let count = unitEquipment[name];
+        if(!result[name]) {
+          result[name] = 0;
+        }
+        result[name] += count;
+      }
+    }
+    return result;
   }
 }

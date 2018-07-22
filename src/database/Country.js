@@ -5,6 +5,21 @@ export default class Country {
   constructor(db, technologies) {
     this.db = db;
     this.technologies = technologies;
+    this.equipmentMap = this.calculateEquipmentMap();
+  }
+
+  calculateEquipmentMap() {
+    let result = {}
+    // Making a silly assumption that they're sorted asciibetically
+    // It seems to be right, as they're all X0, X1, X2 etc.
+    for(let name of this.enabledEquipments()) {
+      let equipment = this.db.equipment[name]
+      let archetype = equipment.archetype;
+      if(!result[archetype] || !result[archetype].key < equipment.key) {
+        result[archetype] = equipment;
+      }
+    }
+    return result;
   }
 
   availableUnits() {
@@ -29,6 +44,9 @@ export default class Country {
     let units = [];
     for(let name in unitTypes) {
       let unitType = db.unitTypes[name];
+      if(!unitType) {
+        throw(`No such unit type: ${name}`)
+      }
       let count = unitTypes[name];
       let unit = new Unit(unitType, this);
       for(let i=0; i<count; i++) {
@@ -37,6 +55,7 @@ export default class Country {
     }
     return new Division(units);
   }
+
   // PRIVATE
   enabledSubunits() {
     let {technologies} = this;
@@ -68,5 +87,10 @@ export default class Country {
       result.add(archetype);
     }
     return result;
+  }
+
+  unitBonusesFor(unitName) {
+    // FIXME
+    return {};
   }
 }

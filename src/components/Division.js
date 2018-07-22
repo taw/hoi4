@@ -18,8 +18,7 @@ export default class Division extends Component {
         [0, ""],
       ],
       support: {
-        "logistics": true,
-        "rocket_artillery": true,
+        "artillery": true,
       },
     }
   }
@@ -87,7 +86,7 @@ export default class Division extends Component {
       {key: "engineers", name: "Engineers", available: false, selected: !!(support["engineers"])},
       {key: "signal", name: "Signal", available: false, selected: !!(support["signal"])},
       {key: "maintenance", name: "Maintenance", available: true, selected: !!(support["maintenance"])},
-      {key: "logistics", name: "Logistics", available: true, selected: !!(support["logistics"])},
+      {key: "logistics_company", name: "Logistics", available: true, selected: !!(support["logistics_company"])},
       {key: "mp", name: "MP", available: true, selected: !!(support["mp"])},
       {key: "anti-air", name: "Anti-Air", available: false, selected: !!(support["anti-air"])},
       {key: "anti-tank", name: "Anti-Tank", available: true, selected: !!(support["anti-tank"])},
