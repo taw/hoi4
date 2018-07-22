@@ -1,3 +1,6 @@
+import Unit from './Unit';
+import Division from './Division';
+
 export default class Country {
   constructor(db, technologies) {
     this.db = db;
@@ -21,6 +24,19 @@ export default class Country {
     return result;
   }
 
+  division(unitTypes) {
+    let {db} = this;
+    let units = [];
+    for(let name in unitTypes) {
+      let unitType = db.unitTypes[name];
+      let count = unitTypes[name];
+      let unit = new Unit(unitType, this);
+      for(let i=0; i<count; i++) {
+        units.push(unit);
+      }
+    }
+    return new Division(units);
+  }
   // PRIVATE
   enabledSubunits() {
     let {technologies} = this;
