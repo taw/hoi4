@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
-// FIXME: Fragment ???
 export default class Doctrine extends Component {
   handleChange = (event) => {
     let value = event.target.value;
@@ -8,7 +7,7 @@ export default class Doctrine extends Component {
   }
   render() {
     let {db, doctrine} = this.props;
-    return <div>
+    return <Fragment>
       <h4>Doctrine</h4>
       <select value={doctrine || ""} onChange={this.handleChange}>
         <option value="">-</option>
@@ -16,7 +15,7 @@ export default class Doctrine extends Component {
           db.availableDoctrines().map(val => <option value={val}>{val}</option>)
         }
       </select>
-    </div>
+    </Fragment>
   }
 }
 

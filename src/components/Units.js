@@ -1,15 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Unit from './Unit';
 
-// FIXME: Fragment ???
 export default class Units extends Component {
+  handleChange = (index, unit) => {
+    let {changeUnits, units} = this.props;
+    let newUnits = [...units];
+    newUnits[index] = unit;
+    changeUnits(newUnits);
+  }
+
   render() {
     let {db, units} = this.props;
-    return <div>
+    return <Fragment>
       <h4>Battalions</h4>
       {
-        units.map((unit,i) => <Unit db={db} unit={unit} key={i}/>)
+        units.map((unit,i) => <Unit db={db} unit={unit} key={i} index={i} onChange={this.handleChange}/>)
       }
-    </div>
+    </Fragment>
   }
 }

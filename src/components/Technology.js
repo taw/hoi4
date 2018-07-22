@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
-// FIXME: Fragment ???
 export default class Technology extends Component {
   handleChange = (event) => {
     let value = event.target.value;
@@ -8,7 +7,7 @@ export default class Technology extends Component {
   }
   render() {
     let {db, year} = this.props;
-    return <div>
+    return <Fragment>
       <h4>Technology</h4>
       <select value={year || ""} onChange={this.handleChange}>
         <option value="">-</option>
@@ -16,6 +15,6 @@ export default class Technology extends Component {
           db.availableYears().map(val => <option value={val}>{val}</option>)
         }
       </select>
-    </div>
+    </Fragment>
   }
 }

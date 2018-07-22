@@ -12,7 +12,11 @@ export default class Division extends Component {
     this.state = {
       year: null,
       doctrine: null,
-      units: [7, "infantry"],
+      units: [
+        [7, "Infantry"],
+        [2, "Artillery"],
+        [0, ""],
+      ],
       support: {
         "Logistics": true,
         "Rocket Artillery": true,
@@ -25,13 +29,16 @@ export default class Division extends Component {
   changeDoctrine = (doctrine) => {
     this.setState({doctrine});
   }
+  changeUnits = (units) => {
+    this.setState({units});
+  }
   render() {
     let {db} = this.props;
     let {year, doctrine, units} = this.state;
-    let {changeYear, changeDoctrine} = this;
+    let {changeYear, changeDoctrine, changeUnits} = this;
 
     return <div className="division-box">
-      <Choices  {...{db, year, doctrine, units, changeYear, changeDoctrine}} />
+      <Choices  {...{db, year, doctrine, units, changeYear, changeDoctrine, changeUnits}} />
       <Support data={this.support()} onSupportChange={this.handleSupportChange} />
       <Basics data={this.basics()} />
       <Cost data={this.cost()}/>

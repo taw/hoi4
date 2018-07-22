@@ -16,4 +16,8 @@ export default class Database {
   availableDoctrines() {
     return Object.keys(data.doctrines);
   }
+
+  availableUnits() {
+    return ["Infantry", "Artillery", "Medium Tanks"];
+  }
 }
