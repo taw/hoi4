@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TerrainCell from './TerrainCell.js';
+import TerrainCell from './TerrainCell';
 
 export default class TerrainRow extends Component {
   render() {

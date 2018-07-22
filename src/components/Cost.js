@@ -7,7 +7,7 @@ export default class Cost extends Component {
       <h4>Cost</h4>
       <ul>
       {
-        data.map(([k,v]) => <li>
+        data.map(([k,v]) => <li key={k}>
           <span>{k}</span>
           <span>{v}</span>
         </li>)

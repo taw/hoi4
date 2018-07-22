@@ -4,8 +4,9 @@ import {sprintf} from 'sprintf-js';
 export default class TerrainCell extends Component {
   render() {
     let {data} = this.props;
-    if (data === 0)
+    if (data === 0) {
       return <td></td>;
+    }
 
     let className = (data > 0) ? "bonus" : "penalty";
 

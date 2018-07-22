@@ -1,14 +1,29 @@
 import React, { Component } from 'react';
-import Basics from './Basics.js';
-import Cost from './Cost.js';
-import Combat from './Combat.js';
-import Terrain from './Terrain.js';
+import Basics from './Basics';
+import Cost from './Cost';
+import Combat from './Combat';
+import Terrain from './Terrain';
+import Support from './Support';
+// import Choices from './Choices';
 
 export default class Division extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      year: null,
+      doctrine: null,
+      units: [7, "infantry"],
+      support: {
+        "Logistics": true,
+        "Rocket Artillery": true,
+      },
+    }
+  }
+
   render() {
     return <div className="division-box">
-      {/* <Choices /> */}
-      {/* <Support /> */}
+      {/* <Choices db={this.props.db} /> */}
+      <Support data={this.support()} onSupportChange={this.handleSupportChange} />
       <Basics data={this.basics()} />
       <Cost data={this.cost()}/>
       <Combat data={this.combat()}/>
@@ -16,7 +31,29 @@ export default class Division extends Component {
     </div>
   }
 
+  handleSupportChange = (company, state) => {
+    let {support} = this.state;
+    support = {...support, [company]: state};
+    this.setState({support});
+  }
+
   /* All these should be calculated obviously */
+  support() {
+    let { support } = this.state;
+    console.log("SUPPORT", support, !!(support["Artillery"]));
+    return [
+      {name: "Artillery", available: true, selected: !!(support["Artillery"])},
+      {name: "Rocket Artillery", available: true, selected: !!(support["Rocket Artillery"])},
+      {name: "Recon", available: true, selected: !!(support["Recon"])},
+      {name: "Engineers", available: false, selected: !!(support["Engineers"])},
+      {name: "Signal", available: false, selected: !!(support["Signal"])},
+      {name: "Maintenance", available: true, selected: !!(support["Maintenance"])},
+      {name: "Logistics", available: true, selected: !!(support["Logistics"])},
+      {name: "MP", available: true, selected: !!(support["MP"])},
+      {name: "Anti-Air", available: false, selected: !!(support["Anti-Air"])},
+      {name: "Anti-Tank", available: true, selected: !!(support["Anti-Tank"])},
+    ];
+  }
   cost() {
     return [
       ["Manpower", "8600"],
