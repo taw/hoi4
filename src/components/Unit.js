@@ -21,7 +21,7 @@ export default class Unit extends Component {
       <input type={count} value={count} onChange={this.handleChangeCount} />
       <select value={type} onChange={this.handleChangeType}>
         {
-          availableFrontline.map(unit => <option value={unit.key}>{unit.name}</option> )
+          availableFrontline.map(unit => <option key={unit.key} value={unit.key}>{unit.name}</option> )
         }
       </select>
     </div>

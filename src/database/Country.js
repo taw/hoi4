@@ -45,7 +45,7 @@ export default class Country {
     for(let name in unitTypes) {
       let unitType = db.unitTypes[name];
       if(!unitType) {
-        throw(`No such unit type: ${name}`)
+        throw new Error(`No such unit type: ${name}`)
       }
       let count = unitTypes[name];
       let unit = new Unit(unitType, this);

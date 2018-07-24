@@ -10,9 +10,9 @@ export default class Technology extends Component {
     return <Fragment>
       <h4>Technology</h4>
       <select value={year || ""} onChange={this.handleChange}>
-        <option value="">-</option>
+        <option value="" key="">-</option>
         {
-          db.availableYears().map(val => <option value={val}>{val}</option>)
+          db.availableYears().map(val => <option key={val} value={val}>{val}</option>)
         }
       </select>
     </Fragment>

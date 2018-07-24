@@ -8,7 +8,7 @@ export default class Unit {
       let count = unitType.equipment[name];
       let equipment = country.equipmentMap[name];
       if(!equipment) {
-        throw(`Can't find ${name}`);
+        throw new Error(`Can't find ${name}`);
       }
       this.equipment.set(equipment, count);
     }
