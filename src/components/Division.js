@@ -37,9 +37,10 @@ export default class Division extends Component {
     let {changeYear, changeDoctrine, changeUnits} = this;
     let country = this.country();
     let division = this.division();
+    let warnings = division.warnings();
 
     return <div className="division-box">
-      <Choices {...{db, country, year, doctrine, units, changeYear, changeDoctrine, changeUnits}} />
+      <Choices {...{db, country, year, doctrine, units, changeYear, changeDoctrine, changeUnits, warnings}} />
       <Support data={this.support()} onSupportChange={this.handleSupportChange} />
       <Basics data={division.basics()} />
       <Cost data={division.cost()}/>

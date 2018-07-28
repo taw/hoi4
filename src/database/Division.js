@@ -252,4 +252,20 @@ export default class Division {
     }
     return result;
   }
+
+  warnings() {
+    let result = [];
+    let frontline_count = this.frontline_units().length;
+    let support_count = this.support_units().length;
+    if(frontline_count === 0) {
+      result.push("Division contains no frontline units");
+    }
+    if(frontline_count > 25) {
+      result.push(`Division contains ${frontline_count} units, 25 is max allowed`);
+    }
+    if(support_count > 5) {
+      result.push(`Division contains ${support_count} units, 5 is max allowed`);
+    }
+    return result;
+  }
 }
