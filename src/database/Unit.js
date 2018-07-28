@@ -98,36 +98,36 @@ export default class Unit {
   }
 
   soft_attack() {
-    return this.calculateFromEquipmentAndBonus("soft_attack")
+    return this.calculateFromEquipmentAndBonusMult("soft_attack")
   }
 
   hard_attack() {
-    return this.calculateFromEquipmentAndBonus("hard_attack")
+    return this.calculateFromEquipmentAndBonusMult("hard_attack")
   }
 
   air_attack() {
-    return this.calculateFromEquipmentAndBonus("air_attack")
+    return this.calculateFromEquipmentAndBonusMult("air_attack")
   }
 
   defense() {
-    return this.calculateFromEquipmentAndBonus("defense")
+    return this.calculateFromEquipmentAndBonusMult("defense")
   }
 
   breakthrough() {
-    return this.calculateFromEquipmentAndBonus("breakthrough")
+    return this.calculateFromEquipmentAndBonusMult("breakthrough")
   }
 
   piercing() {
-    return this.calculateFromEquipmentAndBonus("ap_attack")
+    return this.calculateFromEquipmentAndBonusMult("ap_attack")
   }
 
   armor() {
     // never any bonus, but doesn't hurt
-    return this.calculateFromEquipmentAndBonus("armor_value")
+    return this.calculateFromEquipmentAndBonusMult("armor_value")
   }
 
   hardness() {
-    return this.calculateFromEquipmentAndBonus("hardness")
+    return this.calculateFromEquipmentAndBonusMult("hardness")
   }
 
   calculateFromUnitTypeAndBonus(stat) {
@@ -141,6 +141,14 @@ export default class Unit {
       base += equipment[stat];
     }
     return base + (this.country_bonuses[stat] || 0)
+  }
+
+  calculateFromEquipmentAndBonusMult(stat) {
+    let base = 0;
+    for(let [equipment, count] of this.equipment) {
+      base += equipment[stat];
+    }
+    return base * (1 + (this.country_bonuses[stat] || 0))
   }
 
   ic_cost() {
