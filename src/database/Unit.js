@@ -17,6 +17,10 @@ export default class Unit {
     this.country_bonuses = country.unitBonusesFor(unitType.key);
   }
 
+  group() {
+    return this.unitType.group;
+  }
+
   suppression() {
     return this.unitType.suppression;
   }

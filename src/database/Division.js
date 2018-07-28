@@ -255,13 +255,23 @@ export default class Division {
 
   warnings() {
     let result = [];
-    let frontline_count = this.frontline_units().length;
+    let frontline_units = this.frontline_units();
+    let frontline_count = frontline_units.length;
     let support_count = this.support_units().length;
+    let infantry = frontline_units.filter((u) => u.group() === "infantry").length;
+    let mobile = frontline_units.filter((u) => u.group() === "mobile").length;
+    let armored = frontline_units.filter((u) => u.group() === "armor").length;
+    let brigades = Math.ceil(infantry/5) + Math.ceil(mobile/5) + Math.ceil(armored/5);
+
     if(frontline_count === 0) {
       result.push("Division contains no frontline units");
     }
     if(frontline_count > 25) {
       result.push(`Division contains ${frontline_count} units, 25 is max allowed`);
+    }
+    else if(brigades > 5) {
+      // No need to use this warning if there's just too many units
+      result.push(`Division contains ${brigades} brigades, 5 is max allowed`);
     }
     if(support_count > 5) {
       result.push(`Division contains ${support_count} units, 5 is max allowed`);

@@ -9,7 +9,9 @@ export default class Warnings extends Component {
 
     return <Fragment>
       <h4>Warnings</h4>
-      {warnings.map(w => <div className="alert alert-danger">{w}</div>)  }
+      {
+        warnings.map((w,i) => <div key={i} className="alert alert-danger">{w}</div>)
+      }
     </Fragment>
   }
 }
