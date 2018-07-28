@@ -15,7 +15,7 @@ export default class Division extends Component {
       units: [
         [7, "infantry"],
         [2, "artillery_brigade"],
-        [0, ""],
+        [0, "cavalry"],
       ],
       support: {
         "artillery": true,
