@@ -1,3 +1,5 @@
+import recursivelyMerge from './recursivelyMerge';
+
 function sum(values) {
   let result = 0;
   for(let value of values) {
@@ -87,20 +89,11 @@ export default class Division {
   }
 
   terrain() {
-    // FIXME
-    return [
-      ["Amphibious",     0,     8.3,     0.0],
-      ["Forest",      -6.1,    -7.8,   +25.0],
-      ["Fort",           0,    22.2,   +35.0],
-      ["Hills",        8.9,    10.0,     0.0],
-      ["Jungle",       1.1,   -10.0,   +25.0],
-      ["Marsh",       22.2,    -5.6,   +25.0],
-      ["Mountain",     5.6,    -2.2,     0.0],
-      ["River",       28.3,    -6.7,   +25.0],
-      ["Urban",          0,    -4.4,    -1.1],
-      ["Desert",      10.0,     0.0,     0.0],
-      ["Plains",      10.0,     0.0,     0.0],
-    ]
+    let bonuses = this.terrain_bonuses();
+    return Object.keys(bonuses).sort().map(name => {
+      let bonus = bonuses[name];
+      return [name, 100*(bonus.movement || 0), 100*(bonus.attack || 0), 100*(bonus.defence || 0)];
+    })
   }
 
   // Individual numbers
@@ -237,6 +230,25 @@ export default class Division {
         let otherCount = result.get(equipment) || 0;
         result.set(equipment, count + otherCount);
       }
+    }
+    return result;
+  }
+
+  // average of frontlines + sum of supports
+  terrain_bonuses() {
+    let result = {};
+    let frontline_units = this.frontline_units();
+    for(let unit of frontline_units) {
+      recursivelyMerge(result, unit.terrain_bonuses());
+    }
+    for(let terrain in result) {
+      let bonus = result[terrain];
+      for(let kind in bonus) {
+        bonus[kind] /= frontline_units.length;
+      }
+    }
+    for(let unit of this.support_units()) {
+      recursivelyMerge(result, unit.terrain_bonuses());
     }
     return result;
   }

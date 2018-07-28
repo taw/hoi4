@@ -1,3 +1,5 @@
+import recursivelyMerge from './recursivelyMerge';
+
 export default class Unit {
   constructor(unitType, country) {
     this.unitType = unitType;
@@ -165,5 +167,14 @@ export default class Unit {
     let equipmentSpeeds = equipment.map(e => e.maximum_speed).filter(s => s);
     let equipmentSpeed = equipmentSpeeds.length ? Math.max(...equipmentSpeeds) : 4.0;
     return equipmentSpeed * (1 + this.unitType.maximum_speed || 0)
+  }
+
+  terrain_bonuses() {
+    let result = {};
+    recursivelyMerge(result, this.unitType.terrain_bonuses);
+    if(this.country_bonuses.terrain_bonuses) {
+      recursivelyMerge(result, this.country_bonuses.terrain_bonuses);
+    }
+    return result;
   }
 }
