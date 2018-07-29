@@ -53,7 +53,7 @@ export default class Database {
     if (year) {
       for (let name in this.technology) {
         let tech = this.technology[name];
-        if (tech.start_year && tech.start_year < year) {
+        if (tech.start_year && tech.start_year <= year) {
           techs.push(name);
         }
       }
