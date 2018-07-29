@@ -8,7 +8,12 @@ import Database from './database/Database';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.db = new Database("vanilla");
+    this.state = {
+      db: new Database("vanilla")
+    }
+  }
+  changeMod(modName) {
+    this.setState({db: new Database(modName)});
   }
   render() {
     return (
@@ -17,7 +22,14 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Hearts of Iron IV - Division Designer</h1>
         </header>
-        <Division db={this.db} />
+        <Division db={this.state.db} />
+
+        <div className="mod-selector">
+          <span>Switch mod:</span>
+          <button className="btn btn-primary" onClick={() => this.changeMod("vanilla")}>Vanilla</button>
+          <button className="btn btn-primary" onClick={() => this.changeMod("kaiserreich")}>Kaiserreich</button>
+          <button className="btn btn-primary" onClick={() => this.changeMod("millennium_dawn")}>Millennium Dawn</button>
+        </div>
       </div>
     );
   }

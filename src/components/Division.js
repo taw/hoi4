@@ -9,18 +9,22 @@ import Choices from './Choices';
 export default class Division extends Component {
   constructor(props) {
     super(props);
+    let {db} = props;
     this.state = {
-      year: 1936,
+      year: db.default_year,
       doctrine: null,
-      units: [
-        [7, "infantry"],
-        [2, "artillery_brigade"],
-        [0, "cavalry"],
-      ],
-      support: {
-        "artillery": true,
-      },
+      units: db.default_units,
+      support: db.default_support,
     }
+  }
+  componentWillReceiveProps(props) {
+    let {db} = props;
+    this.setState({
+      year: db.default_year,
+      doctrine: null,
+      units: db.default_units,
+      support: db.default_support,
+    })
   }
   changeYear = (year) => {
     this.setState({year});

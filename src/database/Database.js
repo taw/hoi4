@@ -16,6 +16,9 @@ export default class Database {
     this.doctrines = mod.doctrines;
     this.equipment = mod.equipment;
     this.unitTypes = mod.units;
+    this.default_year = mod.default_year;
+    this.default_units = mod.default_units;
+    this.default_support = mod.default_support;
 
     /* workarounds for limited collections API */
     for(let key in this.technology) {
