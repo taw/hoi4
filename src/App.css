@@ -36,9 +36,9 @@ body {
   display: grid;
   width: 100%;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-row-gap: 30px;
-  grid-column-gap: 30px;
-  min-width: 1000px;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  min-width: 800px;
 }
 .choices {
   grid-column-start: 1;
@@ -64,6 +64,67 @@ body {
   grid-column-start: 3;
   grid-row-start: 2;
 }
+@media(max-width: 900px) {
+  .division-box {
+    grid-template-columns: 1fr 1fr;
+    min-width: inherit;
+  }
+  .choices {
+    grid-row-start: 1;
+    grid-column-start: 1;
+  }
+  .support {
+    grid-row-start: 1;
+    grid-column-start: 2;
+  }
+  .basics {
+    grid-row-start: 2;
+    grid-column-start: 1;
+  }
+  .cost {
+    grid-row-start: 2;
+    grid-column-start: 2;
+  }
+  .combat {
+    grid-row-start: 3;
+    grid-column-start: 1;
+  }
+  .terrain {
+    grid-row-start: 3;
+    grid-column-start: 2;
+  }
+}
+@media(max-width: 600px) {
+  .division-box {
+    grid-template-columns: 1fr;
+    min-width: inherit;
+  }
+  .choices {
+    grid-row-start: 1;
+    grid-column-start: 1;
+  }
+  .support {
+    grid-row-start: 2;
+    grid-column-start: 1;
+  }
+  .basics {
+    grid-row-start: 3;
+    grid-column-start: 1;
+  }
+  .cost {
+    grid-row-start: 4;
+    grid-column-start: 1;
+  }
+  .combat {
+    grid-row-start: 5;
+    grid-column-start: 1;
+  }
+  .terrain {
+    grid-row-start: 6;
+    grid-column-start: 1;
+  }
+}
+
 .bonus {
   color: #080;
 }
@@ -75,9 +136,6 @@ body {
 }
 .support label {
   margin: 0;
-}
-.select2 {
-  min-width: 200px;
 }
 .disabled_company {
   color: #888;
@@ -91,21 +149,27 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  width: 300px;
+  width: 100%;
   justify-content: space-between;
 }
 .division-box table th {
   text-align: center;
 }
 .division-box table td {
-  width: 75px;
+  width: 25%;
   text-align: center;
 }
 input[type=number] {
   width: 75px;
+  margin-right: 5px;
 }
-
+select {
+  max-width: 300px;
+}
 /* Shouldn't bootstrap handle this? */
+.checkbox label {
+  margin-left: 5px;
+}
 .checkbox.disabled label {
   color: #ccc;
 }
