@@ -19,6 +19,7 @@ export default class Database {
     for(let key in this.unitTypes) {
       this.unitTypes[key].key = key;
     }
+    this.fallbackEquipmentMap = this.calculateFallbackEquipmentMap();
   }
 
   availableYears() {
@@ -63,5 +64,19 @@ export default class Database {
 
   supportUnitTypes() {
     return Object.keys(this.unitTypes).filter((u) => this.unitTypes[u].group === "support");
+  }
+
+  // Using any of these results in invalid division, but it won't crash app
+  // Pick oldest equipment for eacsh archetype
+  calculateFallbackEquipmentMap() {
+    let result = {};
+    for(let name in this.equipment) {
+      let equipment = this.equipment[name];
+      let archetype = equipment.archetype;
+      if(!result[archetype] || (equipment.key < result[archetype].key)) {
+        result[archetype] = equipment;
+      }
+    }
+    return result;
   }
 }

@@ -57,6 +57,19 @@ export default class Country {
     return new Division(units);
   }
 
+  unitBonusesFor(unitName) {
+    let categories = [unitName, ...this.db.unitTypes[unitName].categories];
+    let result = {};
+    for(let technology of this.technologies) {
+      for(let category of categories) {
+        if(technology.unit_bonuses[category]) {
+          recursivelyMerge(result, technology.unit_bonuses[category]);
+        }
+      }
+    }
+    return result;
+  }
+
   // PRIVATE
   enabledSubunits() {
     let {technologies} = this;
@@ -86,19 +99,6 @@ export default class Country {
     for(let eq of this.enabledEquipments()) {
       let archetype = db.equipment[eq].archetype;
       result.add(archetype);
-    }
-    return result;
-  }
-
-  unitBonusesFor(unitName) {
-    let categories = [unitName, ...this.db.unitTypes[unitName].categories];
-    let result = {};
-    for(let technology of this.technologies) {
-      for(let category of categories) {
-        if(technology.unit_bonuses[category]) {
-          recursivelyMerge(result, technology.unit_bonuses[category]);
-        }
-      }
     }
     return result;
   }

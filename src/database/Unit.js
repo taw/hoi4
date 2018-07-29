@@ -5,14 +5,21 @@ export default class Unit {
     this.unitType = unitType;
     this.country = country;
 
+    this.missingEquipment = new Set();
     this.equipment = new Map();
     for(let name in unitType.equipment) {
       let count = unitType.equipment[name];
       let equipment = country.equipmentMap[name];
-      if(!equipment) {
-        throw new Error(`Can't find ${name}`);
+      if(equipment) {
+        this.equipment.set(equipment, count);
+      } else {
+        let fallbackEquipment = country.db.fallbackEquipmentMap[name];
+        if(!fallbackEquipment) {
+          throw new Error(`Can't find ${name}`);
+        }
+        this.equipment.set(fallbackEquipment, count);
+        this.missingEquipment.add(fallbackEquipment.name);
       }
-      this.equipment.set(equipment, count);
     }
     this.country_bonuses = country.unitBonusesFor(unitType.key);
   }

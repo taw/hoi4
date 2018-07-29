@@ -261,6 +261,16 @@ export default class Division {
     return result;
   }
 
+  missingEquipment() {
+    let result = new Set();
+    for(let unit of this.units) {
+      unit.missingEquipment.forEach(eq => {
+        result.add(eq)
+      })
+    }
+    return result;
+  }
+
   warnings() {
     let result = [];
     let frontline_units = this.frontline_units();
@@ -270,6 +280,7 @@ export default class Division {
     let mobile = frontline_units.filter((u) => u.group() === "mobile").length;
     let armored = frontline_units.filter((u) => u.group() === "armor").length;
     let brigades = Math.ceil(infantry/5) + Math.ceil(mobile/5) + Math.ceil(armored/5);
+    let missingEquipment = this.missingEquipment();
 
     if(frontline_count === 0) {
       result.push("No frontline battalions");
@@ -283,6 +294,9 @@ export default class Division {
     }
     if(support_count > 5) {
       result.push(`${support_count}/5 support companies`);
+    }
+    for(let eq of missingEquipment) {
+      result.push(`Missing equipment: ${eq}`);
     }
     return result;
   }
