@@ -58,6 +58,9 @@ export default class Division {
       ["Supply Use", this.supply_use()],
       ["Recon", this.recon()],
       ["Entrenchment", this.entrenchment()],
+      ["Reliability", this.reliability_factor()],
+      ["Casualty trickleback", this.casualty_trickleback()],
+      ["XP Loss", this.experience_loss_factor()],
       ["Can be parachuted", this.can_be_parachuted()],
       ["Special forces", this.special_forces()],
     ])
@@ -85,6 +88,8 @@ export default class Division {
       ["Piercing", this.piercing()],
       ["Combat width", this.combat_width()],
       ["Hardness", `${this.hardness()} %`],
+      ["Initiative", this.initiative()],
+      ["Equipment Capture", this.equipment_capture_factor()],
     ])
   }
 
