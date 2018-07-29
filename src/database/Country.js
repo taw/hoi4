@@ -14,7 +14,7 @@ export default class Country {
     // Making a silly assumption that they're sorted asciibetically
     // It seems to be right, as they're all X0, X1, X2 etc.
     for(let name of this.enabledEquipments()) {
-      let equipment = this.db.equipment[name]
+      let equipment = this.db.equipment[name];
       let archetype = equipment.archetype;
       if(!result[archetype] || (equipment.key > result[archetype].key)) {
         result[archetype] = equipment;
