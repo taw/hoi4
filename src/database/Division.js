@@ -73,7 +73,7 @@ export default class Division {
       ["Training Time", `${this.training_time()} days`],
     ];
     for(let [equipment, count] of this.equipment()) {
-      result.push([equipment.name, equipment.build_cost_ic * count]);
+      result.push([equipment.name, `${count} (${round6(equipment.build_cost_ic * count)})`]);
     }
     result.push(["IC Cost", this.ic_cost()]);
     return cleanupReport(result);
