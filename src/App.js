@@ -8,7 +8,7 @@ import Database from './database/Database';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.db = new Database();
+    this.db = new Database("vanilla");
   }
   render() {
     return (

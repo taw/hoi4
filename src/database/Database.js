@@ -1,13 +1,21 @@
-import data from './data.json';
 import Country from './Country';
+
+import vanilla from './vanilla.json';
+import kaiserreich from './kaiserreich.json';
+import millennium_dawn from './millennium_dawn.json';
+
+let mods = {
+  vanilla, kaiserreich, millennium_dawn
+};
 
 // TODO: support multiple databases so it can work with mods etc.
 export default class Database {
-  constructor() {
-    this.technology = data.technology;
-    this.doctrines = data.doctrines;
-    this.equipment = data.equipment;
-    this.unitTypes = data.units;
+  constructor(modName) {
+    let mod = mods[modName];
+    this.technology = mod.technology;
+    this.doctrines = mod.doctrines;
+    this.equipment = mod.equipment;
+    this.unitTypes = mod.units;
 
     /* workarounds for limited collections API */
     for(let key in this.technology) {
