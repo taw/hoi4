@@ -14,9 +14,10 @@ export default class SupportEntry extends Component {
   render() {
     let {data} = this.props;
     let {name, available, selected} = data;
+    let shortName = name.replace(/^Support /, "").replace(/ Company$/, "");
     return <div className={available ? "checkbox" : "checkbox disabled"} >
       <input type="checkbox" id={this.id} checked={selected} disabled={!available} onChange={this.handleChange} />
-      <label className="control-label" htmlFor={this.id}>{name}</label>
+      <label className="control-label" htmlFor={this.id}>{shortName}</label>
     </div>;
   }
 }

@@ -28,17 +28,16 @@ document {
   font-size: 12px;
 }
 
-body {
-  margin: 20px;
-}
-
 .division-box {
   display: grid;
-  width: 100%;
   grid-template-columns: 1fr 1fr 1fr;
   grid-row-gap: 10px;
   grid-column-gap: 10px;
   min-width: 800px;
+  margin: 10px;
+}
+.division-box > * {
+  max-width: 300px;
 }
 .choices {
   grid-column-start: 1;
@@ -158,6 +157,9 @@ body {
 .division-box table td {
   width: 25%;
   text-align: center;
+}
+.unit-select {
+  display: flex;
 }
 input[type=number] {
   width: 75px;

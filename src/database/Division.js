@@ -1,4 +1,5 @@
 import recursivelyMerge from './recursivelyMerge';
+import {sprintf} from 'sprintf-js';
 
 function sum(values) {
   let result = 0;
@@ -87,7 +88,7 @@ export default class Division {
       ["Armor", this.armor()],
       ["Piercing", this.piercing()],
       ["Combat width", this.combat_width()],
-      ["Hardness", `${this.hardness()} %`],
+      ["Hardness", sprintf("%.1f %%", this.hardness())],
       ["Initiative", this.initiative()],
       ["Equipment Capture", this.equipment_capture_factor()],
     ])
@@ -271,17 +272,17 @@ export default class Division {
     let brigades = Math.ceil(infantry/5) + Math.ceil(mobile/5) + Math.ceil(armored/5);
 
     if(frontline_count === 0) {
-      result.push("Division contains no frontline units");
+      result.push("No frontline battalions");
     }
     if(frontline_count > 25) {
-      result.push(`Division contains ${frontline_count} units, 25 is max allowed`);
+      result.push(`${frontline_count}/25 frontline battalions`);
     }
     else if(brigades > 5) {
       // No need to use this warning if there's just too many units
-      result.push(`Division contains ${brigades} brigades, 5 is max allowed`);
+      result.push(`${brigades}/5 brigades`);
     }
     if(support_count > 5) {
-      result.push(`Division contains ${support_count} units, 5 is max allowed`);
+      result.push(`${support_count}/5 support companies`);
     }
     return result;
   }

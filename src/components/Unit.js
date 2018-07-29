@@ -19,7 +19,7 @@ export default class Unit extends Component {
 
     let availableFrontline = country.availableUnits().filter(u => u.combat_width > 0);
 
-    return <div>
+    return <div className="unit-select">
       <input type="number" min="0" value={count} onChange={this.handleChangeCount} />
       <select value={type} onChange={this.handleChangeType}>
         {
