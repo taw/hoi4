@@ -4,6 +4,13 @@ import TerrainRow from './TerrainRow';
 export default class Terrain extends Component {
   render() {
     let { data } = this.props;
+    if (data.length === 0) {
+      return <div className="terrain">
+        <h4>Terrain</h4>
+        <div>Unit has no terrain bonuses</div>
+      </div>
+    }
+
     return <div className="terrain">
       <h4>Terrain</h4>
       <table>

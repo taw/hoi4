@@ -65,7 +65,7 @@ export default class Division extends Component {
     let country = this.country();
     for(let [count, unitName] of units) {
       if(count) {
-        unitsTypes[unitName] = count;
+        unitsTypes[unitName] = (unitsTypes[unitName] || 0) + parseInt(count, 10);
       }
     }
     for(let supportName in support) {
