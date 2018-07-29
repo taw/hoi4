@@ -88,7 +88,7 @@ export default class Division {
       ["Armor", this.armor()],
       ["Piercing", this.piercing()],
       ["Combat width", this.combat_width()],
-      ["Hardness", sprintf("%.1f %%", this.hardness())],
+      ["Hardness", sprintf("%.1f %%", 100*this.hardness())],
       ["Initiative", this.initiative()],
       ["Equipment Capture", this.equipment_capture_factor()],
     ])
