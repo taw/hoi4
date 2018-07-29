@@ -76,21 +76,18 @@ export default class Division extends Component {
     return country.division(unitsTypes);
   }
 
-  /* All these should be calculated obviously */
   support() {
-    // FIXME
+    let { db } = this.props;
     let { support } = this.state;
-    return [
-      {key: "artillery", name: "Artillery", available: true, selected: !!(support["artillery"])},
-      {key: "rocket_artillery", name: "Rocket Artillery", available: true, selected: !!(support["rocket_artillery"])},
-      {key: "recon", name: "Recon", available: true, selected: !!(support["recon"])},
-      {key: "engineers", name: "Engineers", available: false, selected: !!(support["engineers"])},
-      {key: "signal", name: "Signal", available: false, selected: !!(support["signal"])},
-      {key: "maintenance", name: "Maintenance", available: true, selected: !!(support["maintenance"])},
-      {key: "logistics_company", name: "Logistics", available: true, selected: !!(support["logistics_company"])},
-      {key: "mp", name: "MP", available: true, selected: !!(support["mp"])},
-      {key: "anti-air", name: "Anti-Air", available: false, selected: !!(support["anti-air"])},
-      {key: "anti-tank", name: "Anti-Tank", available: true, selected: !!(support["anti-tank"])},
-    ];
+    let unitTypes = db.unitTypes;
+    let supportUnitTypes = db.supportUnitTypes();
+    let country = this.country();
+    let available = country.availableUnits().map((u) => u.key);
+    return supportUnitTypes.map((key) => ({
+      key,
+      name: unitTypes[key].name,
+      available: (available.indexOf(key) !== -1),
+      selected: !!(support[key]),
+    }))
   }
 }

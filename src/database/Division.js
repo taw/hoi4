@@ -109,10 +109,6 @@ export default class Division {
     return sum(this.units.map(u => u.combat_width()))
   }
 
-  suppression() {
-    return sum(this.units.map(u => u.suppression()))
-  }
-
   hp() {
     return sum(this.units.map(u => u.hp()))
   }
@@ -127,6 +123,12 @@ export default class Division {
 
   recovery_rate() {
     return round3(avg(this.units.map(u => u.recovery_rate())))
+  }
+
+  suppression() {
+    let base = sum(this.units.map(u => u.suppression()))
+    let factor = sum(this.units.map(u => u.suppression_factor()));
+    return round6(base * (1+factor));
   }
 
   supply_use() {

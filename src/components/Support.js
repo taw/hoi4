@@ -9,7 +9,7 @@ export default class Support extends Component {
       <div className="list">
         {
           data.map((row,i) =>
-            <SupportEntry key={i} data={row} index={i} onSupportChange={onSupportChange} />
+            <SupportEntry key={i} data={row} onSupportChange={onSupportChange} />
           )
         }
       </div>

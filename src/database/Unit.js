@@ -22,7 +22,11 @@ export default class Unit {
   }
 
   suppression() {
-    return this.unitType.suppression;
+    return this.calculateFromUnitTypeAndBonus("suppression");
+  }
+
+  suppression_factor() {
+    return this.calculateFromUnitTypeAndBonus("suppression_factor");
   }
 
   hp() {
@@ -137,7 +141,7 @@ export default class Unit {
   }
 
   calculateFromUnitTypeAndBonus(stat) {
-    let base = this.unitType[stat];
+    let base = this.unitType[stat] || 0;
     return base + (this.country_bonuses[stat] || 0)
   }
 
@@ -152,7 +156,7 @@ export default class Unit {
   calculateFromEquipmentAndBonusMult(stat) {
     let base = 0;
     for(let [equipment, count] of this.equipment) {
-      base += equipment[stat];
+      base += (equipment[stat] || 0);
     }
     return base * (1 + (this.country_bonuses[stat] || 0))
   }

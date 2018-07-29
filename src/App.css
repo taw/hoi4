@@ -104,3 +104,8 @@ body {
 input[type=number] {
   width: 75px;
 }
+
+/* Shouldn't bootstrap handle this? */
+.checkbox.disabled label {
+  color: #ccc;
+}

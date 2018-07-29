@@ -60,4 +60,8 @@ export default class Database {
     let techs = [...this.technologiesForYear(year), ...this.technologiesForDoctrine(doctrine)];
     return new Country(this, techs.map(t => this.technology[t]));
   }
+
+  supportUnitTypes() {
+    return Object.keys(this.unitTypes).filter((u) => this.unitTypes[u].group === "support");
+  }
 }

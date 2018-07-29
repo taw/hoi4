@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 
-// FIXME: This id generation is pile of nonsense
 export default class SupportEntry extends Component {
+  constructor(props) {
+    super(props);
+    // Not the best code ever
+    this.id = `support-checkbox-${Math.random()}`;
+  }
   handleChange = (event) => {
     let value = event.target.checked;
     let {data, onSupportChange} = this.props;
-    onSupportChange(data.name, value);
+    onSupportChange(data.key, value);
   }
   render() {
-    let {data, index} = this.props;
+    let {data} = this.props;
     let {name, available, selected} = data;
-    let id = `support-checkbox-${index}`;
-    return <div>
-      <input type="checkbox" id={id} checked={selected} disabled={!available} onChange={this.handleChange} />
-      <label htmlFor={id}>{name}</label>
+    return <div className={available ? "checkbox" : "checkbox disabled"} >
+      <input type="checkbox" id={this.id} checked={selected} disabled={!available} onChange={this.handleChange} />
+      <label className="control-label" htmlFor={this.id}>{name}</label>
     </div>;
   }
 }
