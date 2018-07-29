@@ -17,13 +17,14 @@ export default class Unit extends Component {
     let {country, unit} = this.props;
     let [count, type] = unit;
 
-    let availableFrontline = country.availableUnits().filter(u => u.combat_width > 0);
+    let allFrontline = Object.values(country.db.unitTypes).filter(u => u.combat_width > 0);
+    let availableFrontline = country.availableUnits().filter(u => u.combat_width > 0).map(u => u.key);
 
     return <div className="unit-select">
       <input type="number" min="0" value={count} onChange={this.handleChangeCount} />
       <select value={type} onChange={this.handleChangeType}>
         {
-          availableFrontline.map(unit => <option key={unit.key} value={unit.key}>{unit.name}</option> )
+          allFrontline.map(unit => <option disabled={availableFrontline.indexOf(unit.key) === -1} key={unit.key} value={unit.key}>{unit.name}</option> )
         }
       </select>
     </div>
