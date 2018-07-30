@@ -7,7 +7,7 @@ export default class Terrain extends Component {
     if (data.length === 0) {
       return <div className="terrain">
         <h4>Terrain</h4>
-        <div>Unit has no terrain bonuses</div>
+        <div>Division has no terrain bonuses</div>
       </div>
     }
 
@@ -24,7 +24,7 @@ export default class Terrain extends Component {
         </thead>
         <tbody>
           {
-            data.map((row,index) => <TerrainRow data={row} key={index}/>)
+            data.map((row, index) => <TerrainRow data={row} key={index}/>)
           }
         </tbody>
       </table>

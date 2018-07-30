@@ -26,7 +26,9 @@ export default class Units extends Component {
     return <Fragment>
       <h4>Battalions</h4>
       {
-        units.map((unit,i) => <Unit {...{db, unit, country}} key={i} index={i} onChange={this.handleChange}/>)
+        units.map((unit, index) => (
+          <Unit {...{db, unit, country}} key={index} index={index} onChange={this.handleChange} />
+        ))
       }
     </Fragment>
   }

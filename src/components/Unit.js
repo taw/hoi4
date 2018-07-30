@@ -30,8 +30,8 @@ export default class Unit extends Component {
     let {country, unit} = this.props;
     let [count, type] = unit;
 
-    let allFrontline = Object.values(country.db.unitTypes).filter(u => u.combat_width > 0);
-    let availableFrontline = country.availableUnits().filter(u => u.combat_width > 0).map(u => u.key);
+    let allFrontline = Object.values(country.db.unitTypes).filter(unit => unit.combat_width > 0);
+    let availableFrontline = country.availableUnits().filter(unit => unit.combat_width > 0).map(unit => unit.key);
 
     return <div className="unit-select">
       <input type="number" min="0" value={""+count} onChange={this.handleChangeCount} onBlur={this.normalizeCount} />

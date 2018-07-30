@@ -50,7 +50,7 @@ export default class Division {
   // This is sort of UI responsibility
   basics() {
     return cleanupReport([
-      ["Speed", `${this.speed()} km/h`],
+      ["Speed", this.speed() ? `${this.speed()} km/h` : 0],
       ["HP", this.hp()],
       ["Organization", this.org()],
       ["Recovery rate", this.recovery_rate()],
@@ -204,7 +204,11 @@ export default class Division {
   }
 
   speed() {
-    return min(this.frontline_units().map(u => u.speed()))
+    let frontline_units = this.frontline_units();
+    if (frontline_units.length === 0) {
+      return;
+    }
+    return min(frontline_units.map(u => u.speed()))
   }
 
   armor() {
@@ -228,7 +232,11 @@ export default class Division {
   }
 
   hardness() {
-    return round6(avg(this.frontline_units().map(u => u.hardness())));
+    let frontline_units = this.frontline_units();
+    if (frontline_units.length === 0) {
+      return 0;
+    }
+    return round6(avg(frontline_units.map(u => u.hardness())));
   }
 
   equipment() {

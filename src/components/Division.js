@@ -42,13 +42,14 @@ export default class Division extends Component {
     let country = this.country();
     let division = this.division();
     let warnings = division.warnings();
+    let hasData = (division.units.length !== 0);
 
     return <div className="division-box">
       <Choices {...{db, country, year, doctrine, units, changeYear, changeDoctrine, changeUnits, warnings}} />
       <Support data={this.support()} onSupportChange={this.handleSupportChange} />
-      <Basics data={division.basics()} />
-      <Cost data={division.cost()}/>
-      <Combat data={division.combat()}/>
+      <Basics data={division.basics()} hasData={hasData} />
+      <Cost data={division.cost()} hasData={hasData} />
+      <Combat data={division.combat()}  hasData={hasData} />
       <Terrain data={division.terrain()}/>
     </div>
   }
@@ -86,7 +87,7 @@ export default class Division extends Component {
     let unitTypes = db.unitTypes;
     let supportUnitTypes = db.supportUnitTypes();
     let country = this.country();
-    let available = country.availableUnits().map((u) => u.key);
+    let available = country.availableUnits().map((unit) => unit.key);
     return supportUnitTypes.map((key) => ({
       key,
       name: unitTypes[key].name,

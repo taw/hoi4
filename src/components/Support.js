@@ -8,8 +8,8 @@ export default class Support extends Component {
       <h4>Support</h4>
       <div className="list">
         {
-          data.map((row,i) =>
-            <SupportEntry key={i} data={row} onSupportChange={onSupportChange} />
+          data.map((row, index) =>
+            <SupportEntry key={index} data={row} onSupportChange={onSupportChange} />
           )
         }
       </div>
