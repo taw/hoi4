@@ -154,7 +154,7 @@ export default class Unit {
 
   calculateFromEquipmentAndBonus(stat) {
     let base = 0;
-    for(let [equipment, count] of this.equipment) {
+    for(let equipment of this.equipment.keys()) {
       base += equipment[stat];
     }
     return base + (this.country_bonuses[stat] || 0)
@@ -162,7 +162,7 @@ export default class Unit {
 
   calculateFromEquipmentAndBonusMult(stat) {
     let base = 0;
-    for(let [equipment, count] of this.equipment) {
+    for(let equipment of this.equipment.keys()) {
       base += (equipment[stat] || 0);
     }
     return base * (1 + (this.country_bonuses[stat] || 0))
