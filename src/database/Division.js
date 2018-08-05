@@ -64,19 +64,20 @@ export default class Division {
       ["XP Loss", this.experience_loss_factor()],
       ["Can be parachuted", this.can_be_parachuted()],
       ["Special forces", this.special_forces()],
+      ["Manpower", this.manpower()],
+      ["Training Time", `${this.training_time()} days`],
+      ["IC Cost", this.ic_cost()],
     ])
   }
 
-  cost() {
-    let result = [
-      ["Manpower", this.manpower()],
-      ["Training Time", `${this.training_time()} days`],
-    ];
+  equipmentUsed() {
+    let result = [];
     for(let [equipment, count] of this.equipment()) {
-      result.push([equipment.name, `${count} (${round6(equipment.build_cost_ic * count)})`]);
+      if(count > 0) {
+        result.push([equipment.name, count, round6(equipment.build_cost_ic * count)]);
+      }
     }
-    result.push(["IC Cost", this.ic_cost()]);
-    return cleanupReport(result);
+    return result;
   }
 
   combat() {

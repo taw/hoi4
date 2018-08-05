@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Basics from './Basics';
-import Cost from './Cost';
-import Combat from './Combat';
-import Terrain from './Terrain';
-import Support from './Support';
 import Choices from './Choices';
+import Combat from './Combat';
+import Equipment from './Equipment';
+import Support from './Support';
+import Terrain from './Terrain';
 
 export default class Division extends Component {
   constructor(props) {
@@ -48,7 +48,7 @@ export default class Division extends Component {
       <Choices {...{db, country, year, doctrine, units, changeYear, changeDoctrine, changeUnits, warnings}} />
       <Support data={this.support()} onSupportChange={this.handleSupportChange} />
       <Basics data={division.basics()} hasData={hasData} />
-      <Cost data={division.cost()} hasData={hasData} />
+      <Equipment data={division.equipmentUsed()} hasData={hasData} />
       <Combat data={division.combat()}  hasData={hasData} />
       <Terrain data={division.terrain()}/>
     </div>
