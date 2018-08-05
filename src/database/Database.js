@@ -91,7 +91,8 @@ export default class Database {
         result[archetype] = equipmentType;
       }
       for(let name in result) {
-        result[name] = new Equipment(this.db, result[name], {});
+        // FIXME: fallback equipment gets no variants, but they're still shown in UI
+        result[name] = new Equipment(this, result[name], {});
       }
     }
     return result;
