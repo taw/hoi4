@@ -187,3 +187,20 @@ select {
 .mod-selector button {
   margin: 5px;
 }
+.stat-tooltip-container {
+  position: relative;
+}
+.stat-tooltip {
+  position: absolute;
+  padding: 5px;
+  top: 25px;
+  right: 0px;
+  opacity: 0;
+  transition: 0.5s;
+  background-color: white;
+  border: 1px solid black;
+  z-index: 1;
+}
+.stat-tooltip-container:hover .stat-tooltip {
+  opacity: 1;
+}

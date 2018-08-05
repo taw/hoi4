@@ -31,12 +31,12 @@ function round6(x) {
 }
 
 function cleanupReport(report) {
-  report = report.filter(([k,v]) => (v !== 0));
-  return report.map(([k,v]) => {
+  report = report.filter(([k,v,t]) => (v !== 0));
+  return report.map(([k,v,t]) => {
     if(typeof(v) === "number") {
-      return [k,round6(v)];
+      return [k,round6(v),t];
     } else {
-      return [k,v];
+      return [k,v,t];
     }
   })
 }
@@ -82,15 +82,15 @@ export default class Division {
 
   combat() {
     return cleanupReport([
-      ["Soft Attack", this.soft_attack()],
-      ["Hard Attack", this.hard_attack()],
-      ["Defense", this.defense()],
-      ["Breakthrough", this.breakthrough()],
+      ["Soft Attack", this.soft_attack(), this.tooltipForSum('soft_attack')],
+      ["Hard Attack", this.hard_attack(), this.tooltipForSum('hard_attack')],
+      ["Defense", this.defense(), this.tooltipForSum('defense')],
+      ["Breakthrough", this.breakthrough(), this.tooltipForSum('breakthrough')],
       ["Armor", this.armor()],
       ["Piercing", this.piercing()],
-      ["Combat width", this.combat_width()],
+      ["Combat width", this.combat_width(), this.tooltipForSum('combat_width')],
       ["Hardness", sprintf("%.1f %%", 100*this.hardness())],
-      ["Initiative", this.initiative()],
+      ["Initiative", this.initiative(), this.tooltipForSum('initiative')],
       ["Equipment Capture", this.equipment_capture_factor()],
     ])
   }
@@ -309,5 +309,26 @@ export default class Division {
       result.push(`Missing equipment: ${eq}`);
     }
     return result;
+  }
+
+  tooltipForSum(field) {
+    let unitData = new Map();
+    for(let unit of this.units) {
+      let value = round6(unit[field]());
+      if(value === 0) {
+        continue;
+      }
+      if(unitData.has(unit)) {
+        let count = unitData.get(unit).count + 1;
+        unitData.set(unit, {unit, count, value});
+      } else {
+        let count = 1;
+        unitData.set(unit, {unit, count, value});
+      }
+    }
+    return({
+      header: "Sum of:",
+      unitData: [...unitData.values()],
+    })
   }
 }

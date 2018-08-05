@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import StatTooltip from './StatTooltip';
 
 export default class Combat extends Component {
   render() {
@@ -14,9 +15,10 @@ export default class Combat extends Component {
       <h4>Combat</h4>
       <ul>
         {
-          data.map(([key, value]) => <li key={key}>
+          data.map(([key, value, tooltipData]) => <li key={key} className="stat-tooltip-container">
             <span>{key}</span>
             <span>{value}</span>
+            <StatTooltip data={tooltipData} />
           </li>)
         }
       </ul>
