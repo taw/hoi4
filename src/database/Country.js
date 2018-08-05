@@ -74,7 +74,6 @@ export default class Country {
     return result;
   }
 
-  // PRIVATE
   enabledSubunits() {
     let {technologies} = this;
     let result = new Set();

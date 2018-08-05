@@ -149,9 +149,7 @@ document {
 .division-box li {
   margin: 0;
   padding: 0;
-  display: flex;
   width: 100%;
-  justify-content: space-between;
 }
 .division-box .terrain table th {
   text-align: center;
@@ -187,10 +185,12 @@ select {
 .mod-selector button {
   margin: 5px;
 }
-.stat-tooltip-container {
+.stat {
   position: relative;
+  display: flex;
+  justify-content: space-between;
 }
-.stat-tooltip-container:hover .stat-name {
+.stat:hover .stat-name {
   font-weight: bold;
 }
 .stat-tooltip {
@@ -204,9 +204,25 @@ select {
   border: 1px solid black;
   z-index: 1;
 }
-.stat-tooltip-container:hover .stat-tooltip {
+.stat:hover .stat-tooltip {
   opacity: 1;
 }
 .stat-tooltip table {
   margin-left: auto;
+}
+.equipment-list li {
+  display: block;
+}
+.equipment-list li {
+  display: block;
+}
+.equipment-list .equipment-count {
+  display: flex;
+  justify-content: space-between;
+}
+.equipment-list .upgrade {
+  text-align: right;
+}
+.equipment-list .upgrade input {
+  margin-left: 5px;
 }

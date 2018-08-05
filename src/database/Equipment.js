@@ -53,7 +53,7 @@ export default class Equipment {
   }
 
   calculateVariantBonus() {
-    let available_upgrades = this.equipmentType.available_upgrades || {};
+    let available_upgrades = this.equipmentType.upgrades || {};
     let result = {};
     for(let key in this.upgrades) {
       let level = this.upgrades[key];
