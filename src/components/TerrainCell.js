@@ -1,16 +1,21 @@
 import React, { Component } from "react";
 import {sprintf} from "sprintf-js";
+import StatTooltip from "./StatTooltip";
 
 export default class TerrainCell extends Component {
   render() {
-    let {data} = this.props;
-    if (data === 0) {
+    let {value, tooltipData} = this.props.data;
+
+    if (!tooltipData) {
       return <td></td>;
     }
 
-    let className = (data > 0) ? "bonus" : "penalty";
-    let dataPretty = sprintf("%+.1f%%", data);
+    let className = (value >= 0) ? "bonus stat-value" : "penalty stat-value";
+    let valuePretty = sprintf("%+.1f%%", value*100);
 
-    return <td className={className}>{dataPretty}</td>
+    return <td className="terrain-cell">
+      <span className={className}>{valuePretty}</span>
+      <StatTooltip data={tooltipData} />
+    </td>
   }
 }

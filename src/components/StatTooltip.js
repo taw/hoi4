@@ -8,26 +8,26 @@ export default class StatTooltip extends Component {
     }
     let { header, unitData, secondaryHeader, secondaryData } = data;
     return <div className="stat-tooltip">
-      <span>{ header }</span>
+      <div>{ header }</div>
       <table>
         <tbody>
           { unitData.map(({unit, count, value}, index) => (
             <tr key={index}>
-              <td>{count}x</td>
-              <td>{unit.name()}</td>
-              <td>{value}</td>
+              <td className="substat-count">{count}x</td>
+              <td className="substat-name">{unit.name()}</td>
+              <td className="substat-value">{value}</td>
             </tr>
           ))}
         </tbody>
       </table>
-      { secondaryHeader && <span>{ secondaryHeader }</span> }
+      { secondaryHeader && <div>{ secondaryHeader }</div> }
       { secondaryData && <table>
         <tbody>
           { secondaryData.map(({unit, count, value}, index) => (
             <tr key={index}>
-              <td>{count}x</td>
-              <td>{unit.name()}</td>
-              <td>{value}</td>
+              <td className="substat-count">{count}x</td>
+              <td className="substat-name">{unit.name()}</td>
+              <td className="substat-value">{value}</td>
             </tr>
           ))}
         </tbody>

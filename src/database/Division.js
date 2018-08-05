@@ -1,4 +1,3 @@
-import recursivelyMerge from "./recursivelyMerge";
 import {sprintf} from "sprintf-js";
 
 function sum(values) {
@@ -106,7 +105,7 @@ export default class Division {
     let bonuses = this.terrain_bonuses();
     return Object.keys(bonuses).sort().map(name => {
       let bonus = bonuses[name];
-      return [name, 100*(bonus.movement || 0), 100*(bonus.attack || 0), 100*(bonus.defence || 0)];
+      return [name, bonus.movement, bonus.attack, bonus.defence];
     })
   }
 
@@ -259,20 +258,53 @@ export default class Division {
   }
 
   // average of frontlines + sum of supports
-  terrain_bonuses() {
-    let result = {};
-    let frontline_units = this.frontline_units();
-    for(let unit of frontline_units) {
-      recursivelyMerge(result, unit.terrain_bonuses());
+  terrainBonusFor(terrain, bonus) {
+    let values = this.groupUnitStats(unit => (unit.terrain_bonuses()[terrain] || {})[bonus] || 0);
+    let frontlineValues = values.filter(({unit}) => unit.combat_width() > 0);
+    let supportValues = values.filter(({unit}) => unit.combat_width() === 0)
+    let baseValue = frontlineValues.map(({count, value}) => count*value).reduce((a,b) => a+b, 0.0);
+    let bonusValue = supportValues.map(({value}) => value).reduce((a,b) => a+b, 0.0);
+
+    let value = baseValue / this.frontline_units().length + bonusValue;
+
+    // If there are all 0s, don't show anything
+    // Otherwise show 0.0% with tooltip if calculations add up to 0.0%
+    if(values.every(({value}) => value === 0)) {
+      return { value: 0 };
     }
-    for(let terrain in result) {
-      let bonus = result[terrain];
-      for(let kind in bonus) {
-        bonus[kind] /= frontline_units.length;
+
+    let format = (value) => {
+      return sprintf("%+.1f%%", value * 100);
+    }
+
+    let unitData = frontlineValues.map(({unit,count,value}) => ({unit,count,value:format(value)}));
+    let secondaryData = supportValues.filter(({value}) => value !== 0).map(({unit,count,value}) => ({unit,count,value:format(value)}));
+
+    let tooltipData = {
+      header: "Average of frontline units:",
+      unitData,
+    };
+    if (secondaryData.length > 0) {
+      tooltipData.secondaryHeader = "Modified by support units:";
+      tooltipData.secondaryData = secondaryData;
+    }
+    return { value, tooltipData };
+  }
+
+  terrain_bonuses() {
+    let terrains = new Set();
+    for(let unit of this.units) {
+      for(let terrain of Object.keys(unit.terrain_bonuses())) {
+        terrains.add(terrain);
       }
     }
-    for(let unit of this.support_units()) {
-      recursivelyMerge(result, unit.terrain_bonuses());
+    let result = {};
+    for(let terrain of terrains) {
+      result[terrain] = {
+        movement: this.terrainBonusFor(terrain, "movement"),
+        attack: this.terrainBonusFor(terrain, "attack"),
+        defence: this.terrainBonusFor(terrain, "defence"),
+      };
     }
     return result;
   }
@@ -321,7 +353,12 @@ export default class Division {
   groupUnitStats(field) {
     let unitData = new Map();
     for(let unit of this.units) {
-      let value = unit[field]();
+      let value;
+      if(typeof field === "string") {
+        value = unit[field]();
+      } else {
+        value = field(unit);
+      }
       if(typeof(value) === "number") {
         value = round6(value);
       }

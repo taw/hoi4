@@ -151,10 +151,10 @@ document {
   padding: 0;
   width: 100%;
 }
-.division-box .terrain table th {
+.division-box .terrain > table > thead > tr > th {
   text-align: center;
 }
-.division-box .terrain table td {
+.division-box .terrain > table > tbody > tr > td {
   width: 25%;
   text-align: center;
 }
@@ -165,7 +165,7 @@ input, select {
   flex: 1;
 }
 input[type=number] {
-  width: 75px;
+  width: 60px;
   margin-right: 5px;
   text-align: right;
 }
@@ -198,14 +198,13 @@ select {
   padding: 5px;
   top: 25px;
   right: 0px;
-  opacity: 0;
-  transition: 0.5s;
   background-color: white;
   border: 1px solid black;
   z-index: 1;
+  display: none;
 }
 .stat:hover .stat-tooltip {
-  opacity: 1;
+  display: block;
 }
 .stat-tooltip table {
   margin-left: auto;
@@ -225,4 +224,23 @@ select {
 }
 .equipment-list .upgrade input {
   margin-left: 5px;
+}
+.substat-value {
+  text-align: right;
+}
+.terrain-cell {
+  position: relative;
+}
+.terrain-cell:hover .stat-value {
+  font-weight: bold;
+}
+.terrain-cell:hover .stat-tooltip {
+  display: block;
+  text-align: left;
+}
+.terrain-cell .stat-tooltip div {
+  white-space: nowrap;
+}
+.substat-name {
+  white-space: nowrap;
 }
