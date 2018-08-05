@@ -14,9 +14,9 @@ export default class Equipment extends Component {
       <h4>Equipment</h4>
       <ul>
       {
-        data.map(([key, value, cost]) => <li key={key}>
-          <span>{key}</span>
-          <span>{value} ({cost})</span>
+        data.map(([equipment, count, cost]) => <li key={equipment.key}>
+          <span>{equipment.name}</span>
+          <span>{count} ({cost})</span>
         </li>)
       }
       </ul>

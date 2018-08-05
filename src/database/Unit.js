@@ -165,7 +165,8 @@ export default class Unit {
     for(let equipment of this.equipment.keys()) {
       base += (equipment[stat] || 0);
     }
-    return base * (1 + (this.country_bonuses[stat] || 0))
+
+    return base * (1 + (this.unitType[stat] || 0) + (this.country_bonuses[stat] || 0))
   }
 
   ic_cost() {

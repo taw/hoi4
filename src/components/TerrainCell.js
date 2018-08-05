@@ -9,8 +9,7 @@ export default class TerrainCell extends Component {
     }
 
     let className = (data > 0) ? "bonus" : "penalty";
-
-    let dataPretty = sprintf("%.1f%%", data);
+    let dataPretty = sprintf("%+.1f%%", data);
 
     return <td className={className}>{dataPretty}</td>
   }

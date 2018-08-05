@@ -153,10 +153,10 @@ document {
   width: 100%;
   justify-content: space-between;
 }
-.division-box table th {
+.division-box .terrain table th {
   text-align: center;
 }
-.division-box table td {
+.division-box .terrain table td {
   width: 25%;
   text-align: center;
 }

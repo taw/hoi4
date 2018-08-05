@@ -74,7 +74,7 @@ export default class Division {
     let result = [];
     for(let [equipment, count] of this.equipment()) {
       if(count > 0) {
-        result.push([equipment.name, count, round6(equipment.build_cost_ic * count)]);
+        result.push([equipment, count, round6(equipment.build_cost_ic * count)]);
       }
     }
     return result;
@@ -280,6 +280,7 @@ export default class Division {
     return result;
   }
 
+  // These are sort of UI maters:
   warnings() {
     let result = [];
     let frontline_units = this.frontline_units();
