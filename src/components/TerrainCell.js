@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {sprintf} from 'sprintf-js';
+import React, { Component } from "react";
+import {sprintf} from "sprintf-js";
 
 export default class TerrainCell extends Component {
   render() {

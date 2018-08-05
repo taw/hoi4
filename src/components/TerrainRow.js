@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import TerrainCell from './TerrainCell';
+import React, { Component } from "react";
+import TerrainCell from "./TerrainCell";
 
 let capitalize = (name) => {
   return name.charAt(0).toUpperCase() + name.substr(1);

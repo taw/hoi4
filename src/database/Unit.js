@@ -1,4 +1,4 @@
-import recursivelyMerge from './recursivelyMerge';
+import recursivelyMerge from "./recursivelyMerge";
 
 export default class Unit {
   constructor(unitType, country) {

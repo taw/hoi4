@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import SupportEntry from './SupportEntry';
+import React, { Component } from "react";
+import SupportEntry from "./SupportEntry";
 
 export default class Support extends Component {
   render() {

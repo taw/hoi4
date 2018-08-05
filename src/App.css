@@ -190,6 +190,9 @@ select {
 .stat-tooltip-container {
   position: relative;
 }
+.stat-tooltip-container:hover .stat-name {
+  font-weight: bold;
+}
 .stat-tooltip {
   position: absolute;
   padding: 5px;
@@ -203,4 +206,7 @@ select {
 }
 .stat-tooltip-container:hover .stat-tooltip {
   opacity: 1;
+}
+.stat-tooltip table {
+  margin-left: auto;
 }

@@ -1,5 +1,5 @@
-import recursivelyMerge from './recursivelyMerge';
-import {sprintf} from 'sprintf-js';
+import recursivelyMerge from "./recursivelyMerge";
+import {sprintf} from "sprintf-js";
 
 function sum(values) {
   let result = 0;
@@ -41,32 +41,39 @@ function cleanupReport(report) {
   })
 }
 
+function formatSpeed(value) {
+  if(!value) {
+    return 0;
+  }
+  return sprintf("%.1f km/h", value);
+}
+
 export default class Division {
   constructor(units) {
     this.units = units;
   }
 
-  // Gather related numbers for frontend's convenience
+  // Gather related numbers for frontend"s convenience
   // This is sort of UI responsibility
   basics() {
     return cleanupReport([
-      ["Speed", this.speed() ? `${this.speed()} km/h` : 0],
-      ["HP", this.hp()],
-      ["Organization", this.org()],
-      ["Recovery rate", this.recovery_rate()],
-      ["Suppression", this.suppression()],
-      ["Weight", this.weight()],
-      ["Supply Use", this.supply_use()],
-      ["Recon", this.recon()],
-      ["Entrenchment", this.entrenchment()],
-      ["Reliability", this.reliability_factor()],
-      ["Casualty trickleback", this.casualty_trickleback()],
-      ["XP Loss", this.experience_loss_factor()],
-      ["Can be parachuted", this.can_be_parachuted()],
-      ["Special forces", this.special_forces()],
-      ["Manpower", this.manpower()],
-      ["Training Time", `${this.training_time()} days`],
-      ["IC Cost", this.ic_cost()],
+      ["Speed", formatSpeed(this.speed()), this.tooltipForSpeed()],
+      ["HP", this.hp(), this.tooltipForSum("hp")],
+      ["Organization", this.org(), this.tooltipForOrganization()],
+      ["Recovery rate", this.recovery_rate(), this.tooltipForRecoveryRate()],
+      ["Suppression", this.suppression(), this.tooltipForSuppression()],
+      ["Weight", this.weight(), this.tooltipForSum("weight")],
+      ["Supply Use", this.supply_use(), this.tooltipForSupplyUse()],
+      ["Recon", this.recon(), this.tooltipForSum("recon")],
+      ["Entrenchment", this.entrenchment(), this.tooltipForSum("entrenchment")],
+      ["Reliability", this.reliability_factor(), this.tooltipForSum("reliability_factor")],
+      ["Casualty trickleback", this.casualty_trickleback(), this.tooltipForSum("casualty_trickleback")],
+      ["XP Loss", this.experience_loss_factor(), this.tooltipForSum("experience_loss_factor")],
+      ["Can be parachuted", this.can_be_parachuted(), this.tooltipForCanBeParachuted()],
+      ["Special forces", this.special_forces(), this.tooltipForSpecialForces()],
+      ["Manpower", this.manpower(), this.tooltipForSum("manpower")],
+      ["Training Time", `${this.training_time()} days`, this.tooltipForTrainingTime()],
+      ["IC Cost", this.ic_cost(), this.tooltipforICCost()],
     ])
   }
 
@@ -82,16 +89,16 @@ export default class Division {
 
   combat() {
     return cleanupReport([
-      ["Soft Attack", this.soft_attack(), this.tooltipForSum('soft_attack')],
-      ["Hard Attack", this.hard_attack(), this.tooltipForSum('hard_attack')],
-      ["Defense", this.defense(), this.tooltipForSum('defense')],
-      ["Breakthrough", this.breakthrough(), this.tooltipForSum('breakthrough')],
-      ["Armor", this.armor()],
-      ["Piercing", this.piercing()],
-      ["Combat width", this.combat_width(), this.tooltipForSum('combat_width')],
-      ["Hardness", sprintf("%.1f %%", 100*this.hardness())],
-      ["Initiative", this.initiative(), this.tooltipForSum('initiative')],
-      ["Equipment Capture", this.equipment_capture_factor()],
+      ["Soft Attack", this.soft_attack(), this.tooltipForSum("soft_attack")],
+      ["Hard Attack", this.hard_attack(), this.tooltipForSum("hard_attack")],
+      ["Defense", this.defense(), this.tooltipForSum("defense")],
+      ["Breakthrough", this.breakthrough(), this.tooltipForSum("breakthrough")],
+      ["Armor", this.armor(), this.tooltipForArmor()],
+      ["Piercing", this.piercing(), this.tooltipForPiercing()],
+      ["Combat width", this.combat_width(), this.tooltipForSum("combat_width")],
+      ["Hardness", sprintf("%.1f %%", 100*this.hardness()), this.tooltipForHardness()],
+      ["Initiative", this.initiative(), this.tooltipForSum("initiative")],
+      ["Equipment Capture", this.equipment_capture_factor(), this.tooltipForSum("equipment_capture_factor")],
     ])
   }
 
@@ -299,7 +306,7 @@ export default class Division {
       result.push(`${frontline_count}/25 frontline battalions`);
     }
     else if(brigades > 5) {
-      // No need to use this warning if there's just too many units
+      // No need to use this warning if there"s just too many units
       result.push(`${brigades}/5 brigades`);
     }
     if(support_count > 5) {
@@ -311,12 +318,12 @@ export default class Division {
     return result;
   }
 
-  tooltipForSum(field) {
+  groupUnitStats(field) {
     let unitData = new Map();
     for(let unit of this.units) {
-      let value = round6(unit[field]());
-      if(value === 0) {
-        continue;
+      let value = unit[field]();
+      if(typeof(value) === "number") {
+        value = round6(value);
       }
       if(unitData.has(unit)) {
         let count = unitData.get(unit).count + 1;
@@ -326,9 +333,102 @@ export default class Division {
         unitData.set(unit, {unit, count, value});
       }
     }
+    return [...unitData.values()]
+  }
+
+  groupFrontlineUnitStats(field) {
+    return this.groupUnitStats(field).filter(({unit}) => unit.combat_width() > 0)
+  }
+
+  tooltipForSum(field) {
     return({
       header: "Sum of:",
-      unitData: [...unitData.values()],
+      unitData: this.groupUnitStats(field).filter(({value}) => value !== 0),
     })
+  }
+
+  tooltipForArmor() {
+    return({
+      header: "30% max / 70% average of:",
+      unitData: this.groupUnitStats("armor"),
+    })
+  }
+
+  tooltipForPiercing() {
+    return({
+      header: "40% max / 60% average of:",
+      unitData: this.groupUnitStats("piercing"),
+    })
+  }
+
+  tooltipForSuppression() {
+    return({
+      header: "Sum of:",
+      unitData: this.groupUnitStats("suppression").filter(({value}) => value !== 0),
+    })
+    // FIXME
+  }
+
+  tooltipForSupplyUse() {
+    return({
+      header: "Sum of:",
+      unitData: this.groupUnitStats("supply_use").filter(({value}) => value !== 0),
+    })
+    // FIXME
+  }
+
+  tooltipForSpeed() {
+    return({
+      header: "Minimum of frontline units:",
+      unitData: this.groupFrontlineUnitStats("speed").map(({unit,count,value}) => ({unit, count, value: formatSpeed(value)})),
+    })
+  }
+
+  tooltipForOrganization() {
+    return({
+      header: "Average of:",
+      unitData: this.groupFrontlineUnitStats("org"),
+    })
+  }
+
+  tooltipForRecoveryRate() {
+    return({
+      header: "Average of:",
+      unitData: this.groupFrontlineUnitStats("recovery_rate"),
+    })
+  }
+
+  tooltipForHardness() {
+    return({
+      header: "Average of frontline units:",
+      unitData: this.groupFrontlineUnitStats("hardness"),
+    })
+  }
+
+  tooltipForCanBeParachuted() {
+    return({
+      header: "If all frontline units can:",
+      unitData: this.groupFrontlineUnitStats("can_be_parachuted").map(({unit,count,value}) => ({unit, count, value: value ? "Yes" : "No"})),
+    })
+  }
+
+  tooltipForSpecialForces() {
+    return({
+      header: "Count of:",
+      unitData: this.groupFrontlineUnitStats("special_forces")
+        .filter(({value}) => value)
+        .map(({unit,count,value}) => ({unit, count, value: "Yes"})),
+    })
+  }
+
+  tooltipForTrainingTime() {
+    return({
+      header: "Max of:",
+      unitData: this.groupUnitStats("training_time").map(({unit,count,value}) => ({unit, count, value: `${value} days`})),
+    })
+  }
+
+  tooltipforICCost() {
+    // TODO
   }
 }

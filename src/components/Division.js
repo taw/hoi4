@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import Basics from './Basics';
-import Choices from './Choices';
-import Combat from './Combat';
-import Equipment from './Equipment';
-import Support from './Support';
-import Terrain from './Terrain';
+import React, { Component } from "react";
+import Basics from "./Basics";
+import Choices from "./Choices";
+import Combat from "./Combat";
+import Equipment from "./Equipment";
+import Support from "./Support";
+import Terrain from "./Terrain";
 
 export default class Division extends Component {
   constructor(props) {

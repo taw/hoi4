@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import TerrainRow from './TerrainRow';
+import React, { Component } from "react";
+import TerrainRow from "./TerrainRow";
 
 export default class Terrain extends Component {
   render() {

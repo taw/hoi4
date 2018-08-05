@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import StatTooltip from './StatTooltip';
+import React, { Component } from "react";
+import Stat from "./Stat";
 
 export default class Combat extends Component {
   render() {
@@ -15,11 +15,7 @@ export default class Combat extends Component {
       <h4>Combat</h4>
       <ul>
         {
-          data.map(([key, value, tooltipData]) => <li key={key} className="stat-tooltip-container">
-            <span>{key}</span>
-            <span>{value}</span>
-            <StatTooltip data={tooltipData} />
-          </li>)
+          data.map(([name, value, tooltipData]) => <Stat key={name} {...{name, value, tooltipData}} />)
         }
       </ul>
     </div>

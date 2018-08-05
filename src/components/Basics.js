@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import Stat from "./Stat";
 
 export default class Basics extends Component {
   render() {
@@ -13,10 +14,7 @@ export default class Basics extends Component {
       <h4>Basics</h4>
       <ul>
         {
-          data.map(([key, value]) => <li key={key}>
-            <span>{key}</span>
-            <span>{value}</span>
-          </li>)
+          data.map(([name, value, tooltipData]) => <Stat key={name} {...{name, value, tooltipData}} />)
         }
       </ul>
     </div>

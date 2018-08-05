@@ -1,6 +1,6 @@
-import Unit from './Unit';
-import Division from './Division';
-import recursivelyMerge from './recursivelyMerge';
+import Unit from "./Unit";
+import Division from "./Division";
+import recursivelyMerge from "./recursivelyMerge";
 
 export default class Country {
   constructor(db, technologies) {

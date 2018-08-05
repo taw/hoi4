@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import Technology from './Technology';
-import Doctrine from './Doctrine';
-import Units from './Units';
-import Warnings from './Warnings';
+import React, { Component } from "react";
+import Technology from "./Technology";
+import Doctrine from "./Doctrine";
+import Units from "./Units";
+import Warnings from "./Warnings";
 
 export default class Choices extends Component {
   render() {

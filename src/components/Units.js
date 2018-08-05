@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import Unit from './Unit';
+import React, { Component, Fragment } from "react";
+import Unit from "./Unit";
 
 export default class Units extends Component {
   handleChange = (index, unit) => {

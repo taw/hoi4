@@ -1,14 +1,12 @@
-import Country from './Country';
-
-import vanilla from './vanilla.json';
-import kaiserreich from './kaiserreich.json';
-import millennium_dawn from './millennium_dawn.json';
+import Country from "./Country";
+import vanilla from "./vanilla.json";
+import kaiserreich from "./kaiserreich.json";
+import millennium_dawn from "./millennium_dawn.json";
 
 let mods = {
   vanilla, kaiserreich, millennium_dawn
 };
 
-// TODO: support multiple databases so it can work with mods etc.
 export default class Database {
   constructor(modName) {
     let mod = mods[modName];
