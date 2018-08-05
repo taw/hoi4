@@ -448,7 +448,7 @@ export default class Division {
   tooltipForHardness() {
     return({
       header: "Average of frontline units:",
-      unitData: this.groupFrontlineUnitStats("hardness"),
+      unitData: this.groupFrontlineUnitStats("hardness").map(({unit,count,value}) => ({unit, count, value: sprintf("%.1f %%", 100*value)})),
     })
   }
 
