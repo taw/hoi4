@@ -1,4 +1,5 @@
 import Country from "./Country";
+import Equipment from "./Equipment";
 import vanilla from "./vanilla.json";
 import kaiserreich from "./kaiserreich.json";
 import millennium_dawn from "./millennium_dawn.json";
@@ -12,8 +13,9 @@ export default class Database {
     let mod = mods[modName];
     this.technology = mod.technology;
     this.doctrines = mod.doctrines;
-    this.equipment = mod.equipment;
+    this.equipmentTypes = mod.equipment;
     this.unitTypes = mod.units;
+    this.upgrades = mod.upgrades;
     this.default_year = mod.default_year;
     this.default_units = mod.default_units;
     this.default_support = mod.default_support;
@@ -22,11 +24,14 @@ export default class Database {
     for(let key in this.technology) {
       this.technology[key].key = key;
     }
-    for(let key in this.equipment) {
-      this.equipment[key].key = key;
+    for(let key in this.equipmentTypes) {
+      this.equipmentTypes[key].key = key;
     }
     for(let key in this.unitTypes) {
       this.unitTypes[key].key = key;
+    }
+    for(let key in this.upgrades) {
+      this.upgrades[key].key = key;
     }
     this.fallbackEquipmentMap = this.calculateFallbackEquipmentMap();
   }
@@ -76,14 +81,17 @@ export default class Database {
   }
 
   // Using any of these results in invalid division, but it won't crash app
-  // Pick oldest equipment for eacsh archetype
+  // Pick oldest equipment for each archetype
   calculateFallbackEquipmentMap() {
     let result = {};
-    for(let name in this.equipment) {
-      let equipment = this.equipment[name];
-      let archetype = equipment.archetype;
-      if(!result[archetype] || (equipment.key < result[archetype].key)) {
-        result[archetype] = equipment;
+    for(let name in this.equipmentTypes) {
+      let equipmentType = this.equipmentTypes[name];
+      let archetype = equipmentType.archetype;
+      if(!result[archetype] || (equipmentType.key < result[archetype].key)) {
+        result[archetype] = equipmentType;
+      }
+      for(let name in result) {
+        result[name] = new Equipment(this.db, result[name], {});
       }
     }
     return result;

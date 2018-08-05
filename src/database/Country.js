@@ -1,5 +1,6 @@
 import Unit from "./Unit";
 import Division from "./Division";
+import Equipment from "./Equipment";
 import recursivelyMerge from "./recursivelyMerge";
 
 export default class Country {
@@ -13,12 +14,15 @@ export default class Country {
     let result = {}
     // Making a silly assumption that they're sorted asciibetically
     // It seems to be right, as they're all X0, X1, X2 etc.
-    for(let name of this.enabledEquipments()) {
-      let equipment = this.db.equipment[name];
+    for(let name of this.enabledEquipmentTypes()) {
+      let equipment = this.db.equipmentTypes[name];
       let archetype = equipment.archetype;
       if(!result[archetype] || (equipment.key > result[archetype].key)) {
         result[archetype] = equipment;
       }
+    }
+    for(let name in result) {
+      result[name] = new Equipment(this.db, result[name], {});
     }
     return result;
   }
@@ -82,7 +86,7 @@ export default class Country {
     return result;
   }
 
-  enabledEquipments() {
+  enabledEquipmentTypes() {
     let {technologies} = this;
     let result = new Set();
     for(let tech of technologies) {
@@ -96,8 +100,8 @@ export default class Country {
   enabledEquipmentArchetypes() {
     let {db} = this;
     let result = new Set();
-    for(let eq of this.enabledEquipments()) {
-      let archetype = db.equipment[eq].archetype;
+    for(let eq of this.enabledEquipmentTypes()) {
+      let archetype = db.equipmentTypes[eq].archetype;
       result.add(archetype);
     }
     return result;
