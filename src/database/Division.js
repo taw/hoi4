@@ -73,7 +73,7 @@ export default class Division {
       ["Special forces", this.special_forces(), this.tooltipForSpecialForces()],
       ["Manpower", this.manpower(), this.tooltipForSum("manpower")],
       ["Training Time", `${this.training_time()} days`, this.tooltipForTrainingTime()],
-      ["IC Cost", this.ic_cost(), this.tooltipforICCost()],
+      ["IC Cost", this.ic_cost(), this.tooltipForSum("ic_cost")],
     ])
   }
 
@@ -362,19 +362,29 @@ export default class Division {
   }
 
   tooltipForSuppression() {
-    return({
+    let result = {
       header: "Sum of:",
       unitData: this.groupUnitStats("suppression").filter(({value}) => value !== 0),
-    })
-    // FIXME
+    }
+    let secondaryData = this.groupUnitStats("suppression_factor").filter(({value}) => value !== 0);
+    if (secondaryData.length > 0) {
+      result.secondaryHeader = "Modified by:"
+      result.secondaryData = secondaryData.map(({unit,count,value}) => ({unit, count, value: sprintf("%+f%%", 100*value)}));
+    }
+    return result;
   }
 
   tooltipForSupplyUse() {
-    return({
+    let result = {
       header: "Sum of:",
       unitData: this.groupUnitStats("supply_use").filter(({value}) => value !== 0),
-    })
-    // FIXME
+    };
+    let secondaryData = this.groupUnitStats("supply_consumption_factor").filter(({value}) => value !== 0);
+    if (secondaryData.length > 0) {
+      result.secondaryHeader = "Modified by:"
+      result.secondaryData = secondaryData.map(({unit,count,value}) => ({unit, count, value: sprintf("%+f%%", 100*value)}));
+    }
+    return result;
   }
 
   tooltipForSpeed() {
@@ -426,9 +436,5 @@ export default class Division {
       header: "Max of:",
       unitData: this.groupUnitStats("training_time").map(({unit,count,value}) => ({unit, count, value: `${value} days`})),
     })
-  }
-
-  tooltipforICCost() {
-    // TODO
   }
 }
