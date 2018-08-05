@@ -15,6 +15,7 @@ export default class Division extends Component {
       doctrine: null,
       units: db.default_units,
       support: db.default_support,
+      upgrades: {},
     }
   }
   componentWillReceiveProps(props) {
@@ -24,6 +25,7 @@ export default class Division extends Component {
       doctrine: null,
       units: db.default_units,
       support: db.default_support,
+      upgrades: {},
     })
   }
   changeYear = (year) => {
@@ -35,9 +37,20 @@ export default class Division extends Component {
   changeUnits = (units) => {
     this.setState({units});
   }
+  changeUpgrade = (equipmentKey, upgradeKey, newLevel) => {
+    this.setState(oldState => ({
+      upgrades: {
+        ...oldState.upgrades,
+        [equipmentKey]: {
+          ...(oldState.upgrades[equipmentKey] || {}),
+          [upgradeKey]: newLevel,
+        },
+      }
+    }));
+  }
   render() {
     let {db} = this.props;
-    let {year, doctrine, units} = this.state;
+    let {year, doctrine, units, upgrades} = this.state;
     let {changeYear, changeDoctrine, changeUnits} = this;
     let country = this.country();
     let division = this.division();
@@ -48,7 +61,7 @@ export default class Division extends Component {
       <Choices {...{db, country, year, doctrine, units, changeYear, changeDoctrine, changeUnits, warnings}} />
       <Support data={this.support()} onSupportChange={this.handleSupportChange} />
       <Basics data={division.basics()} hasData={hasData} />
-      <EquipmentList data={division.equipmentUsed()} hasData={hasData} />
+      <EquipmentList data={division.equipmentUsed()} hasData={hasData} upgrades={upgrades} onUpgradeChange={this.changeUpgrade} />
       <Combat data={division.combat()}  hasData={hasData} />
       <Terrain data={division.terrain()}/>
     </div>
@@ -61,8 +74,8 @@ export default class Division extends Component {
   /* Not sure what should be the status of this */
   country() {
     let {db} = this.props;
-    let {year, doctrine} = this.state;
-    return db.country(year, doctrine);
+    let {year, doctrine, upgrades} = this.state;
+    return db.country(year, doctrine, upgrades);
   }
   division() {
     let {units, support} = this.state;

@@ -57,12 +57,12 @@ export default class Equipment {
     let result = {};
     for(let key in this.upgrades) {
       let level = this.upgrades[key];
-      if (!(key in available_upgrades)) {
+      if (available_upgrades.indexOf(key) === -1) {
         throw new Error(`Invalid upgrade ${key} for equipment ${this.equipmentType.key}`);
       }
       let upgrade = this.db.upgrades[key];
       for(let stat in upgrade) {
-        if (stat === "name" || stat === "max_level" || stat === "cost") {
+        if (stat === "name" || stat === "max_level" || stat === "cost" || stat === "key") {
           continue;
         }
         let upgradeValue = upgrade[stat];

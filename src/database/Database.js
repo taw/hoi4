@@ -71,9 +71,9 @@ export default class Database {
     return this.doctrines[doctrine] || [];
   }
 
-  country(year, doctrine) {
+  country(year, doctrine, upgrades) {
     let techs = [...this.technologiesForYear(year), ...this.technologiesForDoctrine(doctrine)];
-    return new Country(this, techs.map(t => this.technology[t]));
+    return new Country(this, techs.map(t => this.technology[t]), upgrades);
   }
 
   supportUnitTypes() {

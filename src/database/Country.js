@@ -4,9 +4,10 @@ import Equipment from "./Equipment";
 import recursivelyMerge from "./recursivelyMerge";
 
 export default class Country {
-  constructor(db, technologies) {
+  constructor(db, technologies, upgrades) {
     this.db = db;
     this.technologies = technologies;
+    this.upgrades = upgrades;
     this.equipmentMap = this.calculateEquipmentMap();
   }
 
@@ -22,7 +23,9 @@ export default class Country {
       }
     }
     for(let name in result) {
-      result[name] = new Equipment(this.db, result[name], {});
+      let equipmentType = result[name];
+      let upgrades = this.upgrades[equipmentType.key] || {};
+      result[name] = new Equipment(this.db, equipmentType, upgrades);
     }
     return result;
   }
