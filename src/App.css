@@ -173,8 +173,8 @@ select {
   max-width: 300px;
 }
 /* Shouldn't bootstrap handle this? */
-.checkbox label {
-  margin-left: 5px;
+.checkbox label input {
+  margin-right: 5px;
 }
 .checkbox.disabled label {
   color: #ccc;
