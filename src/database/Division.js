@@ -56,29 +56,29 @@ export default class Division {
   // This is sort of UI responsibility
   basics() {
     return cleanupReport([
-      ["Speed", formatSpeed(this.speed()), this.tooltipForSpeed()],
-      ["HP", this.hp(), this.tooltipForSum("hp")],
-      ["Organization", this.org(), this.tooltipForOrganization()],
-      ["Recovery rate", this.recovery_rate(), this.tooltipForRecoveryRate()],
-      ["Suppression", this.suppression(), this.tooltipForSuppression()],
-      ["Weight", this.weight(), this.tooltipForSum("weight")],
-      ["Supply Use", this.supply_use(), this.tooltipForSupplyUse()],
-      ["Recon", this.recon(), this.tooltipForSum("recon")],
-      ["Entrenchment", this.entrenchment(), this.tooltipForSum("entrenchment")],
-      ["Reliability", this.reliability_factor(), this.tooltipForSum("reliability_factor")],
-      ["Casualty trickleback", this.casualty_trickleback(), this.tooltipForSum("casualty_trickleback")],
-      ["XP Loss", this.experience_loss_factor(), this.tooltipForSum("experience_loss_factor")],
-      ["Can be parachuted", this.can_be_parachuted(), this.tooltipForCanBeParachuted()],
-      ["Special forces", this.special_forces(), this.tooltipForSpecialForces()],
-      ["Manpower", this.manpower(), this.tooltipForSum("manpower")],
-      ["Training Time", `${this.training_time()} days`, this.tooltipForTrainingTime()],
-      ["IC Cost", this.ic_cost(), this.tooltipForSum("ic_cost")],
+      ["Speed", formatSpeed(this.speed), this.tooltipForSpeed()],
+      ["HP", this.hp, this.tooltipForSum("hp")],
+      ["Organization", this.org, this.tooltipForOrganization()],
+      ["Recovery rate", this.recovery_rate, this.tooltipForRecoveryRate()],
+      ["Suppression", this.suppression, this.tooltipForSuppression()],
+      ["Weight", this.weight, this.tooltipForSum("weight")],
+      ["Supply Use", this.supply_use, this.tooltipForSupplyUse()],
+      ["Recon", this.recon, this.tooltipForSum("recon")],
+      ["Entrenchment", this.entrenchment, this.tooltipForSum("entrenchment")],
+      ["Reliability", this.reliability_factor, this.tooltipForSum("reliability_factor")],
+      ["Casualty trickleback", this.casualty_trickleback, this.tooltipForSum("casualty_trickleback")],
+      ["XP Loss", this.experience_loss_factor, this.tooltipForSum("experience_loss_factor")],
+      ["Can be parachuted", this.can_be_parachuted, this.tooltipForCanBeParachuted()],
+      ["Special forces", this.special_forces, this.tooltipForSpecialForces()],
+      ["Manpower", this.manpower, this.tooltipForSum("manpower")],
+      ["Training Time", `${this.training_time} days`, this.tooltipForTrainingTime()],
+      ["IC Cost", this.ic_cost, this.tooltipForSum("ic_cost")],
     ])
   }
 
   equipmentUsed() {
     let result = [];
-    for(let [equipment, count] of this.equipment()) {
+    for(let [equipment, count] of this.equipment) {
       if(count > 0) {
         result.push([equipment, count, round6(equipment.build_cost_ic * count)]);
       }
@@ -88,21 +88,21 @@ export default class Division {
 
   combat() {
     return cleanupReport([
-      ["Soft Attack", this.soft_attack(), this.tooltipForSum("soft_attack")],
-      ["Hard Attack", this.hard_attack(), this.tooltipForSum("hard_attack")],
-      ["Defense", this.defense(), this.tooltipForSum("defense")],
-      ["Breakthrough", this.breakthrough(), this.tooltipForSum("breakthrough")],
-      ["Armor", this.armor(), this.tooltipForArmor()],
-      ["Piercing", this.piercing(), this.tooltipForPiercing()],
-      ["Combat width", this.combat_width(), this.tooltipForSum("combat_width")],
-      ["Hardness", sprintf("%.1f %%", 100*this.hardness()), this.tooltipForHardness()],
-      ["Initiative", this.initiative(), this.tooltipForSum("initiative")],
-      ["Equipment Capture", this.equipment_capture_factor(), this.tooltipForSum("equipment_capture_factor")],
+      ["Soft Attack", this.soft_attack, this.tooltipForSum("soft_attack")],
+      ["Hard Attack", this.hard_attack, this.tooltipForSum("hard_attack")],
+      ["Defense", this.defense, this.tooltipForSum("defense")],
+      ["Breakthrough", this.breakthrough, this.tooltipForSum("breakthrough")],
+      ["Armor", this.armor, this.tooltipForArmor()],
+      ["Piercing", this.piercing, this.tooltipForPiercing()],
+      ["Combat width", this.combat_width, this.tooltipForSum("combat_width")],
+      ["Hardness", sprintf("%.1f %%", 100*this.hardness), this.tooltipForHardness()],
+      ["Initiative", this.initiative, this.tooltipForSum("initiative")],
+      ["Equipment Capture", this.equipment_capture_factor, this.tooltipForSum("equipment_capture_factor")],
     ])
   }
 
   terrain() {
-    let bonuses = this.terrain_bonuses();
+    let bonuses = this.terrain_bonuses;
     return Object.keys(bonuses).sort().map(name => {
       let bonus = bonuses[name];
       return [name, bonus.movement, bonus.attack, bonus.defence];
@@ -110,143 +110,143 @@ export default class Division {
   }
 
   // Individual numbers
-  manpower() {
-    return sum(this.units.map(u => u.manpower()))
+  get manpower() {
+    return sum(this.units.map(u => u.manpower))
   }
 
-  training_time() {
-    return max(this.units.map(u => u.training_time()))
+  get training_time() {
+    return max(this.units.map(u => u.training_time))
   }
 
-  combat_width() {
-    return sum(this.units.map(u => u.combat_width()))
+  get combat_width() {
+    return sum(this.units.map(u => u.combat_width))
   }
 
-  hp() {
-    return sum(this.units.map(u => u.hp()))
+  get hp() {
+    return sum(this.units.map(u => u.hp))
   }
 
-  org() {
-    return round3(avg(this.units.map(u => u.org())))
+  get org() {
+    return round3(avg(this.units.map(u => u.org)))
   }
 
-  weight() {
-    return sum(this.units.map(u => u.weight()))
+  get weight() {
+    return sum(this.units.map(u => u.weight))
   }
 
-  recovery_rate() {
-    return round3(avg(this.units.map(u => u.recovery_rate())))
+  get recovery_rate() {
+    return round3(avg(this.units.map(u => u.recovery_rate)))
   }
 
-  suppression() {
-    let base = sum(this.units.map(u => u.suppression()))
-    let factor = sum(this.units.map(u => u.suppression_factor()));
+  get suppression() {
+    let base = sum(this.units.map(u => u.suppression));
+    let factor = sum(this.units.map(u => u.suppression_factor));
     return round6(base * (1+factor));
   }
 
-  supply_use() {
-    let base = sum(this.units.map(u => u.supply_use()));
-    let factor = sum(this.units.map(u => u.supply_consumption_factor()));
+  get supply_use() {
+    let base = sum(this.units.map(u => u.supply_use));
+    let factor = sum(this.units.map(u => u.supply_consumption_factor));
     return round6(base * (1+factor));
   }
 
-  soft_attack() {
-    return round6(sum(this.units.map(u => u.soft_attack())))
+  get soft_attack() {
+    return round6(sum(this.units.map(u => u.soft_attack)))
   }
 
-  hard_attack() {
-    return round6(sum(this.units.map(u => u.hard_attack())))
+  get hard_attack() {
+    return round6(sum(this.units.map(u => u.hard_attack)))
   }
 
-  air_attack() {
-    return round6(sum(this.units.map(u => u.air_attack())))
+  get air_attack() {
+    return round6(sum(this.units.map(u => u.air_attack)))
   }
 
-  defense() {
-    return round6(sum(this.units.map(u => u.defense())))
+  get defense() {
+    return round6(sum(this.units.map(u => u.defense)))
   }
 
-  breakthrough() {
-    return round6(sum(this.units.map(u => u.breakthrough())))
+  get breakthrough() {
+    return round6(sum(this.units.map(u => u.breakthrough)))
   }
 
-  ic_cost() {
-    return sum(this.units.map(u => u.ic_cost()))
+  get ic_cost() {
+    return sum(this.units.map(u => u.ic_cost))
   }
 
-  entrenchment() {
-    return sum(this.units.map(u => u.entrenchment()))
+  get entrenchment() {
+    return sum(this.units.map(u => u.entrenchment))
   }
 
-  reliability_factor() {
-    return sum(this.units.map(u => u.reliability_factor()))
+  get reliability_factor() {
+    return sum(this.units.map(u => u.reliability_factor))
   }
 
-  casualty_trickleback() {
-    return sum(this.units.map(u => u.casualty_trickleback()))
+  get casualty_trickleback() {
+    return sum(this.units.map(u => u.casualty_trickleback))
   }
 
-  equipment_capture_factor() {
-    return sum(this.units.map(u => u.equipment_capture_factor()))
+  get equipment_capture_factor() {
+    return sum(this.units.map(u => u.equipment_capture_factor))
   }
 
-  experience_loss_factor() {
-    return sum(this.units.map(u => u.experience_loss_factor()))
+  get experience_loss_factor() {
+    return sum(this.units.map(u => u.experience_loss_factor))
   }
 
-  recon() {
-    return sum(this.units.map(u => u.recon()))
+  get recon() {
+    return sum(this.units.map(u => u.recon))
   }
 
-  initiative() {
-    return sum(this.units.map(u => u.initiative()))
+  get initiative() {
+    return sum(this.units.map(u => u.initiative))
   }
 
-  frontline_units() {
-    return this.units.filter(u => u.combat_width() > 0)
+  get frontline_units() {
+    return this.units.filter(u => u.is_frontline)
   }
 
-  support_units() {
-    return this.units.filter(u => !(u.combat_width() > 0))
+  get support_units() {
+    return this.units.filter(u => !u.is_frontline)
   }
 
-  speed() {
-    let frontline_units = this.frontline_units();
+  get speed() {
+    let frontline_units = this.frontline_units;
     if (frontline_units.length === 0) {
       return;
     }
-    return min(frontline_units.map(u => u.speed()))
+    return min(frontline_units.map(u => u.speed))
   }
 
-  armor() {
-    let mx = max(this.units.map(u => u.armor()));
-    let wa = avg(this.units.map(u => u.armor()));
+  get armor() {
+    let mx = max(this.units.map(u => u.armor));
+    let wa = avg(this.units.map(u => u.armor));
     return round3(0.3 * mx + 0.7 * wa);
   }
 
-  piercing() {
-    let mx = max(this.units.map(u => u.piercing()));
-    let wa = avg(this.units.map(u => u.piercing()));
+  get piercing() {
+    let mx = max(this.units.map(u => u.piercing));
+    let wa = avg(this.units.map(u => u.piercing));
     return round3(0.4 * mx + 0.6 * wa)
   }
 
-  can_be_parachuted() {
-    return this.units.every(u => u.can_be_parachuted()) ? "Yes" : "No"
+  get can_be_parachuted() {
+    return this.units.every(u => u.can_be_parachuted) ? "Yes" : "No"
   }
 
-  special_forces() {
-    return this.units.filter(u => u.special_forces()).length
+  get special_forces() {
+    return this.units.filter(u => u.special_forces).length
   }
 
-  hardness() {
-    let frontline_units = this.frontline_units();
-    if (frontline_units.length === 0) {
+  get hardness() {
+    let unit_hardness = this.frontline_units.map(u => u.hardness);
+    if (unit_hardness.length === 0) {
       return 0;
     }
-    return round6(avg(frontline_units.map(u => u.hardness())));
+    return round6(avg(unit_hardness));
   }
 
-  equipment() {
+  get equipment() {
     let result = new Map();
     for(let unit of this.units) {
       for(let [equipment, count] of unit.equipment) {
@@ -259,13 +259,13 @@ export default class Division {
 
   // average of frontlines + sum of supports
   terrainBonusFor(terrain, bonus) {
-    let values = this.groupUnitStats(unit => (unit.terrain_bonuses()[terrain] || {})[bonus] || 0);
-    let frontlineValues = values.filter(({unit}) => unit.combat_width() > 0);
-    let supportValues = values.filter(({unit}) => unit.combat_width() === 0)
+    let values = this.groupUnitStats(unit => (unit.terrain_bonuses[terrain] || {})[bonus] || 0);
+    let frontlineValues = values.filter(({unit}) => unit.is_frontline);
+    let supportValues = values.filter(({unit}) => !unit.is_frontline)
     let baseValue = frontlineValues.map(({count, value}) => count*value).reduce((a,b) => a+b, 0.0);
     let bonusValue = supportValues.map(({value}) => value).reduce((a,b) => a+b, 0.0);
 
-    let value = baseValue / this.frontline_units().length + bonusValue;
+    let value = baseValue / this.frontline_units.length + bonusValue;
 
     // If there are all 0s, don't show anything
     // Otherwise show 0.0% with tooltip if calculations add up to 0.0%
@@ -291,10 +291,10 @@ export default class Division {
     return { value, tooltipData };
   }
 
-  terrain_bonuses() {
+  get terrain_bonuses() {
     let terrains = new Set();
     for(let unit of this.units) {
-      for(let terrain of Object.keys(unit.terrain_bonuses())) {
+      for(let terrain of Object.keys(unit.terrain_bonuses)) {
         terrains.add(terrain);
       }
     }
@@ -322,12 +322,12 @@ export default class Division {
   // These are sort of UI maters:
   warnings() {
     let result = [];
-    let frontline_units = this.frontline_units();
+    let frontline_units = this.frontline_units;
     let frontline_count = frontline_units.length;
-    let support_count = this.support_units().length;
-    let infantry = frontline_units.filter((u) => u.group() === "infantry").length;
-    let mobile = frontline_units.filter((u) => u.group() === "mobile").length;
-    let armored = frontline_units.filter((u) => u.group() === "armor").length;
+    let support_count = this.support_units.length;
+    let infantry = frontline_units.filter((u) => u.group === "infantry").length;
+    let mobile = frontline_units.filter((u) => u.group === "mobile").length;
+    let armored = frontline_units.filter((u) => u.group === "armor").length;
     let brigades = Math.ceil(infantry/5) + Math.ceil(mobile/5) + Math.ceil(armored/5);
     let missingEquipment = this.missingEquipment();
 
@@ -355,7 +355,7 @@ export default class Division {
     for(let unit of this.units) {
       let value;
       if(typeof field === "string") {
-        value = unit[field]();
+        value = unit[field];
       } else {
         value = field(unit);
       }
@@ -374,7 +374,7 @@ export default class Division {
   }
 
   groupFrontlineUnitStats(field) {
-    return this.groupUnitStats(field).filter(({unit}) => unit.combat_width() > 0)
+    return this.groupUnitStats(field).filter(({unit}) => unit.is_frontline)
   }
 
   tooltipForSum(field) {

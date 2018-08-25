@@ -14,7 +14,7 @@ export default class StatTooltip extends Component {
           { unitData.map(({unit, count, value}, index) => (
             <tr key={index}>
               <td className="substat-count">{count}x</td>
-              <td className="substat-name">{unit.name()}</td>
+              <td className="substat-name">{unit.name}</td>
               <td className="substat-value">{value}</td>
             </tr>
           ))}
@@ -26,7 +26,7 @@ export default class StatTooltip extends Component {
           { secondaryData.map(({unit, count, value}, index) => (
             <tr key={index}>
               <td className="substat-count">{count}x</td>
-              <td className="substat-name">{unit.name()}</td>
+              <td className="substat-name">{unit.name}</td>
               <td className="substat-value">{value}</td>
             </tr>
           ))}

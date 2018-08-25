@@ -24,126 +24,130 @@ export default class Unit {
     this.country_bonuses = country.unitBonusesFor(unitType.key);
   }
 
-  group() {
+  get group() {
     return this.unitType.group;
   }
 
-  suppression() {
+  get suppression() {
     return this.calculateFromUnitTypeAndBonus("suppression");
   }
 
-  suppression_factor() {
+  get suppression_factor() {
     return this.calculateFromUnitTypeAndBonus("suppression_factor");
   }
 
-  hp() {
+  get hp() {
     return this.unitType.hp;
   }
 
-  supply_use() {
+  get supply_use() {
     return this.unitType.supply_use;
   }
 
-  manpower() {
+  get manpower() {
     return this.unitType.manpower;
   }
 
-  training_time() {
+  get training_time() {
     return this.unitType.training_time;
   }
 
-  weight() {
+  get weight() {
     return this.unitType.weight;
   }
 
-  special_forces() {
+  get special_forces() {
     return this.unitType.special_forces;
   }
 
-  can_be_parachuted() {
+  get can_be_parachuted() {
     return this.unitType.can_be_parachuted;
   }
 
-  name() {
+  get name() {
     return this.unitType.name;
   }
 
-  org() {
+  get org() {
     let base = this.unitType.org;
     return base + (this.country_bonuses["max_organisation"] || 0)
   }
 
-  recovery_rate() {
+  get recovery_rate() {
     let base = this.unitType.recovery_rate;
     return base + (this.country_bonuses["default_morale"] || 0)
   }
 
-  reliability_factor() {
+  get reliability_factor() {
     return this.calculateFromUnitTypeAndBonus("reliability_factor");
   }
 
-  casualty_trickleback() {
+  get casualty_trickleback() {
     return this.calculateFromUnitTypeAndBonus("casualty_trickleback");
   }
 
-  experience_loss_factor() {
+  get experience_loss_factor() {
     return this.calculateFromUnitTypeAndBonus("experience_loss_factor");
   }
 
-  initiative() {
+  get initiative() {
     return this.calculateFromUnitTypeAndBonus("initiative");
   }
 
-  equipment_capture_factor() {
+  get equipment_capture_factor() {
     return this.calculateFromUnitTypeAndBonus("equipment_capture_factor")
   }
 
-  supply_consumption_factor() {
+  get supply_consumption_factor() {
     return this.calculateFromUnitTypeAndBonus("supply_consumption_factor")
   }
 
-  combat_width() {
+  get combat_width() {
     return this.calculateFromUnitTypeAndBonus("combat_width");
   }
 
-  recon() {
+  get is_frontline() {
+    return this.combat_width > 0;
+  }
+
+  get recon() {
     return this.calculateFromUnitTypeAndBonus("recon")
   }
 
-  entrenchment() {
+  get entrenchment() {
     return this.calculateFromUnitTypeAndBonus("entrenchment")
   }
 
-  soft_attack() {
+  get soft_attack() {
     return this.calculateFromEquipmentAndBonusMult("soft_attack")
   }
 
-  hard_attack() {
+  get hard_attack() {
     return this.calculateFromEquipmentAndBonusMult("hard_attack")
   }
 
-  air_attack() {
+  get air_attack() {
     return this.calculateFromEquipmentAndBonusMult("air_attack")
   }
 
-  defense() {
+  get defense() {
     return this.calculateFromEquipmentAndBonusMult("defense")
   }
 
-  breakthrough() {
+  get breakthrough() {
     return this.calculateFromEquipmentAndBonusMult("breakthrough")
   }
 
-  piercing() {
+  get piercing() {
     return this.calculateFromEquipmentAndBonusMult("ap_attack")
   }
 
-  armor() {
+  get armor() {
     // never any bonus, but doesn't hurt
     return this.calculateFromEquipmentAndBonusMult("armor_value")
   }
 
-  hardness() {
+  get hardness() {
     return this.calculateFromEquipmentAndBonusMult("hardness")
   }
 
@@ -169,7 +173,7 @@ export default class Unit {
     return base * (1 + (this.unitType[stat] || 0) + (this.country_bonuses[stat] || 0))
   }
 
-  ic_cost() {
+  get ic_cost() {
     let result = 0;
     for(let [equipment, count] of this.equipment) {
       result += equipment.build_cost_ic * count;
@@ -177,7 +181,7 @@ export default class Unit {
     return result;
   }
 
-  speed() {
+  get speed() {
     // Unclear what to do when multiply types are used. Mot uses mot(12)+inf(4)
     let equipment = [...this.equipment.keys()]
     let equipmentSpeeds = equipment.map(e => e.maximum_speed).filter(s => s);
@@ -185,7 +189,7 @@ export default class Unit {
     return equipmentSpeed * (1 + this.unitType.maximum_speed || 0)
   }
 
-  terrain_bonuses() {
+  get terrain_bonuses() {
     let result = {};
     recursivelyMerge(result, this.unitType.terrain_bonuses);
     if(this.country_bonuses.terrain_bonuses) {
