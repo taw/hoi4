@@ -163,6 +163,12 @@ document {
 }
 input, select {
   flex: 1;
+  background-color: #fff;
+  color: #495057;
+}
+input[type=text] {
+  width: 100%;
+  max-width: 300px;
 }
 input[type=number] {
   width: 60px;
@@ -170,7 +176,11 @@ input[type=number] {
   text-align: right;
 }
 select {
+  width: 100%;
   max-width: 300px;
+  border-radius: 5px;
+  height: 28px;
+  border: 1px solid #ced4da;
 }
 /* Shouldn't bootstrap handle this? */
 .checkbox label input {
