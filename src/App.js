@@ -4,14 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Division from "./components/Division";
 import Database from "./database/Database";
-import ModSelector from './components/ModSelector';
 
 class App extends Component {
-  state = {
-    db: new Database("vanilla")
-  }
-  changeMod = (modName) => {
-    this.setState({db: new Database(modName)});
+  dbs = {
+    vanilla: new Database("vanilla"),
+    kaiserreich: new Database("kaiserreich"),
+    millennium_dawn: new Database("millennium_dawn"),
   }
   render() {
     return (
@@ -20,8 +18,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Hearts of Iron IV - Division Designer</h1>
         </header>
-        <Division db={this.state.db} />
-        <ModSelector changeMod={this.changeMod} />
+        <Division dbs={this.dbs} />
       </div>
     );
   }

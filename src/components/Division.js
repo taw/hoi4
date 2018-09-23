@@ -1,16 +1,20 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Basics from "./Basics";
 import Choices from "./Choices";
 import Combat from "./Combat";
 import EquipmentList from "./EquipmentList";
 import Support from "./Support";
 import Terrain from "./Terrain";
+import ModSelector from './ModSelector';
 
 export default class Division extends Component {
   constructor(props) {
     super(props);
-    let {db} = props;
+    let {dbs} = props;
+    this.dbs = dbs;
+    let db = this.dbs.vanilla;
     this.state = {
+      modName: "vanilla",
       year: db.default_year,
       doctrine: null,
       units: db.default_units,
@@ -19,9 +23,13 @@ export default class Division extends Component {
       divisionName: "",
     }
   }
-  componentWillReceiveProps(props) {
-    let {db} = props;
+  get db() {
+    return this.dbs[this.state.modName];
+  }
+  changeMod = (modName) => {
+    let db = this.dbs[modName];
     this.setState({
+      modName: modName,
       year: db.default_year,
       doctrine: null,
       units: db.default_units,
@@ -54,7 +62,7 @@ export default class Division extends Component {
     }));
   }
   render() {
-    let {db} = this.props;
+    let db = this.db;
     let placeholderName = "My Division";
     let {year, doctrine, units, upgrades, divisionName} = this.state;
     let {changeYear, changeDoctrine, changeUnits, changeName} = this;
@@ -63,24 +71,26 @@ export default class Division extends Component {
     let warnings = division.warnings();
     let hasData = (division.units.length !== 0);
 
-    return <div className="division-box">
-      <Choices {...{db, country, year, doctrine, units, changeYear, changeDoctrine, changeUnits, warnings, divisionName, placeholderName, changeName}} />
-      <Support data={this.support()} onSupportChange={this.handleSupportChange} />
-      <Basics data={division.basics()} hasData={hasData} />
-      <EquipmentList data={division.equipmentUsed()} hasData={hasData} upgrades={upgrades} onUpgradeChange={this.changeUpgrade} />
-      <Combat data={division.combat()}  hasData={hasData} />
-      <Terrain data={division.terrain()}/>
-    </div>
+    return <Fragment>
+      <div className="division-box">
+        <Choices {...{db, country, year, doctrine, units, changeYear, changeDoctrine, changeUnits, warnings, divisionName, placeholderName, changeName}} />
+        <Support data={this.support()} onSupportChange={this.handleSupportChange} />
+        <Basics data={division.basics()} hasData={hasData} />
+        <EquipmentList data={division.equipmentUsed()} hasData={hasData} upgrades={upgrades} onUpgradeChange={this.changeUpgrade} />
+        <Combat data={division.combat()}  hasData={hasData} />
+        <Terrain data={division.terrain()}/>
+      </div>
+      <ModSelector changeMod={this.changeMod} />
+    </Fragment>
   }
   handleSupportChange = (company, state) => {
     let {support} = this.state;
     support = {...support, [company]: state};
     this.setState({support});
   }
-  /* Not sure what should be the status of this */
   country() {
-    let {db} = this.props;
     let {year, doctrine, upgrades} = this.state;
+    let db = this.db;
     return db.country(year, doctrine, upgrades);
   }
   division() {
@@ -101,7 +111,7 @@ export default class Division extends Component {
   }
 
   support() {
-    let { db } = this.props;
+    let db = this.db;
     let { support } = this.state;
     let unitTypes = db.unitTypes;
     let supportUnitTypes = db.supportUnitTypes();
