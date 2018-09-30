@@ -254,3 +254,9 @@ select {
 .substat-name {
   white-space: nowrap;
 }
+.save-and-load-controls {
+  text-align: center;
+}
+.save-and-load-controls button {
+  margin: 5px;
+}

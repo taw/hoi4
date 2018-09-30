@@ -6,6 +6,7 @@ import EquipmentList from "./EquipmentList";
 import Support from "./Support";
 import Terrain from "./Terrain";
 import ModSelector from './ModSelector';
+import SaveAndLoadDivision from './SaveAndLoadDivision';
 
 export default class Division extends Component {
   constructor(props) {
@@ -61,6 +62,9 @@ export default class Division extends Component {
       }
     }));
   }
+  handleLoad = (savedData) => {
+    this.setState(savedData);
+  }
   render() {
     let db = this.db;
     let placeholderName = "My Division";
@@ -81,6 +85,7 @@ export default class Division extends Component {
         <Terrain data={division.terrain()}/>
       </div>
       <ModSelector changeMod={this.changeMod} />
+      <SaveAndLoadDivision onLoad={this.handleLoad} saveData={this.state} />
     </Fragment>
   }
   handleSupportChange = (company, state) => {
