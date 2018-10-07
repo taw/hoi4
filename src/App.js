@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import "./App.scss";
 import Division from "./components/Division";
 import Database from "./database/Database";
 

@@ -213,7 +213,7 @@ export default class Division {
   get speed() {
     let frontline_units = this.frontline_units;
     if (frontline_units.length === 0) {
-      return;
+      return null;
     }
     return min(frontline_units.map(u => u.speed))
   }
