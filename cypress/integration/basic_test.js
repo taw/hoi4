@@ -38,7 +38,7 @@ context("Basic tests", () => {
     cy.get(".support :checkbox").eq(2).uncheck()
     cy.get(".equipment-count").then(x => {
       expect(x.text()).to.eq(
-        "Infantry Equipment I" + "500 (250)"
+        "Infantry Equipment I" + "750 (375)"
       )
     })
   })
