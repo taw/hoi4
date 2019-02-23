@@ -378,21 +378,21 @@ export default class Division {
   }
 
   tooltipForSum(field) {
-    return({
+    return ({
       header: "Sum of:",
       unitData: this.groupUnitStats(field).filter(({value}) => value !== 0),
     })
   }
 
   tooltipForArmor() {
-    return({
+    return ({
       header: "30% max / 70% average of:",
       unitData: this.groupUnitStats("armor"),
     })
   }
 
   tooltipForPiercing() {
-    return({
+    return ({
       header: "40% max / 60% average of:",
       unitData: this.groupUnitStats("piercing"),
     })
@@ -425,42 +425,42 @@ export default class Division {
   }
 
   tooltipForSpeed() {
-    return({
+    return ({
       header: "Minimum of frontline units:",
       unitData: this.groupFrontlineUnitStats("speed").map(({unit,count,value}) => ({unit, count, value: formatSpeed(value)})),
     })
   }
 
   tooltipForOrganization() {
-    return({
+    return ({
       header: "Average of:",
       unitData: this.groupFrontlineUnitStats("org"),
     })
   }
 
   tooltipForRecoveryRate() {
-    return({
+    return ({
       header: "Average of:",
       unitData: this.groupFrontlineUnitStats("recovery_rate"),
     })
   }
 
   tooltipForHardness() {
-    return({
+    return ({
       header: "Average of frontline units:",
       unitData: this.groupFrontlineUnitStats("hardness").map(({unit,count,value}) => ({unit, count, value: sprintf("%.1f %%", 100*value)})),
     })
   }
 
   tooltipForCanBeParachuted() {
-    return({
+    return ({
       header: "If all frontline units can:",
       unitData: this.groupFrontlineUnitStats("can_be_parachuted").map(({unit,count,value}) => ({unit, count, value: value ? "Yes" : "No"})),
     })
   }
 
   tooltipForSpecialForces() {
-    return({
+    return ({
       header: "Count of:",
       unitData: this.groupFrontlineUnitStats("special_forces")
         .filter(({value}) => value)
@@ -469,7 +469,7 @@ export default class Division {
   }
 
   tooltipForTrainingTime() {
-    return({
+    return ({
       header: "Max of:",
       unitData: this.groupUnitStats("training_time").map(({unit,count,value}) => ({unit, count, value: `${value} days`})),
     })
