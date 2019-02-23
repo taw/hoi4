@@ -10,7 +10,7 @@ export default class Upgrades extends Component {
   render() {
     let {equipment,upgrades} = this.props;
     let availableUpgradeKeys = equipment.equipmentType.upgrades || [];
-    if(!availableUpgradeKeys.length) {
+    if (!availableUpgradeKeys.length) {
       return null;
     }
     let db = equipment.db;

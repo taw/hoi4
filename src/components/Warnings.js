@@ -3,7 +3,7 @@ import React, { Component, Fragment } from "react";
 export default class Warnings extends Component {
   render() {
     let {warnings} = this.props;
-    if(warnings.length === 0) {
+    if (warnings.length === 0) {
       return null;
     }
 

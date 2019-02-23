@@ -19,7 +19,7 @@ export default class SaveAndLoadDivision extends Component {
   }
   savedDivisions = () => {
     let saved = window.localStorage.getItem("saved-hoi4-divisions");
-    if(!saved) {
+    if (!saved) {
       return [];
     } else {
       return JSON.parse(saved);
@@ -33,10 +33,12 @@ export default class SaveAndLoadDivision extends Component {
     let loadSelection, loadButton;
     if (saved.length >= 1) {
       loadSelection = <select value={this.state.selection} onChange={this.changeSelection}>
-          { saved.map((division, key) => (
+        {
+          saved.map((division, key) => (
             <option key={key} value={key}>{ division.divisionName || `Division ${key+1}` }</option>
-          )) }
-        </select>
+          ))
+        }
+      </select>
       loadButton = <button className="btn btn-primary" onClick={this.loadClicked}>Load division</button>
     }
     return (

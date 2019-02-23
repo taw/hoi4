@@ -5,7 +5,7 @@ export default class Unit extends Component {
     let {index, unit, onChange} = this.props;
     let [count, type] = unit;
     let normalizedCount = parseInt(count, 10);
-    if(count !== normalizedCount) {
+    if (count !== normalizedCount) {
       onChange(index, [normalizedCount, type]);
     }
   }
@@ -13,7 +13,7 @@ export default class Unit extends Component {
   handleChangeCount = (event) => {
     let count = event.target.value;
     // A hack to convert once done, but still allow temporary bad values like ""
-    if(count === ""+parseInt(count, 10)) {
+    if (count === ""+parseInt(count, 10)) {
       count = parseInt(count, 10);
     }
     let {index, unit, onChange} = this.props;

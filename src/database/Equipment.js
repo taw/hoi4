@@ -37,9 +37,9 @@ export default class Equipment {
     this.upgrades = upgrades;
     let variantBonus = this.calculateVariantBonus();
 
-    for(let key in this.equipmentType) {
+    for (let key in this.equipmentType) {
       let base = this.equipmentType[key];
-      if(upgradableStats.has(key)) {
+      if (upgradableStats.has(key)) {
         let bonus = variantBonus[key];
         if (bonus) {
           this[key] = round6(base * (1 + bonus));
@@ -55,13 +55,13 @@ export default class Equipment {
   calculateVariantBonus() {
     let available_upgrades = this.equipmentType.upgrades || {};
     let result = {};
-    for(let key in this.upgrades) {
+    for (let key in this.upgrades) {
       let level = this.upgrades[key];
       if (available_upgrades.indexOf(key) === -1) {
         throw new Error(`Invalid upgrade ${key} for equipment ${this.equipmentType.key}`);
       }
       let upgrade = this.db.upgrades[key];
-      for(let stat in upgrade) {
+      for (let stat in upgrade) {
         if (stat === "name" || stat === "max_level" || stat === "cost" || stat === "key") {
           continue;
         }

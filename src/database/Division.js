@@ -2,7 +2,7 @@ import {sprintf} from "sprintf-js";
 
 function sum(values) {
   let result = 0;
-  for(let value of values) {
+  for (let value of values) {
     result += value;
   }
   return result;
@@ -17,7 +17,7 @@ function min(values) {
 }
 
 function avg(values) {
-  if(values.length === 0) return;
+  if (values.length === 0) return;
   return sum(values) / values.length;
 }
 
@@ -32,7 +32,7 @@ function round6(x) {
 function cleanupReport(report) {
   report = report.filter(([k,v,t]) => (v !== 0));
   return report.map(([k,v,t]) => {
-    if(typeof(v) === "number") {
+    if (typeof(v) === "number") {
       return [k,round6(v),t];
     } else {
       return [k,v,t];
@@ -41,7 +41,7 @@ function cleanupReport(report) {
 }
 
 function formatSpeed(value) {
-  if(!value) {
+  if (!value) {
     return 0;
   }
   return sprintf("%.1f km/h", value);
@@ -78,8 +78,8 @@ export default class Division {
 
   equipmentUsed() {
     let result = [];
-    for(let [equipment, count] of this.equipment) {
-      if(count > 0) {
+    for (let [equipment, count] of this.equipment) {
+      if (count > 0) {
         result.push([equipment, count, round6(equipment.build_cost_ic * count)]);
       }
     }
@@ -248,8 +248,8 @@ export default class Division {
 
   get equipment() {
     let result = new Map();
-    for(let unit of this.units) {
-      for(let [equipment, count] of unit.equipment) {
+    for (let unit of this.units) {
+      for (let [equipment, count] of unit.equipment) {
         let otherCount = result.get(equipment) || 0;
         result.set(equipment, count + otherCount);
       }
@@ -258,7 +258,7 @@ export default class Division {
   }
 
   // average of frontlines + sum of supports
-  terrainBonusFor(terrain, bonus) {
+  terrainBonusfor (terrain, bonus) {
     let values = this.groupUnitStats(unit => (unit.terrain_bonuses[terrain] || {})[bonus] || 0);
     let frontlineValues = values.filter(({unit}) => unit.is_frontline);
     let supportValues = values.filter(({unit}) => !unit.is_frontline)
@@ -269,7 +269,7 @@ export default class Division {
 
     // If there are all 0s, don't show anything
     // Otherwise show 0.0% with tooltip if calculations add up to 0.0%
-    if(values.every(({value}) => value === 0)) {
+    if (values.every(({value}) => value === 0)) {
       return { value: 0 };
     }
 
@@ -293,17 +293,17 @@ export default class Division {
 
   get terrain_bonuses() {
     let terrains = new Set();
-    for(let unit of this.units) {
-      for(let terrain of Object.keys(unit.terrain_bonuses)) {
+    for (let unit of this.units) {
+      for (let terrain of Object.keys(unit.terrain_bonuses)) {
         terrains.add(terrain);
       }
     }
     let result = {};
-    for(let terrain of terrains) {
+    for (let terrain of terrains) {
       result[terrain] = {
-        movement: this.terrainBonusFor(terrain, "movement"),
-        attack: this.terrainBonusFor(terrain, "attack"),
-        defence: this.terrainBonusFor(terrain, "defence"),
+        movement: this.terrainBonusfor (terrain, "movement"),
+        attack: this.terrainBonusfor (terrain, "attack"),
+        defence: this.terrainBonusfor (terrain, "defence"),
       };
     }
     return result;
@@ -311,7 +311,7 @@ export default class Division {
 
   missingEquipment() {
     let result = new Set();
-    for(let unit of this.units) {
+    for (let unit of this.units) {
       unit.missingEquipment.forEach(eq => {
         result.add(eq)
       })
@@ -331,20 +331,20 @@ export default class Division {
     let brigades = Math.ceil(infantry/5) + Math.ceil(mobile/5) + Math.ceil(armored/5);
     let missingEquipment = this.missingEquipment();
 
-    if(frontline_count === 0) {
+    if (frontline_count === 0) {
       result.push("No frontline battalions");
     }
-    if(frontline_count > 25) {
+    if (frontline_count > 25) {
       result.push(`${frontline_count}/25 frontline battalions`);
     }
-    else if(brigades > 5) {
+    else if (brigades > 5) {
       // No need to use this warning if there"s just too many units
       result.push(`${brigades}/5 brigades`);
     }
-    if(support_count > 5) {
+    if (support_count > 5) {
       result.push(`${support_count}/5 support companies`);
     }
-    for(let eq of missingEquipment) {
+    for (let eq of missingEquipment) {
       result.push(`Missing equipment: ${eq}`);
     }
     return result;
@@ -352,17 +352,17 @@ export default class Division {
 
   groupUnitStats(field) {
     let unitData = new Map();
-    for(let unit of this.units) {
+    for (let unit of this.units) {
       let value;
-      if(typeof field === "string") {
+      if (typeof field === "string") {
         value = unit[field];
       } else {
         value = field(unit);
       }
-      if(typeof(value) === "number") {
+      if (typeof(value) === "number") {
         value = round6(value);
       }
-      if(unitData.has(unit)) {
+      if (unitData.has(unit)) {
         let count = unitData.get(unit).count + 1;
         unitData.set(unit, {unit, count, value});
       } else {

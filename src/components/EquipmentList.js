@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Equipment from './Equipment';
+import Equipment from "./Equipment";
 
 export default class EquipmentList extends Component {
   render() {
@@ -14,11 +14,11 @@ export default class EquipmentList extends Component {
     return <div className="equipment-list">
       <h4>Equipment</h4>
       <ul>
-      {
-        data.map(([equipment, count, cost]) =>
-          <Equipment {...{equipment, count, cost, onUpgradeChange}} key={equipment.key} upgrades={upgrades[equipment.key] || {}} />
-        )
-      }
+        {
+          data.map(([equipment, count, cost]) =>
+            <Equipment {...{equipment, count, cost, onUpgradeChange}} key={equipment.key} upgrades={upgrades[equipment.key] || {}} />
+          )
+        }
       </ul>
     </div>
   }

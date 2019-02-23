@@ -5,8 +5,8 @@ import Combat from "./Combat";
 import EquipmentList from "./EquipmentList";
 import Support from "./Support";
 import Terrain from "./Terrain";
-import ModSelector from './ModSelector';
-import SaveAndLoadDivision from './SaveAndLoadDivision';
+import ModSelector from "./ModSelector";
+import SaveAndLoadDivision from "./SaveAndLoadDivision";
 
 export default class Division extends Component {
   constructor(props) {
@@ -59,7 +59,7 @@ export default class Division extends Component {
           ...(oldState.upgrades[equipmentKey] || {}),
           [upgradeKey]: newLevel,
         },
-      }
+      },
     }));
   }
   handleLoad = (savedData) => {
@@ -102,13 +102,13 @@ export default class Division extends Component {
     let {units, support} = this.state;
     let unitsTypes = {};
     let country = this.country();
-    for(let [count, unitName] of units) {
-      if(count) {
+    for (let [count, unitName] of units) {
+      if (count) {
         unitsTypes[unitName] = (unitsTypes[unitName] || 0) + parseInt(count, 10);
       }
     }
-    for(let supportName in support) {
-      if(support[supportName]) {
+    for (let supportName in support) {
+      if (support[supportName]) {
         unitsTypes[supportName] = 1;
       }
     }

@@ -7,21 +7,21 @@ export default class Unit {
 
     this.missingEquipment = new Set();
     this.equipment = new Map();
-    for(let name in unitType.equipment) {
+    for (let name in unitType.equipment) {
       let count = unitType.equipment[name];
       let equipment = country.equipmentMap[name];
-      if(equipment) {
+      if (equipment) {
         this.equipment.set(equipment, count);
       } else {
         let fallbackEquipment = country.db.fallbackEquipmentMap[name];
-        if(!fallbackEquipment) {
+        if (!fallbackEquipment) {
           throw new Error(`Can't find ${name}`);
         }
         this.equipment.set(fallbackEquipment, count);
         this.missingEquipment.add(fallbackEquipment.name);
       }
     }
-    this.country_bonuses = country.unitBonusesFor(unitType.key);
+    this.country_bonuses = country.unitBonusesfor (unitType.key);
   }
 
   get group() {
@@ -158,7 +158,7 @@ export default class Unit {
 
   calculateFromEquipmentAndBonus(stat) {
     let base = 0;
-    for(let equipment of this.equipment.keys()) {
+    for (let equipment of this.equipment.keys()) {
       base += equipment[stat];
     }
     return base + (this.country_bonuses[stat] || 0)
@@ -166,7 +166,7 @@ export default class Unit {
 
   calculateFromEquipmentAndBonusMult(stat) {
     let base = 0;
-    for(let equipment of this.equipment.keys()) {
+    for (let equipment of this.equipment.keys()) {
       base += (equipment[stat] || 0);
     }
 
@@ -175,7 +175,7 @@ export default class Unit {
 
   get ic_cost() {
     let result = 0;
-    for(let [equipment, count] of this.equipment) {
+    for (let [equipment, count] of this.equipment) {
       result += equipment.build_cost_ic * count;
     }
     return result;
@@ -192,7 +192,7 @@ export default class Unit {
   get terrain_bonuses() {
     let result = {};
     recursivelyMerge(result, this.unitType.terrain_bonuses);
-    if(this.country_bonuses.terrain_bonuses) {
+    if (this.country_bonuses.terrain_bonuses) {
       recursivelyMerge(result, this.country_bonuses.terrain_bonuses);
     }
     return result;

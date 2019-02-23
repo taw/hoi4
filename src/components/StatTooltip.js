@@ -3,8 +3,8 @@ import React, { Component } from "react";
 export default class StatTooltip extends Component {
   render() {
     let { data } = this.props;
-    if(!data) {
-       return null;
+    if (!data) {
+      return null;
     }
     let { header, unitData, secondaryHeader, secondaryData } = data;
     return <div className="stat-tooltip">
@@ -32,7 +32,7 @@ export default class StatTooltip extends Component {
           ))}
         </tbody>
       </table>
-    }
+      }
 
     </div>
   }
