@@ -63,6 +63,8 @@ export default class Division {
       ["Suppression", this.suppression, this.tooltipForSuppression()],
       ["Weight", this.weight, this.tooltipForSum("weight")],
       ["Supply Use", this.supply_use, this.tooltipForSupplyUse()],
+      ["Fuel Use", this.fuel_use, this.tooltipForFuelUse()],
+      ["Fuel Capacity", this.fuel_capacity, this.tooltipForSum("fuel_capacity")],
       ["Recon", this.recon, this.tooltipForSum("recon")],
       ["Entrenchment", this.entrenchment, this.tooltipForSum("entrenchment")],
       ["Reliability", this.reliability_factor, this.tooltipForSum("reliability_factor")],
@@ -148,6 +150,19 @@ export default class Division {
     let base = sum(this.units.map(u => u.supply_use));
     let factor = sum(this.units.map(u => u.supply_consumption_factor));
     return round6(base * (1+factor));
+  }
+
+  get fuel_use() {
+    let base = sum(this.units.map(u => u.fuel_consumption));
+    let factor = sum(this.units.map(u => u.fuel_consumption_factor));
+    return round6(base * (1+factor));
+  }
+
+  get fuel_capacity() {
+    // It's 28.8 times fuel use - without discounts
+    let base = sum(this.units.map(u => u.fuel_consumption));
+    let factor = 28.8;
+    return round6(base * factor);
   }
 
   get soft_attack() {
@@ -417,6 +432,19 @@ export default class Division {
       unitData: this.groupUnitStats("supply_use").filter(({value}) => value !== 0),
     };
     let secondaryData = this.groupUnitStats("supply_consumption_factor").filter(({value}) => value !== 0);
+    if (secondaryData.length > 0) {
+      result.secondaryHeader = "Modified by:"
+      result.secondaryData = secondaryData.map(({unit,count,value}) => ({unit, count, value: sprintf("%+f%%", 100*value)}));
+    }
+    return result;
+  }
+
+  tooltipForFuelUse() {
+    let result = {
+      header: "Sum of:",
+      unitData: this.groupUnitStats("fuel_consumption").filter(({value}) => value !== 0),
+    };
+    let secondaryData = this.groupUnitStats("fuel_consumption_factor").filter(({value}) => value !== 0);
     if (secondaryData.length > 0) {
       result.secondaryHeader = "Modified by:"
       result.secondaryData = secondaryData.map(({unit,count,value}) => ({unit, count, value: sprintf("%+f%%", 100*value)}));

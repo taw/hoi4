@@ -21,7 +21,7 @@ export default class Unit {
         this.missingEquipment.add(fallbackEquipment.name);
       }
     }
-    this.country_bonuses = country.unitBonusesfor (unitType.key);
+    this.country_bonuses = country.unitBonusesfor(unitType.key);
   }
 
   get group() {
@@ -42,6 +42,19 @@ export default class Unit {
 
   get supply_use() {
     return this.unitType.supply_use;
+  }
+
+  get fuel_consumption() {
+    let base = this.calculateFromEquipmentAndBonusMult("fuel_consumption");
+    let factor = this.unitType.own_equipment_fuel_consumption_mult;
+    if (factor == null) {
+      factor = 1;
+    }
+    return base * factor;
+  }
+
+  get fuel_capacity() {
+    return 28.8 * this.fuel_consumption;
   }
 
   get manpower() {
@@ -100,6 +113,10 @@ export default class Unit {
 
   get supply_consumption_factor() {
     return this.calculateFromUnitTypeAndBonus("supply_consumption_factor")
+  }
+
+  get fuel_consumption_factor() {
+    return this.calculateFromUnitTypeAndBonus("fuel_consumption_factor")
   }
 
   get combat_width() {

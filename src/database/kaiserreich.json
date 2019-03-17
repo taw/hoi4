@@ -15,19 +15,21 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_fighter"
       ],
-      "equipment": {
-        "fighter_equipment": 1
-      },
       "type": [
         "fighter"
       ],
       "name": "Fighter",
+      "equipment": {
+        "fighter_equipment": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -46,19 +48,21 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_fighter"
       ],
-      "equipment": {
-        "cv_fighter_equipment": 1
-      },
       "type": [
         "fighter"
       ],
       "name": "Fighter",
+      "equipment": {
+        "cv_fighter_equipment": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -77,19 +81,21 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_fighter"
       ],
-      "equipment": {
-        "jet_fighter_equipment": 1
-      },
       "type": [
         "fighter"
       ],
       "name": "Fighter",
+      "equipment": {
+        "jet_fighter_equipment": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -108,19 +114,21 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_cas"
       ],
-      "equipment": {
-        "CAS_equipment": 1
-      },
       "type": [
         "cas"
       ],
       "name": "Close Air Support",
+      "equipment": {
+        "CAS_equipment": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -139,19 +147,21 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_cas"
       ],
-      "equipment": {
-        "cv_CAS_equipment": 1
-      },
       "type": [
         "cas"
       ],
       "name": "Close Air Support",
+      "equipment": {
+        "cv_CAS_equipment": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -170,16 +180,18 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": true,
-      "equipment": {
-        "cv_nav_bomber_equipment": 1
-      },
       "type": [
         "naval_bomber"
       ],
       "name": "Naval Bomber",
+      "equipment": {
+        "cv_nav_bomber_equipment": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -198,16 +210,18 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": true,
-      "equipment": {
-        "nav_bomber_equipment": 1
-      },
       "type": [
         "naval_bomber"
       ],
       "name": "Naval Bomber",
+      "equipment": {
+        "nav_bomber_equipment": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -226,16 +240,18 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": true,
-      "equipment": {
-        "rocket_interceptor_equipment": 1
-      },
       "type": [
         "interceptor"
       ],
       "name": "Rocket Interceptor",
+      "equipment": {
+        "rocket_interceptor_equipment": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -254,16 +270,18 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": true,
-      "equipment": {
-        "suicide_craft_equipment": 1
-      },
       "type": [
         "suicide"
       ],
       "name": "Yokosuka MXY7 Ohka",
+      "equipment": {
+        "suicide_craft_equipment": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -282,16 +300,18 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": true,
-      "equipment": {
-        "tac_bomber_equipment": 1
-      },
       "type": [
         "tactical_bomber"
       ],
       "name": "Tactical Bomber",
+      "equipment": {
+        "tac_bomber_equipment": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -310,16 +330,18 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": true,
-      "equipment": {
-        "jet_tac_bomber_equipment": 1
-      },
       "type": [
         "tactical_bomber"
       ],
       "name": "Jet Tactical Bomber",
+      "equipment": {
+        "jet_tac_bomber_equipment": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -338,19 +360,21 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_heavy_fighter"
       ],
-      "equipment": {
-        "heavy_fighter_equipment": 1
-      },
       "type": [
         "fighter"
       ],
       "name": "Heavy Fighter",
+      "equipment": {
+        "heavy_fighter_equipment": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -369,16 +393,18 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": true,
-      "equipment": {
-        "strat_bomber_equipment": 1
-      },
       "type": [
         "strategic_bomber"
       ],
       "name": "Strategic Bomber",
+      "equipment": {
+        "strat_bomber_equipment": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -397,16 +423,18 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": true,
-      "equipment": {
-        "jet_strat_bomber_equipment": 1
-      },
       "type": [
         "strategic_bomber"
       ],
       "name": "Jet Strategic Bomber",
+      "equipment": {
+        "jet_strat_bomber_equipment": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -425,16 +453,18 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": true,
-      "equipment": {
-        "transport_plane_equipment": 1
-      },
       "type": [
         "air_transport"
       ],
       "name": "Transport",
+      "equipment": {
+        "transport_plane_equipment": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -453,16 +483,18 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": true,
-      "equipment": {
-        "guided_missile_equipment": 1
-      },
       "type": [
         "missile"
       ],
       "name": "Rocket",
+      "equipment": {
+        "guided_missile_equipment": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -481,8 +513,10 @@
       "reliability_factor": 0,
       "soft_attack": -0.4,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.1,
+      "fuel_consumption": 0,
       "active": true,
       "can_be_parachuted": true,
       "categories": [
@@ -495,9 +529,6 @@
       "manpower": 450,
       "org": 0,
       "hp": 0.2,
-      "equipment": {
-        "anti_air_equipment": 20
-      },
       "training_time": 120,
       "type": [
         "infantry",
@@ -505,6 +536,9 @@
       ],
       "weight": 0.1,
       "name": "Support Anti-Air",
+      "equipment": {
+        "anti_air_equipment": 20
+      },
       "terrain_bonuses": {
       }
     },
@@ -523,8 +557,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.1,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_army",
@@ -536,9 +572,6 @@
       "manpower": 750,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "anti_air_equipment": 30
-      },
       "training_time": 120,
       "type": [
         "infantry",
@@ -546,6 +579,9 @@
       ],
       "weight": 0.5,
       "name": "Anti-Air",
+      "equipment": {
+        "anti_air_equipment": 30
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.4
@@ -583,8 +619,10 @@
       "reliability_factor": 0,
       "soft_attack": -0.5,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.08,
+      "fuel_consumption": 0,
       "active": true,
       "ap_attack": -0.15,
       "can_be_parachuted": true,
@@ -599,9 +637,6 @@
       "manpower": 450,
       "org": 0,
       "hp": 0.2,
-      "equipment": {
-        "anti_tank_equipment": 24
-      },
       "training_time": 120,
       "type": [
         "infantry",
@@ -609,6 +644,9 @@
       ],
       "weight": 0.1,
       "name": "Support Anti-Tank",
+      "equipment": {
+        "anti_tank_equipment": 24
+      },
       "terrain_bonuses": {
       }
     },
@@ -627,8 +665,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.1,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_front_line",
@@ -641,9 +681,6 @@
       "manpower": 750,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "anti_tank_equipment": 36
-      },
       "training_time": 120,
       "type": [
         "infantry",
@@ -651,6 +688,9 @@
       ],
       "weight": 0.5,
       "name": "Anti-Tank",
+      "equipment": {
+        "anti_tank_equipment": 36
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.4
@@ -697,8 +737,10 @@
       "reliability_factor": 0,
       "soft_attack": -0.4,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.16,
+      "fuel_consumption": 0,
       "active": true,
       "can_be_parachuted": true,
       "categories": [
@@ -712,9 +754,6 @@
       "manpower": 450,
       "org": 0,
       "hp": 0.2,
-      "equipment": {
-        "artillery_equipment": 12
-      },
       "training_time": 120,
       "type": [
         "infantry",
@@ -722,6 +761,9 @@
       ],
       "weight": 0.1,
       "name": "Support Artillery",
+      "equipment": {
+        "artillery_equipment": 12
+      },
       "terrain_bonuses": {
       }
     },
@@ -740,8 +782,10 @@
       "reliability_factor": 0,
       "soft_attack": -0.5,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.16,
+      "fuel_consumption": 0,
       "active": true,
       "can_be_parachuted": true,
       "categories": [
@@ -755,9 +799,6 @@
       "manpower": 300,
       "org": 0,
       "hp": 0.2,
-      "equipment": {
-        "rocket_artillery_equipment": 24
-      },
       "training_time": 120,
       "type": [
         "infantry",
@@ -765,6 +806,9 @@
       ],
       "weight": 0.1,
       "name": "Support Rocket Artillery",
+      "equipment": {
+        "rocket_artillery_equipment": 24
+      },
       "terrain_bonuses": {
       }
     },
@@ -783,8 +827,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.2,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_army",
@@ -797,9 +843,6 @@
       "manpower": 750,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "artillery_equipment": 36
-      },
       "training_time": 120,
       "type": [
         "infantry",
@@ -807,6 +850,9 @@
       ],
       "weight": 0.5,
       "name": "Artillery",
+      "equipment": {
+        "artillery_equipment": 36
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.4
@@ -853,8 +899,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.2,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_army",
@@ -866,9 +914,6 @@
       "manpower": 750,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "rocket_artillery_equipment": 36
-      },
       "training_time": 120,
       "type": [
         "infantry",
@@ -876,6 +921,9 @@
       ],
       "weight": 0.5,
       "name": "Rocket Artillery",
+      "equipment": {
+        "rocket_artillery_equipment": 36
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.4
@@ -922,8 +970,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.28,
+      "fuel_consumption": 0,
       "active": false,
       "categories": [
         "category_army",
@@ -935,10 +985,6 @@
       "manpower": 750,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "motorized_equipment": 15,
-        "motorized_rocket_equipment": 20
-      },
       "training_time": 120,
       "type": [
         "artillery",
@@ -947,6 +993,10 @@
       ],
       "weight": 0.5,
       "name": "Motorized Rocket Artillery",
+      "equipment": {
+        "motorized_equipment": 15,
+        "motorized_rocket_equipment": 20
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.4
@@ -993,17 +1043,19 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.2,
+      "fuel_consumption": 0,
       "active": true,
       "org": 40,
-      "equipment": {
-        "battleship": 1
-      },
       "type": [
         "capital_ship"
       ],
       "name": "Battleship",
+      "equipment": {
+        "battleship": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -1022,17 +1074,19 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.3,
+      "fuel_consumption": 0,
       "active": true,
       "org": 40,
-      "equipment": {
-        "carrier": 1
-      },
       "type": [
         "carrier"
       ],
       "name": "Carrier",
+      "equipment": {
+        "carrier": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -1051,8 +1105,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 2,
       "supply_use": 0.12,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_front_line",
@@ -1065,15 +1121,15 @@
       "manpower": 1500,
       "org": 70,
       "hp": 25,
-      "equipment": {
-        "infantry_equipment": 180
-      },
       "training_time": 120,
       "type": [
         "infantry"
       ],
       "weight": 0.5,
       "name": "Cavalry",
+      "equipment": {
+        "infantry_equipment": 180
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.4
@@ -1111,17 +1167,19 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.03,
+      "fuel_consumption": 0,
       "active": true,
       "org": 40,
-      "equipment": {
-        "destroyer": 1
-      },
       "type": [
         "screen_ship"
       ],
       "name": "Destroyer",
+      "equipment": {
+        "destroyer": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -1140,17 +1198,19 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.2,
+      "fuel_consumption": 0,
       "active": true,
       "org": 40,
-      "equipment": {
-        "SH_battleship": 1
-      },
       "type": [
         "capital_ship"
       ],
       "name": "SH_battleship",
+      "equipment": {
+        "SH_battleship": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -1169,8 +1229,10 @@
       "reliability_factor": 0,
       "soft_attack": -0.5,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.02,
+      "fuel_consumption": 0,
       "active": false,
       "can_be_parachuted": true,
       "categories": [
@@ -1187,10 +1249,6 @@
       "manpower": 450,
       "org": 20,
       "hp": 2,
-      "equipment": {
-        "infantry_equipment": 15,
-        "support_equipment": 30
-      },
       "training_time": 120,
       "type": [
         "infantry",
@@ -1198,6 +1256,10 @@
       ],
       "weight": 0.1,
       "name": "Engineer Company",
+      "equipment": {
+        "infantry_equipment": 15,
+        "support_equipment": 30
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": 0.25
@@ -1241,8 +1303,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.05,
+      "fuel_consumption": 0,
       "active": false,
       "can_be_parachuted": true,
       "categories": [
@@ -1259,10 +1323,6 @@
       "manpower": 750,
       "org": 20,
       "hp": 2,
-      "equipment": {
-        "motorized_equipment": 20,
-        "support_equipment": 30
-      },
       "training_time": 120,
       "type": [
         "infantry",
@@ -1270,6 +1330,10 @@
       ],
       "weight": 0.1,
       "name": "Field Hospital",
+      "equipment": {
+        "motorized_equipment": 20,
+        "support_equipment": 30
+      },
       "terrain_bonuses": {
       }
     },
@@ -1288,8 +1352,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.3,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_tanks",
@@ -1303,15 +1369,15 @@
       "manpower": 750,
       "org": 10,
       "hp": 2,
-      "equipment": {
-        "heavy_tank_equipment": 40
-      },
       "training_time": 180,
       "type": [
         "armor"
       ],
       "weight": 1.5,
       "name": "Heavy Tank",
+      "equipment": {
+        "heavy_tank_equipment": 40
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.8
@@ -1362,17 +1428,19 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.1,
+      "fuel_consumption": 0,
       "active": true,
       "org": 40,
-      "equipment": {
-        "heavy_cruiser": 1
-      },
       "type": [
         "capital_ship"
       ],
       "name": "Heavy Cruiser",
+      "equipment": {
+        "heavy_cruiser": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -1391,8 +1459,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 1,
       "supply_use": 0.07,
+      "fuel_consumption": 0,
       "active": false,
       "categories": [
         "category_front_line",
@@ -1406,15 +1476,15 @@
       "manpower": 1500,
       "org": 60,
       "hp": 25,
-      "equipment": {
-        "infantry_equipment": 150
-      },
       "training_time": 90,
       "type": [
         "infantry"
       ],
       "weight": 0.5,
       "name": "Infantry",
+      "equipment": {
+        "infantry_equipment": 150
+      },
       "terrain_bonuses": {
       }
     },
@@ -1433,8 +1503,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 1,
       "supply_use": 0.07,
+      "fuel_consumption": 0,
       "active": false,
       "categories": [
         "category_front_line",
@@ -1448,16 +1520,16 @@
       "manpower": 1500,
       "org": 60,
       "hp": 25,
-      "equipment": {
-        "infantry_equipment": 150,
-        "support_equipment": 10
-      },
       "training_time": 90,
       "type": [
         "infantry"
       ],
       "weight": 0.5,
       "name": "Bicycle Battalion",
+      "equipment": {
+        "infantry_equipment": 150,
+        "support_equipment": 10
+      },
       "terrain_bonuses": {
         "amphibious": {
           "movement": -0.05
@@ -1503,8 +1575,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 1,
       "supply_use": 0.06,
+      "fuel_consumption": 0,
       "active": false,
       "categories": [
         "category_front_line",
@@ -1520,9 +1594,6 @@
       "marines": true,
       "org": 70,
       "hp": 20,
-      "equipment": {
-        "infantry_equipment": 220
-      },
       "special_forces": true,
       "training_time": 120,
       "type": [
@@ -1530,6 +1601,9 @@
       ],
       "weight": 0.5,
       "name": "Marines",
+      "equipment": {
+        "infantry_equipment": 220
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": 0.5
@@ -1557,8 +1631,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 1,
       "supply_use": 0.07,
+      "fuel_consumption": 0,
       "active": false,
       "categories": [
         "category_front_line",
@@ -1574,9 +1650,6 @@
       "org": 70,
       "hp": 20,
       "mountaineers": true,
-      "equipment": {
-        "infantry_equipment": 200
-      },
       "special_forces": true,
       "training_time": 120,
       "type": [
@@ -1584,6 +1657,9 @@
       ],
       "weight": 0.5,
       "name": "Mountaineers",
+      "equipment": {
+        "infantry_equipment": 200
+      },
       "terrain_bonuses": {
         "hills": {
           "attack": 0.2,
@@ -1612,8 +1688,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 1,
       "supply_use": 0.06,
+      "fuel_consumption": 0,
       "active": false,
       "can_be_parachuted": true,
       "categories": [
@@ -1629,9 +1707,6 @@
       "manpower": 1500,
       "org": 70,
       "hp": 22,
-      "equipment": {
-        "infantry_equipment": 180
-      },
       "special_forces": true,
       "training_time": 150,
       "type": [
@@ -1639,6 +1714,9 @@
       ],
       "weight": 0.5,
       "name": "Paratroopers",
+      "equipment": {
+        "infantry_equipment": 180
+      },
       "terrain_bonuses": {
       }
     },
@@ -1657,8 +1735,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 1,
       "supply_use": 0.11,
+      "fuel_consumption": 0,
       "active": false,
       "categories": [
         "category_front_line",
@@ -1671,10 +1751,6 @@
       "manpower": 1800,
       "org": 60,
       "hp": 25,
-      "equipment": {
-        "infantry_equipment": 150,
-        "motorized_equipment": 50
-      },
       "training_time": 90,
       "transport": "motorized_equipment",
       "type": [
@@ -1682,6 +1758,10 @@
       ],
       "weight": 0.75,
       "name": "Motorized Infantry",
+      "equipment": {
+        "infantry_equipment": 150,
+        "motorized_equipment": 50
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.2
@@ -1725,8 +1805,10 @@
       "reliability_factor": 0,
       "soft_attack": 0.1,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 1,
       "supply_use": 0.18,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_front_line",
@@ -1744,10 +1826,6 @@
       "manpower": 1800,
       "org": 60,
       "hp": 30,
-      "equipment": {
-        "infantry_equipment": 150,
-        "mechanized_equipment": 50
-      },
       "training_time": 120,
       "transport": "mechanized_equipment",
       "type": [
@@ -1755,6 +1833,10 @@
       ],
       "weight": 1,
       "name": "Mechanized Infantry",
+      "equipment": {
+        "infantry_equipment": 150,
+        "mechanized_equipment": 50
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.4
@@ -1796,8 +1878,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.2,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_tanks",
@@ -1811,15 +1895,15 @@
       "manpower": 750,
       "org": 10,
       "hp": 2,
-      "equipment": {
-        "light_tank_equipment": 60
-      },
       "training_time": 180,
       "type": [
         "armor"
       ],
       "weight": 1,
       "name": "Light Tank",
+      "equipment": {
+        "light_tank_equipment": 60
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.4
@@ -1864,17 +1948,19 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.07,
+      "fuel_consumption": 0,
       "active": true,
       "org": 40,
-      "equipment": {
-        "light_cruiser": 1
-      },
       "type": [
         "screen_ship"
       ],
       "name": "Light Cruiser",
+      "equipment": {
+        "light_cruiser": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -1893,8 +1979,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": -0.1,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0,
+      "fuel_consumption": 0,
       "active": false,
       "can_be_parachuted": true,
       "categories": [
@@ -1911,10 +1999,6 @@
       "manpower": 750,
       "org": 10,
       "hp": 1,
-      "equipment": {
-        "motorized_equipment": 10,
-        "support_equipment": 20
-      },
       "training_time": 120,
       "type": [
         "infantry",
@@ -1922,6 +2006,10 @@
       ],
       "weight": 0.1,
       "name": "Logistics Company",
+      "equipment": {
+        "motorized_equipment": 10,
+        "support_equipment": 20
+      },
       "terrain_bonuses": {
       }
     },
@@ -1940,8 +2028,10 @@
       "reliability_factor": 0.05,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.03,
+      "fuel_consumption": 0,
       "active": false,
       "can_be_parachuted": true,
       "categories": [
@@ -1957,9 +2047,6 @@
       "manpower": 750,
       "org": 20,
       "hp": 1,
-      "equipment": {
-        "support_equipment": 25
-      },
       "training_time": 120,
       "type": [
         "infantry",
@@ -1967,6 +2054,9 @@
       ],
       "weight": 0.1,
       "name": "Maintenance Company",
+      "equipment": {
+        "support_equipment": 25
+      },
       "terrain_bonuses": {
       }
     },
@@ -1985,8 +2075,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.22,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_tanks",
@@ -2000,15 +2092,15 @@
       "manpower": 750,
       "org": 10,
       "hp": 2,
-      "equipment": {
-        "medium_tank_equipment": 50
-      },
       "training_time": 180,
       "type": [
         "armor"
       ],
       "weight": 1.25,
       "name": "Medium Tank",
+      "equipment": {
+        "medium_tank_equipment": 50
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.7
@@ -2056,8 +2148,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.02,
+      "fuel_consumption": 0,
       "active": false,
       "can_be_parachuted": true,
       "categories": [
@@ -2074,10 +2168,6 @@
       "manpower": 750,
       "org": 0,
       "hp": 1,
-      "equipment": {
-        "infantry_equipment": 60,
-        "support_equipment": 10
-      },
       "suppression_factor": 0.2,
       "training_time": 180,
       "type": [
@@ -2086,6 +2176,10 @@
       ],
       "weight": 0.1,
       "name": "Military Police",
+      "equipment": {
+        "infantry_equipment": 60,
+        "support_equipment": 10
+      },
       "terrain_bonuses": {
       }
     },
@@ -2104,8 +2198,10 @@
       "reliability_factor": 0,
       "soft_attack": -0.5,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 1,
       "supply_use": 0.04,
+      "fuel_consumption": 0,
       "active": false,
       "ap_attack": -1,
       "categories": [
@@ -2120,15 +2216,15 @@
       "manpower": 1500,
       "org": 40,
       "hp": 20,
-      "equipment": {
-        "infantry_equipment": 75
-      },
       "training_time": 40,
       "type": [
         "infantry"
       ],
       "weight": 0.5,
       "name": "militia",
+      "equipment": {
+        "infantry_equipment": 75
+      },
       "terrain_bonuses": {
       }
     },
@@ -2147,8 +2243,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.25,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_tanks",
@@ -2162,15 +2260,15 @@
       "manpower": 750,
       "org": 10,
       "hp": 2,
-      "equipment": {
-        "modern_tank_equipment": 50
-      },
       "training_time": 180,
       "type": [
         "armor"
       ],
       "weight": 1.5,
       "name": "Modern Tank",
+      "equipment": {
+        "modern_tank_equipment": 50
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.7
@@ -2218,8 +2316,10 @@
       "reliability_factor": 0,
       "soft_attack": -0.9,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.02,
+      "fuel_consumption": 0,
       "active": false,
       "can_be_parachuted": true,
       "categories": [
@@ -2237,10 +2337,6 @@
       "manpower": 750,
       "org": 20,
       "hp": 2,
-      "equipment": {
-        "infantry_equipment": 60,
-        "support_equipment": 10
-      },
       "training_time": 120,
       "type": [
         "infantry",
@@ -2248,6 +2344,10 @@
       ],
       "weight": 0.1,
       "name": "Recon Company",
+      "equipment": {
+        "infantry_equipment": 60,
+        "support_equipment": 10
+      },
       "terrain_bonuses": {
         "desert": {
           "movement": 0.1
@@ -2290,8 +2390,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.02,
+      "fuel_consumption": 0,
       "active": false,
       "can_be_parachuted": true,
       "categories": [
@@ -2308,10 +2410,6 @@
       "manpower": 750,
       "org": 20,
       "hp": 1,
-      "equipment": {
-        "motorized_equipment": 10,
-        "support_equipment": 20
-      },
       "training_time": 120,
       "type": [
         "infantry",
@@ -2319,6 +2417,10 @@
       ],
       "weight": 0.1,
       "name": "Signal Company",
+      "equipment": {
+        "motorized_equipment": 10,
+        "support_equipment": 20
+      },
       "terrain_bonuses": {
       }
     },
@@ -2337,8 +2439,10 @@
       "reliability_factor": 0,
       "soft_attack": 0.5,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.1,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_all_armor",
@@ -2350,9 +2454,6 @@
       "manpower": 750,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "light_tank_aa_equipment": 15
-      },
       "training_time": 180,
       "type": [
         "armor",
@@ -2360,6 +2461,9 @@
       ],
       "weight": 1,
       "name": "Light SP Anti-Air",
+      "equipment": {
+        "light_tank_aa_equipment": 15
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.6
@@ -2404,8 +2508,10 @@
       "reliability_factor": 0,
       "soft_attack": 0.5,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.1,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_all_armor",
@@ -2417,9 +2523,6 @@
       "manpower": 500,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "medium_tank_aa_equipment": 12
-      },
       "training_time": 180,
       "type": [
         "armor",
@@ -2427,6 +2530,9 @@
       ],
       "weight": 1.25,
       "name": "Medium SP Anti-Air",
+      "equipment": {
+        "medium_tank_aa_equipment": 12
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.7
@@ -2474,8 +2580,10 @@
       "reliability_factor": 0,
       "soft_attack": 0.5,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.1,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_all_armor",
@@ -2487,9 +2595,6 @@
       "manpower": 500,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "heavy_tank_aa_equipment": 8
-      },
       "training_time": 180,
       "type": [
         "armor",
@@ -2497,6 +2602,9 @@
       ],
       "weight": 1.5,
       "name": "Heavy SP Anti-Air",
+      "equipment": {
+        "heavy_tank_aa_equipment": 8
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.8
@@ -2544,8 +2652,10 @@
       "reliability_factor": 0,
       "soft_attack": 0.5,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.1,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_all_armor",
@@ -2557,9 +2667,6 @@
       "manpower": 500,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "super_heavy_tank_aa_equipment": 4
-      },
       "training_time": 180,
       "type": [
         "armor",
@@ -2567,6 +2674,9 @@
       ],
       "weight": 1.75,
       "name": "Super Heavy SP Anti-Air",
+      "equipment": {
+        "super_heavy_tank_aa_equipment": 4
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -1.0
@@ -2614,8 +2724,10 @@
       "reliability_factor": 0,
       "soft_attack": 0.5,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.1,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_all_armor",
@@ -2627,9 +2739,6 @@
       "manpower": 500,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "modern_tank_aa_equipment": 12
-      },
       "training_time": 180,
       "type": [
         "armor",
@@ -2637,6 +2746,9 @@
       ],
       "weight": 1.5,
       "name": "Modern SP Anti-Air",
+      "equipment": {
+        "modern_tank_aa_equipment": 12
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.7
@@ -2684,8 +2796,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.4,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_all_armor",
@@ -2697,9 +2811,6 @@
       "manpower": 750,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "light_tank_artillery_equipment": 36
-      },
       "training_time": 180,
       "type": [
         "armor",
@@ -2707,6 +2818,9 @@
       ],
       "weight": 1,
       "name": "Light SP Artillery",
+      "equipment": {
+        "light_tank_artillery_equipment": 36
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.6
@@ -2751,8 +2865,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.44,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_all_armor",
@@ -2764,9 +2880,6 @@
       "manpower": 500,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "medium_tank_artillery_equipment": 36
-      },
       "training_time": 180,
       "type": [
         "armor",
@@ -2774,6 +2887,9 @@
       ],
       "weight": 1.25,
       "name": "Medium SP Artillery",
+      "equipment": {
+        "medium_tank_artillery_equipment": 36
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.7
@@ -2821,8 +2937,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.6,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_all_armor",
@@ -2834,9 +2952,6 @@
       "manpower": 500,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "heavy_tank_artillery_equipment": 24
-      },
       "training_time": 180,
       "type": [
         "armor",
@@ -2844,6 +2959,9 @@
       ],
       "weight": 1.5,
       "name": "Heavy SP Artillery",
+      "equipment": {
+        "heavy_tank_artillery_equipment": 24
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.8
@@ -2891,8 +3009,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.8,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_all_armor",
@@ -2904,9 +3024,6 @@
       "manpower": 500,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "super_heavy_tank_artillery_equipment": 12
-      },
       "training_time": 180,
       "type": [
         "armor",
@@ -2914,6 +3031,9 @@
       ],
       "weight": 1.75,
       "name": "Super Heavy SP Artillery",
+      "equipment": {
+        "super_heavy_tank_artillery_equipment": 12
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -1.0
@@ -2961,8 +3081,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.5,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_all_armor",
@@ -2974,9 +3096,6 @@
       "manpower": 500,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "modern_tank_artillery_equipment": 40
-      },
       "training_time": 180,
       "type": [
         "armor",
@@ -2984,6 +3103,9 @@
       ],
       "weight": 1.5,
       "name": "Modern SP Artillery",
+      "equipment": {
+        "modern_tank_artillery_equipment": 40
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.7
@@ -3031,17 +3153,19 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.02,
+      "fuel_consumption": 0,
       "active": true,
       "org": 40,
-      "equipment": {
-        "submarine": 1
-      },
       "type": [
         "submarine"
       ],
       "name": "Submarine",
+      "equipment": {
+        "submarine": 1
+      },
       "terrain_bonuses": {
       }
     },
@@ -3060,8 +3184,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.4,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_tanks",
@@ -3075,15 +3201,15 @@
       "manpower": 750,
       "org": 10,
       "hp": 2,
-      "equipment": {
-        "super_heavy_tank_equipment": 15
-      },
       "training_time": 180,
       "type": [
         "armor"
       ],
       "weight": 1.75,
       "name": "Super-Heavy Tank",
+      "equipment": {
+        "super_heavy_tank_equipment": 15
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -1.0
@@ -3134,8 +3260,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.2,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_front_line",
@@ -3148,9 +3276,6 @@
       "manpower": 750,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "light_tank_destroyer_equipment": 30
-      },
       "training_time": 180,
       "type": [
         "armor",
@@ -3158,6 +3283,9 @@
       ],
       "weight": 1,
       "name": "Light Tank Destroyer",
+      "equipment": {
+        "light_tank_destroyer_equipment": 30
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.6
@@ -3202,8 +3330,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.22,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_front_line",
@@ -3216,9 +3346,6 @@
       "manpower": 500,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "medium_tank_destroyer_equipment": 24
-      },
       "training_time": 180,
       "type": [
         "armor",
@@ -3226,6 +3353,9 @@
       ],
       "weight": 1.25,
       "name": "Medium Tank Destroyer",
+      "equipment": {
+        "medium_tank_destroyer_equipment": 24
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.7
@@ -3273,8 +3403,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.3,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_front_line",
@@ -3287,9 +3419,6 @@
       "manpower": 500,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "heavy_tank_destroyer_equipment": 20
-      },
       "training_time": 180,
       "type": [
         "armor",
@@ -3297,6 +3426,9 @@
       ],
       "weight": 1.5,
       "name": "Heavy Tank Destroyer",
+      "equipment": {
+        "heavy_tank_destroyer_equipment": 20
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.8
@@ -3347,8 +3479,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.4,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_front_line",
@@ -3361,9 +3495,6 @@
       "manpower": 500,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "super_heavy_tank_destroyer_equipment": 7
-      },
       "training_time": 180,
       "type": [
         "armor",
@@ -3371,6 +3502,9 @@
       ],
       "weight": 1.75,
       "name": "Super Heavy Tank Destroyer",
+      "equipment": {
+        "super_heavy_tank_destroyer_equipment": 7
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -1.0
@@ -3421,8 +3555,10 @@
       "reliability_factor": 0,
       "soft_attack": 0,
       "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
       "suppression": 0,
       "supply_use": 0.25,
+      "fuel_consumption": 0,
       "active": true,
       "categories": [
         "category_front_line",
@@ -3435,9 +3571,6 @@
       "manpower": 500,
       "org": 0,
       "hp": 0.6,
-      "equipment": {
-        "modern_tank_destroyer_equipment": 24
-      },
       "training_time": 180,
       "type": [
         "armor",
@@ -3445,6 +3578,9 @@
       ],
       "weight": 1.5,
       "name": "Modern Tank Destroyer",
+      "equipment": {
+        "modern_tank_destroyer_equipment": 24
+      },
       "terrain_bonuses": {
         "amphibious": {
           "attack": -0.7
