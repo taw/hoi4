@@ -6,11 +6,19 @@ export default class StatTooltip extends Component {
     if (!data) {
       return null;
     }
-    let { header, unitData, secondaryHeader, secondaryData } = data;
+    let { base, header, unitData, secondaryHeader, secondaryData } = data;
     return <div className="stat-tooltip">
       <div>{ header }</div>
       <table>
         <tbody>
+          { (base != null) ?
+            <tr key="base">
+              <td className="substat-count"></td>
+              <td className="substat-name">Base</td>
+              <td className="substat-value">{base}</td>
+            </tr>
+             : null
+          }
           { unitData.map(({unit, count, value}, index) => (
             <tr key={index}>
               <td className="substat-count">{count}x</td>

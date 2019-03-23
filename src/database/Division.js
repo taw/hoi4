@@ -66,7 +66,7 @@ export default class Division {
       ["Fuel Use", this.fuel_use, this.tooltipForFuelUse()],
       ["Fuel Capacity", this.fuel_capacity, this.tooltipForSum("fuel_capacity")],
       ["Recon", this.recon, this.tooltipForSum("recon")],
-      ["Entrenchment", this.entrenchment, this.tooltipForSum("entrenchment")],
+      ["Entrenchment", this.entrenchment, this.tooltipForEntrenchment()],
       ["Reliability", this.reliability_factor, this.tooltipForSum("reliability_factor")],
       ["Casualty trickleback", this.casualty_trickleback, this.tooltipForSum("casualty_trickleback")],
       ["XP Loss", this.experience_loss_factor, this.tooltipForSum("experience_loss_factor")],
@@ -190,7 +190,10 @@ export default class Division {
   }
 
   get entrenchment() {
-    return sum(this.units.map(u => u.entrenchment))
+    let base = 5;
+    let units = sum(this.units.map(u => u.entrenchment))
+    let doctrine = 0; // FIXME
+    return base + units + doctrine;
   }
 
   get reliability_factor() {
@@ -396,6 +399,14 @@ export default class Division {
     return ({
       header: "Sum of:",
       unitData: this.groupUnitStats(field).filter(({value}) => value !== 0),
+    })
+  }
+
+  tooltipForEntrenchment() {
+    return ({
+      header: "Sum of:",
+      base: 5,
+      unitData: this.groupUnitStats("entrenchment").filter(({value}) => value !== 0),
     })
   }
 
