@@ -48,7 +48,8 @@ function formatSpeed(value) {
 }
 
 export default class Division {
-  constructor(units) {
+  constructor(country, units) {
+    this.country = country;
     this.units = units;
   }
 

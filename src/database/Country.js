@@ -9,6 +9,7 @@ export default class Country {
     this.technologies = technologies;
     this.upgrades = upgrades;
     this.equipmentMap = this.calculateEquipmentMap();
+    this.divisionBonuses = this.calculateDivisionBonuses();
   }
 
   calculateEquipmentMap() {
@@ -61,7 +62,7 @@ export default class Country {
         units.push(unit);
       }
     }
-    return new Division(units);
+    return new Division(this, units);
   }
 
   unitBonusesfor (unitName) {
@@ -73,6 +74,20 @@ export default class Country {
           recursivelyMerge(result, technology.unit_bonuses[category]);
         }
       }
+    }
+    return result;
+  }
+
+  calculateDivisionBonuses() {
+    let result = {
+      max_dig_in: 0,
+      supply_consumption_factor: 0,
+      army_speed_factor: 0,
+    };
+    for(let tech of this.technologies) {
+      result.max_dig_in += (tech.max_dig_in || 0);
+      result.supply_consumption_factor += (tech.supply_consumption_factor || 0);
+      result.army_speed_factor += (tech.army_speed_factor || 0);
     }
     return result;
   }
