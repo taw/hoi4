@@ -149,8 +149,9 @@ export default class Division {
 
   get supply_use() {
     let base = sum(this.units.map(u => u.supply_use));
-    let factor = sum(this.units.map(u => u.supply_consumption_factor));
-    return round6(base * (1+factor));
+    let unit_factor = sum(this.units.map(u => u.supply_consumption_factor));
+    let doctrine_factor = this.country.divisionBonuses["supply_consumption_factor"] || 0;
+    return round6(base * (1+unit_factor) * (1+doctrine_factor));
   }
 
   get fuel_use() {
@@ -193,8 +194,8 @@ export default class Division {
   get entrenchment() {
     let base = 5;
     let units = sum(this.units.map(u => u.entrenchment))
-    let doctrine = 0; // FIXME
-    return base + units + doctrine;
+    let doctrine_bonus = this.country.divisionBonuses["max_dig_in"];
+    return base + units + doctrine_bonus;
   }
 
   get reliability_factor() {
@@ -234,7 +235,9 @@ export default class Division {
     if (frontline_units.length === 0) {
       return null;
     }
-    return min(frontline_units.map(u => u.speed))
+    let base = min(frontline_units.map(u => u.speed));
+    let factor = this.country.divisionBonuses["army_speed_factor"] || 0;
+    return round3(base * (1 + factor));
   }
 
   get armor() {
@@ -404,11 +407,17 @@ export default class Division {
   }
 
   tooltipForEntrenchment() {
-    return ({
+    let result = {
       header: "Sum of:",
       base: 5,
       unitData: this.groupUnitStats("entrenchment").filter(({value}) => value !== 0),
-    })
+    };
+    let factor = this.country.divisionBonuses["max_dig_in"];
+    if (factor !== 0) {
+      result.techHeader = "Modified by doctrine:"
+      result.techData = this.techBonusesFor("max_dig_in")
+    }
+    return result;
   }
 
   tooltipForArmor() {
@@ -448,6 +457,13 @@ export default class Division {
       result.secondaryHeader = "Modified by:"
       result.secondaryData = secondaryData.map(({unit,count,value}) => ({unit, count, value: sprintf("%+f%%", 100*value)}));
     }
+    let factor = this.country.divisionBonuses["supply_consumption_factor"];
+    if (factor !== 0) {
+      result.techHeader = "Modified by doctrine:"
+      result.techData = this
+        .techBonusesFor("supply_consumption_factor")
+        .map(({name, value}) => ({name, value: sprintf("%+f%%", 100*value)}))
+    }
     return result;
   }
 
@@ -464,11 +480,27 @@ export default class Division {
     return result;
   }
 
+  techBonusesFor(field) {
+    return this
+      .country
+      .technologies
+      .map(tech => ({name: tech.name, value: tech[field]}))
+      .filter(({value}) => (value||0) !== 0)
+  }
+
   tooltipForSpeed() {
-    return ({
+    let result = {
       header: "Minimum of frontline units:",
       unitData: this.groupFrontlineUnitStats("speed").map(({unit,count,value}) => ({unit, count, value: formatSpeed(value)})),
-    })
+    };
+    let factor = this.country.divisionBonuses["army_speed_factor"];
+    if (factor !== 0) {
+      result.techHeader = "Modified by doctrine:"
+      result.techData = this
+        .techBonusesFor("army_speed_factor")
+        .map(({name, value}) => ({name, value: sprintf("%+f%%", 100*value)}))
+    }
+    return result;
   }
 
   tooltipForOrganization() {

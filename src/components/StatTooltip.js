@@ -6,7 +6,7 @@ export default class StatTooltip extends Component {
     if (!data) {
       return null;
     }
-    let { base, header, unitData, secondaryHeader, secondaryData } = data;
+    let { base, header, unitData, secondaryHeader, secondaryData, techHeader, techData } = data;
     return <div className="stat-tooltip">
       <div>{ header }</div>
       <table>
@@ -17,7 +17,7 @@ export default class StatTooltip extends Component {
               <td className="substat-name">Base</td>
               <td className="substat-value">{base}</td>
             </tr>
-             : null
+            : null
           }
           { unitData.map(({unit, count, value}, index) => (
             <tr key={index}>
@@ -35,6 +35,19 @@ export default class StatTooltip extends Component {
             <tr key={index}>
               <td className="substat-count">{count}x</td>
               <td className="substat-name">{unit.name}</td>
+              <td className="substat-value">{value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      }
+      { techHeader && <div>{ techHeader }</div> }
+      { techData && <table>
+        <tbody>
+          { techData.map(({name, value}, index) => (
+            <tr key={index}>
+              <td className="substat-count"></td>
+              <td className="substat-name">{name}</td>
               <td className="substat-value">{value}</td>
             </tr>
           ))}
