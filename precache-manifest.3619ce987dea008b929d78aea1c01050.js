@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "c6f88adb25a55e70fc2b",
+    "revision": "4170c5e2a4c978d25105",
     "url": "/hoi4/static/css/main.5f076d7c.chunk.css"
   },
   {
-    "revision": "c6f88adb25a55e70fc2b",
-    "url": "/hoi4/static/js/main.25470ca5.chunk.js"
+    "revision": "4170c5e2a4c978d25105",
+    "url": "/hoi4/static/js/main.dc0b68c9.chunk.js"
   },
   {
     "revision": "376cad2d548ab3f733b4",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/hoi4/static/media/logo.5d5d9eef.svg"
   },
   {
-    "revision": "bf53ca34d95fc0e2c3e04ae7302d77ad",
+    "revision": "43354147de0319466b9edaee1c6e1cad",
     "url": "/hoi4/index.html"
   }
 ];
