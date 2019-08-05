@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "cypress": "^3.4.1",
-    "gh-pages": "^2.1.0"
+    "gh-pages": "^1.2.0"
   },
   "browserslist": [
     ">0.2%",
