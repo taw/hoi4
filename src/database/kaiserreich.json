@@ -1896,6 +1896,45 @@
       "terrain_bonuses": {
       }
     },
+    "heavy_cruiser": {
+      "air_attack": 0,
+      "breakthrough": 0,
+      "casualty_trickleback": 0,
+      "defense": 0,
+      "entrenchment": 0,
+      "equipment_capture_factor": 0,
+      "experience_loss_factor": 0,
+      "hard_attack": 0,
+      "initiative": 0,
+      "maximum_speed": 0,
+      "recon": 0,
+      "reliability_factor": 0,
+      "soft_attack": 0,
+      "supply_consumption_factor": 0,
+      "fuel_consumption_factor": 0,
+      "suppression": 0,
+      "supply_use": 0.1,
+      "fuel_consumption": 0,
+      "active": true,
+      "critical_part_damage_chance_mult": 1,
+      "critical_parts": [
+        "rudder_jammed",
+        "destroyed_ammo_storage",
+        "broken_propeller",
+        "on_fire"
+      ],
+      "hit_profile_mult": 1.0,
+      "org": 40,
+      "type": [
+        "capital_ship"
+      ],
+      "name": "Heavy Cruiser",
+      "equipment": {
+        "ship_hull_panzerschiff": 1
+      },
+      "terrain_bonuses": {
+      }
+    },
     "infantry": {
       "air_attack": 0,
       "breakthrough": 0,
@@ -2064,7 +2103,7 @@
           "attack": 0.3
         },
         "river": {
-          "attack": 0.4
+          "attack": 0.3
         }
       }
     },
@@ -4084,12 +4123,12 @@
       "armor_value": 0,
       "build_cost_ic": 2450,
       "default_modules": {
-        "fixed_ship_anti_air_slot": "empty",
-        "fixed_ship_deck_slot_1": "empty",
-        "fixed_ship_deck_slot_2": "empty",
-        "fixed_ship_engine_slot": "carrier_ship_engine_1",
+        "fixed_ship_anti_air_slot": "ship_anti_air_1",
+        "fixed_ship_deck_slot_1": "ship_deck_space_10",
+        "fixed_ship_deck_slot_2": "ship_deck_space_10",
+        "fixed_ship_engine_slot": "cruiser_ship_engine_1",
         "fixed_ship_radar_slot": "empty",
-        "fixed_ship_secondaries_slot": "empty"
+        "fixed_ship_secondaries_slot": "ship_secondaries_1"
       },
       "fuel_consumption": 87,
       "hg_armor_piercing": 0,
@@ -4100,7 +4139,9 @@
       "max_strength": 250,
       "module_count_limit": {
         "category": "ship_radar",
-        "count": "#<Property::LT:0x00007f884f4a77f0>"
+        "count": {
+          "<": 2
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -4108,8 +4149,7 @@
         "fixed_ship_deck_slot_2": "inherit",
         "fixed_ship_engine_slot": {
           "allowed_module_categories": [
-            "cruiser_ship_engine",
-            "carrier_ship_engine"
+            "cruiser_ship_engine"
           ],
           "required": true
         },
@@ -4147,12 +4187,13 @@
       "armor_value": 0,
       "build_cost_ic": 2600,
       "default_modules": {
-        "fixed_ship_anti_air_slot": "empty",
-        "fixed_ship_deck_slot_1": "empty",
-        "fixed_ship_deck_slot_2": "empty",
+        "fixed_ship_anti_air_slot": "ship_anti_air_1",
+        "fixed_ship_deck_slot_1": "ship_deck_space_10",
+        "fixed_ship_deck_slot_2": "ship_deck_space_10",
         "fixed_ship_engine_slot": "carrier_ship_engine_1",
         "fixed_ship_radar_slot": "empty",
-        "fixed_ship_secondaries_slot": "empty"
+        "fixed_ship_secondaries_slot": "ship_secondaries_1",
+        "front_1_custom_slot": "ship_deck_space_10"
       },
       "fuel_consumption": 87,
       "hg_armor_piercing": 0,
@@ -4163,7 +4204,9 @@
       "max_strength": 325,
       "module_count_limit": {
         "category": "ship_radar",
-        "count": "#<Property::LT:0x00007f884f4a77f0>"
+        "count": {
+          "<": 2
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -4183,7 +4226,7 @@
         }
       },
       "naval_range": 4000,
-      "naval_speed": 26,
+      "naval_speed": 30,
       "offensive_weapons": false,
       "reliability": 0.75,
       "resources": {
@@ -4212,12 +4255,12 @@
       "armor_value": 0,
       "build_cost_ic": 3250,
       "default_modules": {
-        "fixed_ship_anti_air_slot": "empty",
-        "fixed_ship_deck_slot_1": "empty",
-        "fixed_ship_deck_slot_2": "empty",
+        "fixed_ship_anti_air_slot": "ship_anti_air_1",
+        "fixed_ship_deck_slot_1": "ship_deck_space_10",
+        "fixed_ship_deck_slot_2": "ship_deck_space_10",
         "fixed_ship_engine_slot": "carrier_ship_engine_1",
         "fixed_ship_radar_slot": "empty",
-        "fixed_ship_secondaries_slot": "empty"
+        "fixed_ship_secondaries_slot": "ship_secondaries_1"
       },
       "fuel_consumption": 87,
       "hg_armor_piercing": 0,
@@ -4228,7 +4271,9 @@
       "max_strength": 350,
       "module_count_limit": {
         "category": "ship_radar",
-        "count": "#<Property::LT:0x00007f884f4a77f0>"
+        "count": {
+          "<": 2
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -4248,7 +4293,7 @@
         }
       },
       "naval_range": 5000,
-      "naval_speed": 26,
+      "naval_speed": 30,
       "offensive_weapons": false,
       "reliability": 0.8,
       "resources": {
@@ -4278,12 +4323,12 @@
       "armor_value": 0,
       "build_cost_ic": 3750,
       "default_modules": {
-        "fixed_ship_anti_air_slot": "empty",
-        "fixed_ship_deck_slot_1": "empty",
-        "fixed_ship_deck_slot_2": "empty",
+        "fixed_ship_anti_air_slot": "ship_anti_air_1",
+        "fixed_ship_deck_slot_1": "ship_deck_space_10",
+        "fixed_ship_deck_slot_2": "ship_deck_space_10",
         "fixed_ship_engine_slot": "carrier_ship_engine_1",
         "fixed_ship_radar_slot": "empty",
-        "fixed_ship_secondaries_slot": "empty"
+        "fixed_ship_secondaries_slot": "ship_secondaries_1"
       },
       "fuel_consumption": 87,
       "hg_armor_piercing": 0,
@@ -4294,7 +4339,9 @@
       "max_strength": 400,
       "module_count_limit": {
         "category": "ship_radar",
-        "count": "#<Property::LT:0x00007f884f4a77f0>"
+        "count": {
+          "<": 2
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -4316,7 +4363,7 @@
         "rear_1_custom_slot": "inherit"
       },
       "naval_range": 6000,
-      "naval_speed": 26,
+      "naval_speed": 32,
       "offensive_weapons": false,
       "reliability": 0.9,
       "resources": {
@@ -4346,12 +4393,12 @@
       "armor_value": 0,
       "build_cost_ic": 4250,
       "default_modules": {
-        "fixed_ship_anti_air_slot": "empty",
-        "fixed_ship_deck_slot_1": "empty",
-        "fixed_ship_deck_slot_2": "empty",
+        "fixed_ship_anti_air_slot": "ship_anti_air_1",
+        "fixed_ship_deck_slot_1": "ship_deck_space_10",
+        "fixed_ship_deck_slot_2": "ship_deck_space_10",
         "fixed_ship_engine_slot": "carrier_ship_engine_1",
         "fixed_ship_radar_slot": "empty",
-        "fixed_ship_secondaries_slot": "empty"
+        "fixed_ship_secondaries_slot": "ship_secondaries_1"
       },
       "fuel_consumption": 87,
       "hg_armor_piercing": 0,
@@ -4362,7 +4409,9 @@
       "max_strength": 450,
       "module_count_limit": {
         "category": "ship_radar",
-        "count": "#<Property::LT:0x00007f884f4a77f0>"
+        "count": {
+          "<": 2
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -4392,7 +4441,7 @@
         }
       },
       "naval_range": 7000,
-      "naval_speed": 26,
+      "naval_speed": 32,
       "offensive_weapons": false,
       "reliability": 0.95,
       "resources": {
@@ -4422,12 +4471,12 @@
       "armor_value": 0,
       "build_cost_ic": 4250,
       "default_modules": {
-        "fixed_ship_anti_air_slot": "empty",
-        "fixed_ship_deck_slot_1": "empty",
-        "fixed_ship_deck_slot_2": "empty",
+        "fixed_ship_anti_air_slot": "ship_anti_air_1",
+        "fixed_ship_deck_slot_1": "ship_deck_space_10",
+        "fixed_ship_deck_slot_2": "ship_deck_space_10",
         "fixed_ship_engine_slot": "carrier_ship_engine_1",
         "fixed_ship_radar_slot": "empty",
-        "fixed_ship_secondaries_slot": "empty"
+        "fixed_ship_secondaries_slot": "ship_secondaries_1"
       },
       "fuel_consumption": 87,
       "hg_armor_piercing": 0,
@@ -4438,7 +4487,9 @@
       "max_strength": 450,
       "module_count_limit": {
         "category": "ship_radar",
-        "count": "#<Property::LT:0x00007f884f4a77f0>"
+        "count": {
+          "<": 2
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -4525,14 +4576,14 @@
     "ship_hull_cruiser_1": {
       "alias": "light_cruiser",
       "anti_air_attack": 0,
-      "armor_value": 0,
+      "armor_value": 1,
       "build_cost_ic": 1800,
       "default_modules": {
-        "fixed_ship_armor_slot": "ship_cruiser_armor",
-        "fixed_ship_battery_slot": "ship_light_battery",
-        "fixed_ship_engine_slot": "cruiser_ship_engine",
-        "fixed_ship_fire_control_system_slot": "ship_fire_control_system",
-        "rear_1_custom_slot": "ship_light_battery"
+        "fixed_ship_armor_slot": "ship_armor_cruiser_1",
+        "fixed_ship_battery_slot": "ship_light_battery_1",
+        "fixed_ship_engine_slot": "cruiser_ship_engine_1",
+        "fixed_ship_fire_control_system_slot": "empty",
+        "rear_1_custom_slot": "ship_light_battery_1"
       },
       "fuel_consumption": 20,
       "hg_armor_piercing": 0,
@@ -4541,23 +4592,15 @@
       "lg_attack": 0,
       "manpower": 600,
       "max_strength": 100,
-      "module_count_limit": [
-        {
-          "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884f56bd80>"
-        },
-        {
-          "category": "ship_sonar",
-          "count": "#<Property::LT:0x00007f884f56bad8>"
-        },
-        {
-          "category": "ship_torpedo",
-          "count": "#<Property::LT:0x00007f884f56b808>"
+      "module_count_limit": {
+        "category": "ship_medium_battery_battery",
+        "count": {
+          "<": 1
         }
-      ],
+      },
       "module_slots": "inherit",
       "naval_range": 2500,
-      "naval_speed": 20,
+      "naval_speed": 31.5,
       "reliability": 0.8,
       "resources": {
         "steel": 1
@@ -4581,17 +4624,10 @@
     "ship_hull_cruiser_2": {
       "alias": "light_cruiser",
       "anti_air_attack": 0,
-      "armor_value": 0,
+      "armor_value": 1,
       "build_cost_ic": 1900,
       "default_modules": {
-        "fixed_ship_anti_air_slot": "ship_anti_air",
-        "fixed_ship_armor_slot": "ship_cruiser_armor",
-        "fixed_ship_battery_slot": "ship_light_battery",
-        "fixed_ship_engine_slot": "cruiser_ship_engine",
-        "fixed_ship_fire_control_system_slot": "ship_fire_control_system",
-        "fixed_ship_secondaries_slot": "ship_secondaries",
-        "hull_specialization_slot": "empty",
-        "rear_1_custom_slot": "ship_light_battery"
+        "fixed_ship_anti_air_slot": "ship_anti_air_1"
       },
       "fuel_consumption": 20,
       "hg_armor_piercing": 0,
@@ -4600,20 +4636,12 @@
       "lg_attack": 0,
       "manpower": 800,
       "max_strength": 110,
-      "module_count_limit": [
-        {
-          "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884f56bd80>"
-        },
-        {
-          "category": "ship_sonar",
-          "count": "#<Property::LT:0x00007f884f56bad8>"
-        },
-        {
-          "category": "ship_torpedo",
-          "count": "#<Property::LT:0x00007f884f56b808>"
+      "module_count_limit": {
+        "category": "ship_medium_battery_battery",
+        "count": {
+          "<": 1
         }
-      ],
+      },
       "module_slots": {
         "fixed_ship_anti_air_slot": {
           "allowed_module_categories": [
@@ -4640,7 +4668,7 @@
         "rear_1_custom_slot": "inherit"
       },
       "naval_range": 3000,
-      "naval_speed": 25,
+      "naval_speed": 33.5,
       "reliability": 0.8,
       "resources": {
         "steel": 2
@@ -4665,18 +4693,14 @@
     "ship_hull_cruiser_3": {
       "alias": "light_cruiser",
       "anti_air_attack": 0,
-      "armor_value": 0,
+      "armor_value": 1,
       "build_cost_ic": 2000,
       "default_modules": {
-        "fixed_ship_anti_air_slot": "ship_anti_air",
-        "fixed_ship_armor_slot": "ship_cruiser_armor",
-        "fixed_ship_battery_slot": "ship_light_battery",
-        "fixed_ship_engine_slot": "cruiser_ship_engine",
-        "fixed_ship_fire_control_system_slot": "ship_fire_control_system",
-        "fixed_ship_secondaries_slot": "ship_secondaries",
-        "hull_specialization_slot": "empty",
-        "mid_1_custom_slot": "ship_anti_air",
-        "rear_1_custom_slot": "ship_light_battery"
+        "fixed_ship_armor_slot": "ship_armor_cruiser_1",
+        "fixed_ship_battery_slot": "ship_light_battery_1",
+        "fixed_ship_engine_slot": "cruiser_ship_engine_1",
+        "fixed_ship_fire_control_system_slot": "empty",
+        "rear_1_custom_slot": "ship_light_battery_1"
       },
       "fuel_consumption": 20,
       "hg_armor_piercing": 0,
@@ -4685,20 +4709,12 @@
       "lg_attack": 0,
       "manpower": 1200,
       "max_strength": 120,
-      "module_count_limit": [
-        {
-          "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884f56bd80>"
-        },
-        {
-          "category": "ship_sonar",
-          "count": "#<Property::LT:0x00007f884f56bad8>"
-        },
-        {
-          "category": "ship_torpedo",
-          "count": "#<Property::LT:0x00007f884f56b808>"
+      "module_count_limit": {
+        "category": "ship_medium_battery_battery",
+        "count": {
+          "<": 1
         }
-      ],
+      },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
         "fixed_ship_armor_slot": "inherit",
@@ -4724,7 +4740,7 @@
         "rear_1_custom_slot": "inherit"
       },
       "naval_range": 4000,
-      "naval_speed": 27,
+      "naval_speed": 35,
       "reliability": 0.8,
       "resources": {
         "steel": 2
@@ -4749,14 +4765,14 @@
     "ship_hull_cruiser_4": {
       "alias": "light_cruiser",
       "anti_air_attack": 0,
-      "armor_value": 0,
+      "armor_value": 1,
       "build_cost_ic": 2100,
       "default_modules": {
-        "fixed_ship_armor_slot": "ship_cruiser_armor",
-        "fixed_ship_battery_slot": "ship_light_battery",
-        "fixed_ship_engine_slot": "cruiser_ship_engine",
-        "fixed_ship_fire_control_system_slot": "ship_fire_control_system",
-        "rear_1_custom_slot": "ship_light_battery"
+        "fixed_ship_armor_slot": "ship_armor_cruiser_1",
+        "fixed_ship_battery_slot": "ship_light_battery_1",
+        "fixed_ship_engine_slot": "cruiser_ship_engine_1",
+        "fixed_ship_fire_control_system_slot": "empty",
+        "rear_1_custom_slot": "ship_light_battery_1"
       },
       "fuel_consumption": 20,
       "hg_armor_piercing": 0,
@@ -4765,20 +4781,12 @@
       "lg_attack": 0,
       "manpower": 1400,
       "max_strength": 130,
-      "module_count_limit": [
-        {
-          "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884f56bd80>"
-        },
-        {
-          "category": "ship_sonar",
-          "count": "#<Property::LT:0x00007f884f56bad8>"
-        },
-        {
-          "category": "ship_torpedo",
-          "count": "#<Property::LT:0x00007f884f56b808>"
+      "module_count_limit": {
+        "category": "ship_medium_battery_battery",
+        "count": {
+          "<": 3
         }
-      ],
+      },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
         "fixed_ship_armor_slot": "inherit",
@@ -4797,6 +4805,7 @@
           "allowed_module_categories": [
             "ship_light_battery",
             "ship_light_medium_battery",
+            "ship_medium_battery",
             "ship_anti_air",
             "ship_depth_charge"
           ],
@@ -4807,7 +4816,7 @@
         "rear_1_custom_slot": "inherit"
       },
       "naval_range": 4500,
-      "naval_speed": 28,
+      "naval_speed": 35,
       "reliability": 0.8,
       "resources": {
         "steel": 3
@@ -4832,14 +4841,14 @@
     "ship_hull_cruiser_5": {
       "alias": "light_cruiser",
       "anti_air_attack": 0,
-      "armor_value": 0,
+      "armor_value": 1,
       "build_cost_ic": 2200,
       "default_modules": {
-        "fixed_ship_armor_slot": "ship_cruiser_armor",
-        "fixed_ship_battery_slot": "ship_light_battery",
-        "fixed_ship_engine_slot": "cruiser_ship_engine",
-        "fixed_ship_fire_control_system_slot": "ship_fire_control_system",
-        "rear_1_custom_slot": "ship_light_battery"
+        "fixed_ship_armor_slot": "ship_armor_cruiser_1",
+        "fixed_ship_battery_slot": "ship_light_battery_1",
+        "fixed_ship_engine_slot": "cruiser_ship_engine_1",
+        "fixed_ship_fire_control_system_slot": "empty",
+        "rear_1_custom_slot": "ship_light_battery_1"
       },
       "fuel_consumption": 20,
       "hg_armor_piercing": 0,
@@ -4848,20 +4857,12 @@
       "lg_attack": 0,
       "manpower": 1500,
       "max_strength": 140,
-      "module_count_limit": [
-        {
-          "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884f56bd80>"
-        },
-        {
-          "category": "ship_sonar",
-          "count": "#<Property::LT:0x00007f884f56bad8>"
-        },
-        {
-          "category": "ship_torpedo",
-          "count": "#<Property::LT:0x00007f884f56b808>"
+      "module_count_limit": {
+        "category": "ship_medium_battery_battery",
+        "count": {
+          "<": 4
         }
-      ],
+      },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
         "fixed_ship_armor_slot": "inherit",
@@ -4888,7 +4889,7 @@
         "rear_1_custom_slot": "inherit"
       },
       "naval_range": 5000,
-      "naval_speed": 29,
+      "naval_speed": 36.5,
       "reliability": 0.8,
       "resources": {
         "steel": 4
@@ -4913,14 +4914,14 @@
     "ship_hull_cruiser_6": {
       "alias": "light_cruiser",
       "anti_air_attack": 0,
-      "armor_value": 0,
+      "armor_value": 1,
       "build_cost_ic": 2300,
       "default_modules": {
-        "fixed_ship_armor_slot": "ship_cruiser_armor",
-        "fixed_ship_battery_slot": "ship_light_battery",
-        "fixed_ship_engine_slot": "cruiser_ship_engine",
-        "fixed_ship_fire_control_system_slot": "ship_fire_control_system",
-        "rear_1_custom_slot": "ship_light_battery"
+        "fixed_ship_armor_slot": "ship_armor_cruiser_1",
+        "fixed_ship_battery_slot": "ship_light_battery_1",
+        "fixed_ship_engine_slot": "cruiser_ship_engine_1",
+        "fixed_ship_fire_control_system_slot": "empty",
+        "rear_1_custom_slot": "ship_light_battery_1"
       },
       "fuel_consumption": 20,
       "hg_armor_piercing": 0,
@@ -4929,20 +4930,12 @@
       "lg_attack": 0,
       "manpower": 1600,
       "max_strength": 150,
-      "module_count_limit": [
-        {
-          "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884f56bd80>"
-        },
-        {
-          "category": "ship_sonar",
-          "count": "#<Property::LT:0x00007f884f56bad8>"
-        },
-        {
-          "category": "ship_torpedo",
-          "count": "#<Property::LT:0x00007f884f56b808>"
+      "module_count_limit": {
+        "category": "ship_medium_battery",
+        "count": {
+          "<": 5
         }
-      ],
+      },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
         "fixed_ship_armor_slot": "inherit",
@@ -4959,7 +4952,7 @@
         "rear_2_custom_slot": "rear_1_custom_slot"
       },
       "naval_range": 5500,
-      "naval_speed": 30,
+      "naval_speed": 36.5,
       "reliability": 0.8,
       "resources": {
         "steel": 4
@@ -4986,12 +4979,12 @@
       "armor_value": 0,
       "build_cost_ic": 3300,
       "default_modules": {
-        "fixed_ship_armor_slot": "empty",
-        "fixed_ship_battery_slot": "empty",
+        "fixed_ship_armor_slot": "ship_armor_bb_0",
+        "fixed_ship_battery_slot": "ship_heavy_battery_1",
         "fixed_ship_engine_slot": "heavy_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
         "fixed_ship_secondaries_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "rear_1_custom_slot": "ship_heavy_battery_1"
       },
       "fuel_consumption": 67,
       "hg_armor_piercing": 0,
@@ -5003,11 +4996,15 @@
       "module_count_limit": [
         {
           "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884f32de88>"
+          "count": {
+            "<": 2
+          }
         },
         {
           "category": "ship_torpedo",
-          "count": "#<Property::LT:0x00007f884f32daf0>"
+          "count": {
+            "<": 2
+          }
         }
       ],
       "module_slots": {
@@ -5019,7 +5016,7 @@
         "rear_1_custom_slot": "inherit"
       },
       "naval_range": 3000,
-      "naval_speed": 20,
+      "naval_speed": 30.5,
       "reliability": 0.8,
       "resources": {
         "chromium": 1,
@@ -5047,12 +5044,7 @@
       "armor_value": 0,
       "build_cost_ic": 3400,
       "default_modules": {
-        "fixed_ship_armor_slot": "empty",
-        "fixed_ship_battery_slot": "empty",
-        "fixed_ship_engine_slot": "heavy_ship_engine_1",
-        "fixed_ship_fire_control_system_slot": "empty",
-        "fixed_ship_secondaries_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "fixed_ship_anti_air_slot": "ship_anti_air_1"
       },
       "fuel_consumption": 67,
       "hg_armor_piercing": 0,
@@ -5064,11 +5056,15 @@
       "module_count_limit": [
         {
           "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884f32de88>"
+          "count": {
+            "<": 2
+          }
         },
         {
           "category": "ship_torpedo",
-          "count": "#<Property::LT:0x00007f884f32daf0>"
+          "count": {
+            "<": 2
+          }
         }
       ],
       "module_slots": {
@@ -5087,7 +5083,7 @@
         "rear_1_custom_slot": "inherit"
       },
       "naval_range": 3500,
-      "naval_speed": 22,
+      "naval_speed": 35,
       "reliability": 0.85,
       "resources": {
         "chromium": 1,
@@ -5115,12 +5111,12 @@
       "armor_value": 0,
       "build_cost_ic": 3500,
       "default_modules": {
-        "fixed_ship_armor_slot": "empty",
-        "fixed_ship_battery_slot": "empty",
+        "fixed_ship_armor_slot": "ship_armor_bb_0",
+        "fixed_ship_battery_slot": "ship_heavy_battery_1",
         "fixed_ship_engine_slot": "heavy_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
         "fixed_ship_secondaries_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "rear_1_custom_slot": "ship_heavy_battery_1"
       },
       "fuel_consumption": 67,
       "hg_armor_piercing": 0,
@@ -5131,7 +5127,9 @@
       "max_strength": 400,
       "module_count_limit": {
         "category": "ship_super_heavy_battery",
-        "count": "#<Property::LT:0x00007f884f5c7f90>"
+        "count": {
+          "<": 3
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -5170,7 +5168,7 @@
         "rear_1_custom_slot": "mid_1_custom_slot"
       },
       "naval_range": 4000,
-      "naval_speed": 24,
+      "naval_speed": 37,
       "reliability": 0.9,
       "resources": {
         "chromium": 1,
@@ -5198,12 +5196,12 @@
       "armor_value": 0,
       "build_cost_ic": 3600,
       "default_modules": {
-        "fixed_ship_armor_slot": "empty",
-        "fixed_ship_battery_slot": "empty",
+        "fixed_ship_armor_slot": "ship_armor_bb_0",
+        "fixed_ship_battery_slot": "ship_heavy_battery_1",
         "fixed_ship_engine_slot": "heavy_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
         "fixed_ship_secondaries_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "rear_1_custom_slot": "ship_heavy_battery_1"
       },
       "fuel_consumption": 67,
       "hg_armor_piercing": 0,
@@ -5214,7 +5212,9 @@
       "max_strength": 450,
       "module_count_limit": {
         "category": "ship_super_heavy_battery",
-        "count": "#<Property::LT:0x00007f884f5c5218>"
+        "count": {
+          "<": 4
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -5243,7 +5243,7 @@
         "rear_1_custom_slot": "inherit"
       },
       "naval_range": 4500,
-      "naval_speed": 26,
+      "naval_speed": 37.5,
       "reliability": 0.95,
       "resources": {
         "chromium": 1,
@@ -5271,12 +5271,12 @@
       "armor_value": 0,
       "build_cost_ic": 4000,
       "default_modules": {
-        "fixed_ship_armor_slot": "empty",
-        "fixed_ship_battery_slot": "empty",
+        "fixed_ship_armor_slot": "ship_armor_bb_0",
+        "fixed_ship_battery_slot": "ship_heavy_battery_1",
         "fixed_ship_engine_slot": "heavy_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
         "fixed_ship_secondaries_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "rear_1_custom_slot": "ship_heavy_battery_1"
       },
       "fuel_consumption": 70,
       "hg_armor_piercing": 0,
@@ -5287,7 +5287,9 @@
       "max_strength": 480,
       "module_count_limit": {
         "category": "ship_super_heavy_battery",
-        "count": "#<Property::LT:0x00007f884f57dd50>"
+        "count": {
+          "<": 5
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -5312,7 +5314,7 @@
         }
       },
       "naval_range": 5000,
-      "naval_speed": 27,
+      "naval_speed": 40,
       "reliability": 0.95,
       "resources": {
         "chromium": 1,
@@ -5340,12 +5342,12 @@
       "armor_value": 0,
       "build_cost_ic": 4500,
       "default_modules": {
-        "fixed_ship_armor_slot": "empty",
-        "fixed_ship_battery_slot": "empty",
+        "fixed_ship_armor_slot": "ship_armor_bb_0",
+        "fixed_ship_battery_slot": "ship_heavy_battery_1",
         "fixed_ship_engine_slot": "heavy_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
         "fixed_ship_secondaries_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "rear_1_custom_slot": "ship_heavy_battery_1"
       },
       "fuel_consumption": 72,
       "hg_armor_piercing": 0,
@@ -5356,7 +5358,9 @@
       "max_strength": 520,
       "module_count_limit": {
         "category": "ship_super_heavy_battery",
-        "count": "#<Property::LT:0x00007f884f5cec78>"
+        "count": {
+          "<": 6
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -5374,7 +5378,7 @@
         "rear_2_custom_slot": "inherit"
       },
       "naval_range": 5500,
-      "naval_speed": 28,
+      "naval_speed": 38,
       "reliability": 0.95,
       "resources": {
         "chromium": 1,
@@ -5403,13 +5407,8 @@
       "armor_value": 0,
       "build_cost_ic": 4500,
       "default_modules": {
-        "fixed_ship_anti_air_slot": "empty",
-        "fixed_ship_deck_slot_1": "empty",
-        "fixed_ship_engine_slot": "heavy_ship_engine_1",
-        "fixed_ship_radar_slot": "empty",
-        "fixed_ship_secondaries_slot": "empty",
-        "front_1_custom_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "fixed_ship_deck_slot_2": "ship_deck_space",
+        "fixed_ship_engine_slot": "heavy_ship_engine_1"
       },
       "fuel_consumption": 70,
       "hg_armor_piercing": 0,
@@ -5430,12 +5429,11 @@
             "ship_heavy_secondaries"
           ],
           "gfx": "ship_deck_space_slot",
-          "required": true
+          "required": false
         },
         "fixed_ship_engine_slot": {
           "allowed_module_categories": [
-            "heavy_ship_engine",
-            "carrier_ship_engine"
+            "heavy_ship_engine"
           ],
           "required": true
         },
@@ -5475,13 +5473,15 @@
       "armor_value": 0,
       "build_cost_ic": 5000,
       "default_modules": {
-        "fixed_ship_anti_air_slot": "empty",
-        "fixed_ship_deck_slot_1": "empty",
-        "fixed_ship_engine_slot": "heavy_ship_engine_1",
+        "fixed_ship_anti_air_slot": "ship_anti_air_1",
+        "fixed_ship_deck_slot_1": "ship_deck_space",
+        "fixed_ship_engine_slot": "carrier_ship_engine_1",
         "fixed_ship_radar_slot": "empty",
-        "fixed_ship_secondaries_slot": "empty",
-        "front_1_custom_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "fixed_ship_secondaries_slot": "ship_secondaries_1",
+        "front_1_custom_slot": "ship_deck_space",
+        "port_1_custom_slot": "ship_secondaries_1",
+        "rear_1_custom_slot": "ship_deck_space",
+        "starboard_1_custom_slot": "ship_anti_air_1"
       },
       "fuel_consumption": 70,
       "hg_armor_piercing": 0,
@@ -5521,7 +5521,7 @@
         }
       },
       "naval_range": 4000,
-      "naval_speed": 26,
+      "naval_speed": 30,
       "offensive_weapons": false,
       "reliability": 0.75,
       "resources": {
@@ -5543,21 +5543,21 @@
       "year": 1933,
       "name": "ship_hull_heavy_carrier_2",
       "archetype": "ship_hull_heavy_carrier",
-      "parent": "ship_hull_heavy_carrier_1"
+      "parent": "ship_hull_heavy_carrier"
     },
     "ship_hull_heavy_carrier_3": {
       "alias": "heavy_carrier",
       "anti_air_attack": 0,
       "armor_value": 0,
-      "build_cost_ic": 5500,
+      "build_cost_ic": 7000,
       "default_modules": {
-        "fixed_ship_anti_air_slot": "empty",
-        "fixed_ship_deck_slot_1": "empty",
+        "fixed_ship_anti_air_slot": "ship_anti_air_1",
+        "fixed_ship_deck_slot_1": "ship_deck_space",
         "fixed_ship_engine_slot": "heavy_ship_engine_1",
         "fixed_ship_radar_slot": "empty",
-        "fixed_ship_secondaries_slot": "empty",
-        "front_1_custom_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "fixed_ship_secondaries_slot": "ship_secondaries_1",
+        "front_1_custom_slot": "ship_deck_space",
+        "rear_1_custom_slot": "ship_armor_carrier_deck"
       },
       "fuel_consumption": 70,
       "hg_armor_piercing": 0,
@@ -5599,7 +5599,7 @@
         "starboard_1_custom_slot": "inherit"
       },
       "naval_range": 6000,
-      "naval_speed": 26,
+      "naval_speed": 32,
       "offensive_weapons": false,
       "reliability": 0.85,
       "resources": {
@@ -5627,15 +5627,15 @@
       "alias": "heavy_carrier",
       "anti_air_attack": 0,
       "armor_value": 0,
-      "build_cost_ic": 6000,
+      "build_cost_ic": 9000,
       "default_modules": {
-        "fixed_ship_anti_air_slot": "empty",
-        "fixed_ship_deck_slot_1": "empty",
+        "fixed_ship_anti_air_slot": "ship_anti_air_1",
+        "fixed_ship_deck_slot_1": "ship_deck_space",
         "fixed_ship_engine_slot": "heavy_ship_engine_1",
         "fixed_ship_radar_slot": "empty",
-        "fixed_ship_secondaries_slot": "empty",
-        "front_1_custom_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "fixed_ship_secondaries_slot": "ship_secondaries_1",
+        "front_1_custom_slot": "ship_deck_space",
+        "rear_1_custom_slot": "ship_armor_carrier_deck"
       },
       "fuel_consumption": 70,
       "hg_armor_piercing": 0,
@@ -5660,7 +5660,7 @@
         "starboard_2_custom_slot": "starboard_1_custom_slot"
       },
       "naval_range": 6000,
-      "naval_speed": 26,
+      "naval_speed": 32,
       "offensive_weapons": false,
       "reliability": 0.95,
       "resources": {
@@ -5690,12 +5690,12 @@
       "armor_value": 0,
       "build_cost_ic": 8000,
       "default_modules": {
-        "fixed_ship_anti_air_slot": "empty",
-        "fixed_ship_deck_slot_1": "empty",
-        "fixed_ship_deck_slot_2": "empty",
+        "fixed_ship_anti_air_slot": "ship_anti_air_1",
+        "fixed_ship_deck_slot_1": "ship_deck_space_10",
+        "fixed_ship_deck_slot_2": "ship_deck_space_10",
         "fixed_ship_engine_slot": "carrier_ship_engine_1",
         "fixed_ship_radar_slot": "empty",
-        "fixed_ship_secondaries_slot": "empty"
+        "fixed_ship_secondaries_slot": "ship_secondaries_1"
       },
       "fuel_consumption": 87,
       "hg_armor_piercing": 0,
@@ -5706,14 +5706,24 @@
       "max_strength": 350,
       "module_count_limit": {
         "category": "ship_radar",
-        "count": "#<Property::LT:0x00007f884f4a77f0>"
+        "count": {
+          "<": 2
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
-        "fixed_ship_deck_slot_1": [
-          "inherit",
-          "inherit"
-        ],
+        "fixed_ship_deck_slot_1": "inherit",
+        "fixed_ship_deck_slot_2": {
+          "allowed_module_categories": [
+            "ship_deck_space",
+            "ship_carrier_armor",
+            "ship_anti_air",
+            "ship_secondaries",
+            "ship_heavy_secondaries"
+          ],
+          "gfx": "ship_deck_space_slot",
+          "required": true
+        },
         "fixed_ship_engine_slot": "inherit",
         "fixed_ship_radar_slot": "inherit",
         "fixed_ship_secondaries_slot": "inherit",
@@ -5747,7 +5757,7 @@
         }
       },
       "naval_range": 4000,
-      "naval_speed": 24,
+      "naval_speed": 32,
       "offensive_weapons": false,
       "reliability": 0.7,
       "resources": {
@@ -5774,13 +5784,14 @@
     "ship_hull_light_3": {
       "alias": "ship_hull_light_3",
       "anti_air_attack": 0,
-      "armor_value": 0,
+      "armor_value": 1,
       "build_cost_ic": 550,
       "default_modules": {
-        "fixed_ship_battery_slot": "empty",
+        "fixed_ship_battery_slot": "ship_light_battery_1",
         "fixed_ship_engine_slot": "light_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
-        "fixed_ship_torpedo_slot": "empty"
+        "fixed_ship_torpedo_slot": "ship_torpedo_0",
+        "rear_1_custom_slot": "empty"
       },
       "fuel_consumption": 0,
       "hg_armor_piercing": 0,
@@ -5792,11 +5803,15 @@
       "module_count_limit": [
         {
           "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884f6aab88>"
+          "count": {
+            "<": 2
+          }
         },
         {
           "category": "ship_sonar",
-          "count": "#<Property::LT:0x00007f884f6aa6b0>"
+          "count": {
+            "<": 2
+          }
         }
       ],
       "module_slots": {
@@ -5805,11 +5820,12 @@
         "fixed_ship_engine_slot": "inherit",
         "fixed_ship_fire_control_system_slot": "inherit",
         "fixed_ship_torpedo_slot": "inherit",
-        "mid_1_custom_slot": "rear_1_custom_slot",
-        "rear_1_custom_slot": "inherit"
+        "mid_1_custom_slot": "inherit",
+        "rear_1_custom_slot": "inherit",
+        "rear_2_custom_slot": "rear_1_custom_slot"
       },
-      "naval_range": 2000,
-      "naval_speed": 25,
+      "naval_range": 2500,
+      "naval_speed": 37,
       "reliability": 0.9,
       "resources": {
         "steel": 3
@@ -5834,13 +5850,14 @@
     "ship_hull_light_4": {
       "alias": "ship_hull_light_4",
       "anti_air_attack": 0,
-      "armor_value": 0,
+      "armor_value": 1,
       "build_cost_ic": 600,
       "default_modules": {
-        "fixed_ship_battery_slot": "empty",
+        "fixed_ship_battery_slot": "ship_light_battery_1",
         "fixed_ship_engine_slot": "light_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
-        "fixed_ship_torpedo_slot": "empty"
+        "fixed_ship_torpedo_slot": "ship_torpedo_0",
+        "rear_1_custom_slot": "empty"
       },
       "fuel_consumption": 0,
       "hg_armor_piercing": 0,
@@ -5852,11 +5869,15 @@
       "module_count_limit": [
         {
           "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884f6aab88>"
+          "count": {
+            "<": 2
+          }
         },
         {
           "category": "ship_sonar",
-          "count": "#<Property::LT:0x00007f884f6aa6b0>"
+          "count": {
+            "<": 2
+          }
         }
       ],
       "module_slots": {
@@ -5873,10 +5894,11 @@
         },
         "fixed_ship_torpedo_slot": "inherit",
         "mid_1_custom_slot": "inherit",
-        "rear_1_custom_slot": "inherit"
+        "rear_1_custom_slot": "inherit",
+        "rear_2_custom_slot": "inherit"
       },
-      "naval_range": 2500,
-      "naval_speed": 25,
+      "naval_range": 3000,
+      "naval_speed": 37,
       "reliability": 0.92,
       "resources": {
         "steel": 4
@@ -5901,13 +5923,14 @@
     "ship_hull_light_5": {
       "alias": "destroyer",
       "anti_air_attack": 0,
-      "armor_value": 0,
+      "armor_value": 1,
       "build_cost_ic": 650,
       "default_modules": {
-        "fixed_ship_battery_slot": "empty",
+        "fixed_ship_battery_slot": "ship_light_battery_1",
         "fixed_ship_engine_slot": "light_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
-        "fixed_ship_torpedo_slot": "empty"
+        "fixed_ship_torpedo_slot": "ship_torpedo_0",
+        "rear_1_custom_slot": "empty"
       },
       "fuel_consumption": 0,
       "hg_armor_piercing": 0,
@@ -5919,11 +5942,15 @@
       "module_count_limit": [
         {
           "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884f6aab88>"
+          "count": {
+            "<": 2
+          }
         },
         {
           "category": "ship_sonar",
-          "count": "#<Property::LT:0x00007f884f6aa6b0>"
+          "count": {
+            "<": 2
+          }
         }
       ],
       "module_slots": {
@@ -5936,16 +5963,18 @@
         "front_1_custom_slot": {
           "allowed_module_categories": [
             "ship_depth_charge",
+            "ship_torpedo",
             "ship_anti_air",
             "ship_light_battery"
           ],
           "required": false
         },
         "mid_1_custom_slot": "inherit",
-        "rear_1_custom_slot": "inherit"
+        "rear_1_custom_slot": "inherit",
+        "rear_2_custom_slot": "inherit"
       },
-      "naval_range": 3000,
-      "naval_speed": 25,
+      "naval_range": 4000,
+      "naval_speed": 38,
       "reliability": 0.94,
       "resources": {
         "steel": 4
@@ -5970,13 +5999,14 @@
     "ship_hull_light_6": {
       "alias": "destroyer",
       "anti_air_attack": 0,
-      "armor_value": 0,
+      "armor_value": 1,
       "build_cost_ic": 700,
       "default_modules": {
-        "fixed_ship_battery_slot": "empty",
+        "fixed_ship_battery_slot": "ship_light_battery_1",
         "fixed_ship_engine_slot": "light_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
-        "fixed_ship_torpedo_slot": "empty"
+        "fixed_ship_torpedo_slot": "ship_torpedo_0",
+        "rear_1_custom_slot": "empty"
       },
       "fuel_consumption": 0,
       "hg_armor_piercing": 0,
@@ -5988,11 +6018,15 @@
       "module_count_limit": [
         {
           "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884f6aab88>"
+          "count": {
+            "<": 2
+          }
         },
         {
           "category": "ship_sonar",
-          "count": "#<Property::LT:0x00007f884f6aa6b0>"
+          "count": {
+            "<": 2
+          }
         }
       ],
       "module_slots": {
@@ -6013,10 +6047,11 @@
           ],
           "required": false
         },
-        "rear_1_custom_slot": "inherit"
+        "rear_1_custom_slot": "inherit",
+        "rear_2_custom_slot": "inherit"
       },
-      "naval_range": 3500,
-      "naval_speed": 25,
+      "naval_range": 5000,
+      "naval_speed": 38,
       "reliability": 0.96,
       "resources": {
         "chromium": 1,
@@ -6045,12 +6080,12 @@
       "armor_value": 0,
       "build_cost_ic": 3200,
       "default_modules": {
-        "fixed_ship_battery_slot": "empty",
+        "fixed_ship_armor_slot": "ship_armor_cruiser_1",
+        "fixed_ship_battery_slot": "ship_light_medium_battery_1",
         "fixed_ship_engine_slot": "cruiser_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
         "fixed_ship_secondaries_slot": "empty",
-        "ixed_ship_armor_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "rear_1_custom_slot": "ship_light_medium_battery_1"
       },
       "fuel_consumption": 40,
       "hg_armor_piercing": 0,
@@ -6062,15 +6097,21 @@
       "module_count_limit": [
         {
           "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884f179948>"
+          "count": {
+            "<": 2
+          }
         },
         {
           "category": "ship_sonar",
-          "count": "#<Property::LT:0x00007f884f182c00>"
+          "count": {
+            "<": 2
+          }
         },
         {
           "category": "ship_torpedo",
-          "count": "#<Property::LT:0x00007f884f180400>"
+          "count": {
+            "<": 2
+          }
         }
       ],
       "module_slots": {
@@ -6084,7 +6125,7 @@
         "rear_1_custom_slot": "inherit"
       },
       "naval_range": 4000,
-      "naval_speed": 26,
+      "naval_speed": 34,
       "reliability": 0.8,
       "resources": {
         "steel": 3
@@ -6112,12 +6153,12 @@
       "armor_value": 0,
       "build_cost_ic": 3300,
       "default_modules": {
-        "fixed_ship_battery_slot": "empty",
+        "fixed_ship_armor_slot": "ship_armor_cruiser_1",
+        "fixed_ship_battery_slot": "ship_light_medium_battery_1",
         "fixed_ship_engine_slot": "cruiser_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
         "fixed_ship_secondaries_slot": "empty",
-        "ixed_ship_armor_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "rear_1_custom_slot": "ship_light_medium_battery_1"
       },
       "fuel_consumption": 40,
       "hg_armor_piercing": 0,
@@ -6128,7 +6169,9 @@
       "max_strength": 250,
       "module_count_limit": {
         "category": "ship_heavy_battery",
-        "count": "#<Property::LT:0x00007f884f1f03e0>"
+        "count": {
+          "<": 3
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -6143,7 +6186,6 @@
         },
         "fixed_ship_engine_slot": {
           "allowed_module_categories": [
-            "heavy_ship_engine",
             "cruiser_ship_engine"
           ],
           "required": true
@@ -6182,7 +6224,7 @@
         "rear_1_custom_slot": "mid_1_custom_slot"
       },
       "naval_range": 5000,
-      "naval_speed": 27,
+      "naval_speed": 35,
       "reliability": 0.8,
       "resources": {
         "chromium": 1,
@@ -6211,12 +6253,12 @@
       "armor_value": 0,
       "build_cost_ic": 3400,
       "default_modules": {
-        "fixed_ship_battery_slot": "empty",
+        "fixed_ship_armor_slot": "ship_armor_cruiser_1",
+        "fixed_ship_battery_slot": "ship_light_medium_battery_1",
         "fixed_ship_engine_slot": "cruiser_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
         "fixed_ship_secondaries_slot": "empty",
-        "ixed_ship_armor_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "rear_1_custom_slot": "ship_light_medium_battery_1"
       },
       "fuel_consumption": 40,
       "hg_armor_piercing": 0,
@@ -6227,7 +6269,9 @@
       "max_strength": 250,
       "module_count_limit": {
         "category": "ship_heavy_battery",
-        "count": "#<Property::LT:0x00007f884fa02dd0>"
+        "count": {
+          "<": 4
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -6251,7 +6295,7 @@
         "rear_1_custom_slot": "inherit"
       },
       "naval_range": 5500,
-      "naval_speed": 28,
+      "naval_speed": 37.5,
       "reliability": 0.8,
       "resources": {
         "steel": 3
@@ -6279,12 +6323,12 @@
       "armor_value": 0,
       "build_cost_ic": 3500,
       "default_modules": {
-        "fixed_ship_battery_slot": "empty",
+        "fixed_ship_armor_slot": "ship_armor_cruiser_1",
+        "fixed_ship_battery_slot": "ship_light_medium_battery_1",
         "fixed_ship_engine_slot": "cruiser_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
         "fixed_ship_secondaries_slot": "empty",
-        "ixed_ship_armor_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "rear_1_custom_slot": "ship_light_medium_battery_1"
       },
       "fuel_consumption": 40,
       "hg_armor_piercing": 0,
@@ -6295,7 +6339,9 @@
       "max_strength": 250,
       "module_count_limit": {
         "category": "ship_heavy_battery",
-        "count": "#<Property::LT:0x00007f884fa088e8>"
+        "count": {
+          "<": 5
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -6322,7 +6368,7 @@
         }
       },
       "naval_range": 6000,
-      "naval_speed": 29,
+      "naval_speed": 39,
       "reliability": 0.8,
       "resources": {
         "steel": 3
@@ -6349,13 +6395,13 @@
       "armor_value": 0,
       "build_cost_ic": 6500,
       "default_modules": {
-        "fixed_ship_armor_slot": "empty",
-        "fixed_ship_battery_slot": "empty",
-        "fixed_ship_engine_slot": "super_super_heavy_ship_engine_1",
+        "fixed_ship_armor_slot": "ship_armor_shbb",
+        "fixed_ship_battery_slot": "ship_super_heavy_battery_0",
+        "fixed_ship_engine_slot": "heavy_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
-        "fixed_ship_secondaries_slot": "empty",
-        "mid_1_custom_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "fixed_ship_secondaries_slot": "ship_secondaries_1",
+        "mid_1_custom_slot": "ship_super_heavy_battery_0",
+        "rear_1_custom_slot": "ship_super_heavy_battery_0"
       },
       "fuel_consumption": 80,
       "hg_armor_piercing": 0,
@@ -6366,7 +6412,9 @@
       "max_strength": 500,
       "module_count_limit": {
         "category": "ship_radar",
-        "count": "#<Property::LT:0x00007f884f3ff8e8>"
+        "count": {
+          "<": 2
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -6389,7 +6437,7 @@
         "rear_1_custom_slot": "inherit"
       },
       "naval_range": 4500,
-      "naval_speed": 22,
+      "naval_speed": 35,
       "reliability": 0.9,
       "resources": {
         "chromium": 1,
@@ -6417,13 +6465,13 @@
       "armor_value": 0,
       "build_cost_ic": 7500,
       "default_modules": {
-        "fixed_ship_armor_slot": "empty",
-        "fixed_ship_battery_slot": "empty",
-        "fixed_ship_engine_slot": "super_super_heavy_ship_engine_1",
+        "fixed_ship_armor_slot": "ship_armor_shbb",
+        "fixed_ship_battery_slot": "ship_super_heavy_battery_0",
+        "fixed_ship_engine_slot": "heavy_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
-        "fixed_ship_secondaries_slot": "empty",
-        "mid_1_custom_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "fixed_ship_secondaries_slot": "ship_secondaries_1",
+        "mid_1_custom_slot": "ship_super_heavy_battery_0",
+        "rear_1_custom_slot": "ship_super_heavy_battery_0"
       },
       "fuel_consumption": 82,
       "hg_armor_piercing": 0,
@@ -6434,7 +6482,9 @@
       "max_strength": 550,
       "module_count_limit": {
         "category": "ship_radar",
-        "count": "#<Property::LT:0x00007f884f3ff8e8>"
+        "count": {
+          "<": 2
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -6456,7 +6506,7 @@
         "rear_1_custom_slot": "inherit"
       },
       "naval_range": 5000,
-      "naval_speed": 24,
+      "naval_speed": 38,
       "reliability": 0.92,
       "resources": {
         "chromium": 1,
@@ -6484,13 +6534,13 @@
       "armor_value": 0,
       "build_cost_ic": 8000,
       "default_modules": {
-        "fixed_ship_armor_slot": "empty",
-        "fixed_ship_battery_slot": "empty",
-        "fixed_ship_engine_slot": "super_super_heavy_ship_engine_1",
+        "fixed_ship_armor_slot": "ship_armor_shbb",
+        "fixed_ship_battery_slot": "ship_super_heavy_battery_0",
+        "fixed_ship_engine_slot": "heavy_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
-        "fixed_ship_secondaries_slot": "empty",
-        "mid_1_custom_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "fixed_ship_secondaries_slot": "ship_secondaries_1",
+        "mid_1_custom_slot": "ship_super_heavy_battery_0",
+        "rear_1_custom_slot": "ship_super_heavy_battery_0"
       },
       "fuel_consumption": 85,
       "hg_armor_piercing": 0,
@@ -6501,7 +6551,9 @@
       "max_strength": 600,
       "module_count_limit": {
         "category": "ship_radar",
-        "count": "#<Property::LT:0x00007f884f3ff8e8>"
+        "count": {
+          "<": 2
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -6527,7 +6579,7 @@
         }
       },
       "naval_range": 5500,
-      "naval_speed": 25,
+      "naval_speed": 38,
       "reliability": 0.95,
       "resources": {
         "chromium": 1,
@@ -6555,13 +6607,13 @@
       "armor_value": 0,
       "build_cost_ic": 8500,
       "default_modules": {
-        "fixed_ship_armor_slot": "empty",
-        "fixed_ship_battery_slot": "empty",
-        "fixed_ship_engine_slot": "super_super_heavy_ship_engine_1",
+        "fixed_ship_armor_slot": "ship_armor_shbb",
+        "fixed_ship_battery_slot": "ship_super_heavy_battery_0",
+        "fixed_ship_engine_slot": "heavy_ship_engine_1",
         "fixed_ship_fire_control_system_slot": "empty",
-        "fixed_ship_secondaries_slot": "empty",
-        "mid_1_custom_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "fixed_ship_secondaries_slot": "ship_secondaries_1",
+        "mid_1_custom_slot": "ship_super_heavy_battery_0",
+        "rear_1_custom_slot": "ship_super_heavy_battery_0"
       },
       "fuel_consumption": 85,
       "hg_armor_piercing": 0,
@@ -6572,7 +6624,9 @@
       "max_strength": 650,
       "module_count_limit": {
         "category": "ship_radar",
-        "count": "#<Property::LT:0x00007f884f3ff8e8>"
+        "count": {
+          "<": 2
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -6591,7 +6645,7 @@
         "rear_2_custom_slot": "inherit"
       },
       "naval_range": 6000,
-      "naval_speed": 30,
+      "naval_speed": 38,
       "reliability": 0.95,
       "resources": {
         "chromium": 2,
@@ -6642,7 +6696,9 @@
       "max_strength": 600,
       "module_count_limit": {
         "category": "ship_radar",
-        "count": "#<Property::LT:0x00007f884f3ff8e8>"
+        "count": {
+          "<": 2
+        }
       },
       "module_slots": {
         "fixed_ship_anti_air_slot": "inherit",
@@ -6668,7 +6724,7 @@
         }
       },
       "naval_range": 4000,
-      "naval_speed": 18,
+      "naval_speed": 30,
       "reliability": 0.7,
       "resources": {
         "chromium": 1,
@@ -6709,11 +6765,15 @@
       "module_count_limit": [
         {
           "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884fc5ad08>"
+          "count": {
+            "<": 2
+          }
         },
         {
           "category": "ship_sub_snorkel",
-          "count": "#<Property::LT:0x00007f884fc5a808>"
+          "count": {
+            "<": 2
+          }
         }
       ],
       "module_slots": {
@@ -6730,8 +6790,8 @@
         },
         "rear_1_custom_slot": "inherit"
       },
-      "naval_range": 4000,
-      "naval_speed": 14,
+      "naval_range": 3000,
+      "naval_speed": 18.5,
       "reliability": [
         0.7,
         0.7
@@ -6777,11 +6837,15 @@
       "module_count_limit": [
         {
           "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884fc5ad08>"
+          "count": {
+            "<": 2
+          }
         },
         {
           "category": "ship_sub_snorkel",
-          "count": "#<Property::LT:0x00007f884fc5a808>"
+          "count": {
+            "<": 2
+          }
         }
       ],
       "module_slots": {
@@ -6791,8 +6855,8 @@
         "mid_1_custom_slot": "inherit",
         "rear_1_custom_slot": "inherit"
       },
-      "naval_range": 5000,
-      "naval_speed": 15,
+      "naval_range": 3500,
+      "naval_speed": 19.5,
       "reliability": 0.75,
       "resources": {
         "steel": 2
@@ -6835,11 +6899,15 @@
       "module_count_limit": [
         {
           "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884fc5ad08>"
+          "count": {
+            "<": 2
+          }
         },
         {
           "category": "ship_sub_snorkel",
-          "count": "#<Property::LT:0x00007f884fc5a808>"
+          "count": {
+            "<": 2
+          }
         }
       ],
       "module_slots": {
@@ -6849,8 +6917,8 @@
         "mid_1_custom_slot": "inherit",
         "rear_1_custom_slot": "inherit"
       },
-      "naval_range": 6000,
-      "naval_speed": 16,
+      "naval_range": 4000,
+      "naval_speed": 19.5,
       "reliability": 0.8,
       "resources": {
         "chromium": 1,
@@ -6894,11 +6962,15 @@
       "module_count_limit": [
         {
           "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884fc5ad08>"
+          "count": {
+            "<": 2
+          }
         },
         {
           "category": "ship_sub_snorkel",
-          "count": "#<Property::LT:0x00007f884fc5a808>"
+          "count": {
+            "<": 2
+          }
         }
       ],
       "module_slots": {
@@ -6916,8 +6988,8 @@
         },
         "rear_1_custom_slot": "inherit"
       },
-      "naval_range": 6000,
-      "naval_speed": 18,
+      "naval_range": 5000,
+      "naval_speed": 19.5,
       "reliability": 0.8,
       "resources": {
         "chromium": 1,
@@ -6948,12 +7020,8 @@
       "armor_value": 0,
       "build_cost_ic": 370,
       "default_modules": {
-        "fixed_ship_engine_slot": "sub_ship_engine_3",
-        "fixed_ship_torpedo_slot": "empty",
-        "front_1_custom_slot": "empty",
-        "mid_1_custom_slot": "empty",
-        "mid_2_custom_slot": "empty",
-        "rear_1_custom_slot": "empty"
+        "fixed_ship_engine_slot": "sub_ship_engine_1",
+        "fixed_ship_torpedo_slot": "ship_torpedo_sub_0"
       },
       "fuel_consumption": 1,
       "hg_armor_piercing": 0,
@@ -6961,15 +7029,19 @@
       "lg_armor_piercing": 0,
       "lg_attack": 0,
       "manpower": 200,
-      "max_strength": 30,
+      "max_strength": 45,
       "module_count_limit": [
         {
           "category": "ship_radar",
-          "count": "#<Property::LT:0x00007f884fc5ad08>"
+          "count": {
+            "<": 2
+          }
         },
         {
           "category": "ship_sub_snorkel",
-          "count": "#<Property::LT:0x00007f884fc5a808>"
+          "count": {
+            "<": 2
+          }
         }
       ],
       "module_slots": {
@@ -7014,7 +7086,7 @@
         },
         "rear_1_custom_slot": "front_1_custom_slot"
       },
-      "naval_range": 5000,
+      "naval_range": 6000,
       "naval_speed": 11,
       "reliability": 0.75,
       "resources": {
@@ -7369,7 +7441,7 @@
       "archetype": "motorized_rocket_equipment"
     },
     "convoy_1": {
-      "anti_air_attack": 0.2,
+      "anti_air_attack": 0.1,
       "armor_value": 0,
       "build_cost_ic": 70,
       "fuel_consumption": 0,
@@ -7385,7 +7457,7 @@
       },
       "sub_detection": 1,
       "surface_detection": 10,
-      "surface_visibility": 10,
+      "surface_visibility": 14,
       "torpedo_attack": 0,
       "type": [
         "convoy"
@@ -7665,7 +7737,7 @@
       "air_agility": 5,
       "air_attack": 50,
       "air_bombing": 30,
-      "air_defence": 30,
+      "air_defence": 25,
       "air_range": 2500,
       "archetype": "strat_bomber_equipment",
       "maximum_speed": 400
@@ -7697,7 +7769,7 @@
       "air_agility": 7,
       "air_attack": 100,
       "air_bombing": 45,
-      "air_defence": 45,
+      "air_defence": 35,
       "air_range": 3500,
       "archetype": "strat_bomber_equipment",
       "maximum_speed": 450,
@@ -7730,7 +7802,7 @@
       "air_agility": 10,
       "air_attack": 150,
       "air_bombing": 60,
-      "air_defence": 60,
+      "air_defence": 50,
       "air_range": 5000,
       "archetype": "strat_bomber_equipment",
       "maximum_speed": 500,
@@ -10884,9 +10956,6 @@
       "destroyer": {
         "torpedo_attack": 0.2
       },
-      "heavy_cruiser": {
-        "torpedo_attack": 0.2
-      },
       "research_cost": 2,
       "start_year": 1933,
       "name": "torpedo_tech_three",
@@ -10895,6 +10964,9 @@
       ],
       "unit_bonuses": {
         "battleship": {
+          "torpedo_attack": 0.2
+        },
+        "heavy_cruiser": {
           "torpedo_attack": 0.2
         },
         "light_cruiser": {
@@ -10928,9 +11000,6 @@
       "destroyer": {
         "torpedo_attack": 0.2
       },
-      "heavy_cruiser": {
-        "torpedo_attack": 0.2
-      },
       "research_cost": 2,
       "start_year": 1944,
       "name": "torpedo_tech_five",
@@ -10939,6 +11008,9 @@
       ],
       "unit_bonuses": {
         "battleship": {
+          "torpedo_attack": 0.2
+        },
+        "heavy_cruiser": {
           "torpedo_attack": 0.2
         },
         "light_cruiser": {
@@ -11482,14 +11554,10 @@
         "cat_gunnery"
       ],
       "destroyer": {
-        "lg_armor_piercing": 0.025,
-        "lg_attack": 0.025
+        "lg_armor_piercing": 0.05,
+        "lg_attack": 0.05
       },
-      "heavy_cruiser": {
-        "lg_armor_piercing": 0.025,
-        "lg_attack": 0.025
-      },
-      "research_cost": 2,
+      "research_cost": 1,
       "start_year": 1924,
       "name": "gunnery_tech_two",
       "leads_to": [
@@ -11497,24 +11565,28 @@
       ],
       "unit_bonuses": {
         "battleship": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         },
         "carrier": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         },
         "SH_battleship": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         },
         "heavy_carrier": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
+        },
+        "heavy_cruiser": {
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         },
         "light_cruiser": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         }
       }
     },
@@ -11524,14 +11596,10 @@
         "cat_gunnery"
       ],
       "destroyer": {
-        "lg_armor_piercing": 0.025,
-        "lg_attack": 0.025
+        "lg_armor_piercing": 0.05,
+        "lg_attack": 0.05
       },
-      "heavy_cruiser": {
-        "lg_armor_piercing": 0.025,
-        "lg_attack": 0.025
-      },
-      "research_cost": 2,
+      "research_cost": 1,
       "start_year": 1933,
       "name": "gunnery_tech_three",
       "leads_to": [
@@ -11539,24 +11607,28 @@
       ],
       "unit_bonuses": {
         "battleship": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         },
         "carrier": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         },
         "SH_battleship": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         },
         "heavy_carrier": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
+        },
+        "heavy_cruiser": {
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         },
         "light_cruiser": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         }
       }
     },
@@ -11566,14 +11638,10 @@
         "cat_gunnery"
       ],
       "destroyer": {
-        "lg_armor_piercing": 0.025,
-        "lg_attack": 0.025
+        "lg_armor_piercing": 0.05,
+        "lg_attack": 0.05
       },
-      "heavy_cruiser": {
-        "lg_armor_piercing": 0.025,
-        "lg_attack": 0.025
-      },
-      "research_cost": 2,
+      "research_cost": 1,
       "start_year": 1940,
       "name": "gunnery_tech_four",
       "leads_to": [
@@ -11581,24 +11649,28 @@
       ],
       "unit_bonuses": {
         "battleship": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         },
         "carrier": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         },
         "SH_battleship": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         },
         "heavy_carrier": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
+        },
+        "heavy_cruiser": {
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         },
         "light_cruiser": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         }
       }
     },
@@ -11608,14 +11680,10 @@
         "cat_gunnery"
       ],
       "destroyer": {
-        "lg_armor_piercing": 0.025,
-        "lg_attack": 0.025
+        "lg_armor_piercing": 0.05,
+        "lg_attack": 0.05
       },
-      "heavy_cruiser": {
-        "lg_armor_piercing": 0.025,
-        "lg_attack": 0.025
-      },
-      "research_cost": 2,
+      "research_cost": 1,
       "start_year": 1944,
       "name": "gunnery_tech_five",
       "leads_to": [
@@ -11623,24 +11691,28 @@
       ],
       "unit_bonuses": {
         "battleship": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         },
         "carrier": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         },
         "SH_battleship": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         },
         "heavy_carrier": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
+        },
+        "heavy_cruiser": {
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         },
         "light_cruiser": {
-          "lg_armor_piercing": 0.025,
-          "lg_attack": 0.025
+          "lg_armor_piercing": 0.05,
+          "lg_attack": 0.05
         }
       }
     },
@@ -11967,10 +12039,10 @@
         "cv_tech"
       ],
       "dependencies": {
-        "nav_av_one": 1
       },
       "enable_equipment_modules": [
         "carrier_ship_engine_1",
+        "ship_deck_space_10",
         "ship_deck_space"
       ],
       "enable_equipments": [
@@ -11993,8 +12065,6 @@
         "cv_tech"
       ],
       "dependencies": {
-        "nav_av_two": 1,
-        "nav_infra_one": 1
       },
       "enable_equipment_modules": [
         "carrier_ship_engine_2"
@@ -12018,8 +12088,6 @@
         "cv_tech"
       ],
       "dependencies": {
-        "nav_av_three": 1,
-        "nav_infra_two": 1
       },
       "enable_equipment_modules": [
         "carrier_ship_engine_3"
@@ -12043,8 +12111,6 @@
         "cv_tech"
       ],
       "dependencies": {
-        "nav_av_three": 1,
-        "nav_infra_two": 1
       },
       "enable_equipment_modules": [
         "carrier_ship_engine_4"
@@ -12070,8 +12136,7 @@
         "cv_tech"
       ],
       "dependencies": {
-        "cruiser_specialisation_module_one": 1,
-        "nav_infra_one": 1
+        "cruiser_specialisation_module_one": 1
       },
       "enable_equipment_modules": [
         "ship_airplane_launcher_2"
@@ -12239,10 +12304,6 @@
       "categories": [
         "naval_equipment"
       ],
-      "heavy_cruiser": {
-        "hg_attack": 0.05,
-        "lg_attack": 0.05
-      },
       "research_cost": 2.5,
       "xp_research_bonus": 1.5,
       "xp_research_cost": 50,
@@ -12260,6 +12321,10 @@
         "SH_battleship": {
           "hg_attack": 0.1,
           "lg_attack": 0.1
+        },
+        "heavy_cruiser": {
+          "hg_attack": 0.05,
+          "lg_attack": 0.05
         }
       }
     },
@@ -12270,10 +12335,6 @@
       "destroyer": {
         "hg_attack": 0.05,
         "lg_attack": 0.05
-      },
-      "heavy_cruiser": {
-        "hg_attack": 0.1,
-        "lg_attack": 0.1
       },
       "research_cost": 2.5,
       "xp_research_bonus": 1.5,
@@ -12292,6 +12353,10 @@
         "SH_battleship": {
           "hg_attack": 0.15,
           "lg_attack": 0.15
+        },
+        "heavy_cruiser": {
+          "hg_attack": 0.1,
+          "lg_attack": 0.1
         },
         "light_cruiser": {
           "hg_attack": 0.1,
@@ -12467,7 +12532,7 @@
         "acr_tech"
       ],
       "dependencies": {
-        "nav_infra_one": 1
+        "cruiser_gun_module_one": 1
       },
       "enable_equipment_modules": [
         "ship_armor_bc_0",
@@ -12494,7 +12559,6 @@
         "acr_tech"
       ],
       "dependencies": {
-        "nav_infra_one": 1
       },
       "enable_equipment_modules": [
         "cruiser_ship_engine_2"
@@ -12520,8 +12584,7 @@
         "acr_tech"
       ],
       "dependencies": {
-        "fbb_gunnery_tech_one": 1,
-        "nav_infra_two": 1
+        "fbb_gunnery_tech_one": 1
       },
       "enable_equipment_modules": [
         "cruiser_ship_engine_3"
@@ -12547,8 +12610,7 @@
         "acr_tech"
       ],
       "dependencies": {
-        "fbb_gunnery_tech_one": 1,
-        "nav_infra_two": 1
+        "fbb_gunnery_tech_one": 1
       },
       "enable_equipment_modules": [
         "cruiser_ship_engine_4"
@@ -12574,8 +12636,7 @@
         "acr_tech"
       ],
       "dependencies": {
-        "fbb_gunnery_tech_one": 1,
-        "nav_infra_three": 1
+        "fbb_gunnery_tech_one": 1
       },
       "enable_equipment_modules": [
         "cruiser_ship_engine_5"
@@ -12832,11 +12893,7 @@
         "bb_tech",
         "ebc_tech"
       ],
-      "heavy_cruiser": {
-        "hg_armor_piercing": 0.025,
-        "hg_attack": 0.025
-      },
-      "research_cost": 2,
+      "research_cost": 1,
       "start_year": 1924,
       "name": "fbb_gunnery_tech_two",
       "leads_to": [
@@ -12844,12 +12901,16 @@
       ],
       "unit_bonuses": {
         "battleship": {
-          "hg_armor_piercing": 0.0125,
-          "hg_attack": 0.0125
-        },
-        "heavy_carrier": {
           "hg_armor_piercing": 0.025,
           "hg_attack": 0.025
+        },
+        "heavy_carrier": {
+          "hg_armor_piercing": 0.05,
+          "hg_attack": 0.05
+        },
+        "heavy_cruiser": {
+          "hg_armor_piercing": 0.05,
+          "hg_attack": 0.05
         }
       }
     },
@@ -12861,11 +12922,7 @@
         "bb_tech",
         "ebc_tech"
       ],
-      "heavy_cruiser": {
-        "hg_armor_piercing": 0.025,
-        "hg_attack": 0.025
-      },
-      "research_cost": 2,
+      "research_cost": 1,
       "start_year": 1933,
       "name": "fbb_gunnery_tech_three",
       "leads_to": [
@@ -12873,12 +12930,16 @@
       ],
       "unit_bonuses": {
         "battleship": {
-          "hg_armor_piercing": 0.0125,
-          "hg_attack": 0.0125
-        },
-        "heavy_carrier": {
           "hg_armor_piercing": 0.025,
           "hg_attack": 0.025
+        },
+        "heavy_carrier": {
+          "hg_armor_piercing": 0.05,
+          "hg_attack": 0.05
+        },
+        "heavy_cruiser": {
+          "hg_armor_piercing": 0.05,
+          "hg_attack": 0.05
         }
       }
     },
@@ -12890,11 +12951,7 @@
         "bb_tech",
         "ebc_tech"
       ],
-      "heavy_cruiser": {
-        "hg_armor_piercing": 0.025,
-        "hg_attack": 0.025
-      },
-      "research_cost": 2,
+      "research_cost": 1,
       "start_year": 1940,
       "name": "fbb_gunnery_tech_four",
       "leads_to": [
@@ -12902,12 +12959,16 @@
       ],
       "unit_bonuses": {
         "battleship": {
-          "hg_armor_piercing": 0.0125,
-          "hg_attack": 0.0125
-        },
-        "heavy_carrier": {
           "hg_armor_piercing": 0.025,
           "hg_attack": 0.025
+        },
+        "heavy_carrier": {
+          "hg_armor_piercing": 0.05,
+          "hg_attack": 0.05
+        },
+        "heavy_cruiser": {
+          "hg_armor_piercing": 0.05,
+          "hg_attack": 0.05
         }
       }
     },
@@ -12919,11 +12980,7 @@
         "bb_tech",
         "ebc_tech"
       ],
-      "heavy_cruiser": {
-        "hg_armor_piercing": 0.025,
-        "hg_attack": 0.025
-      },
-      "research_cost": 2,
+      "research_cost": 1,
       "start_year": 1944,
       "name": "fbb_gunnery_tech_five",
       "leads_to": [
@@ -12931,12 +12988,16 @@
       ],
       "unit_bonuses": {
         "battleship": {
-          "hg_armor_piercing": 0.0125,
-          "hg_attack": 0.0125
-        },
-        "heavy_carrier": {
           "hg_armor_piercing": 0.025,
           "hg_attack": 0.025
+        },
+        "heavy_carrier": {
+          "hg_armor_piercing": 0.05,
+          "hg_attack": 0.05
+        },
+        "heavy_cruiser": {
+          "hg_armor_piercing": 0.05,
+          "hg_attack": 0.05
         }
       }
     },
@@ -12951,8 +13012,7 @@
         "ebc_tech"
       ],
       "dependencies": {
-        "fbb_gunnery_tech_one": 1,
-        "nav_infra_two": 1
+        "fbb_gunnery_tech_one": 1
       },
       "enable_equipment_modules": [
         "heavy_ship_engine_1",
@@ -12982,7 +13042,6 @@
         "ebc_tech"
       ],
       "dependencies": {
-        "nav_infra_two": 1
       },
       "enable_equipment_modules": [
         "heavy_ship_engine_2"
@@ -13010,7 +13069,6 @@
         "ebc_tech"
       ],
       "dependencies": {
-        "nav_infra_three": 1
       },
       "enable_equipment_modules": [
         "heavy_ship_engine_3"
@@ -13038,7 +13096,6 @@
         "ebc_tech"
       ],
       "dependencies": {
-        "nav_infra_three": 1
       },
       "enable_equipment_modules": [
         "heavy_ship_engine_4"
@@ -13066,7 +13123,6 @@
         "ebc_tech"
       ],
       "dependencies": {
-        "nav_infra_three": 1
       },
       "enable_equipment_modules": [
         "heavy_ship_engine_5"
@@ -13426,7 +13482,7 @@
         "ebc_tech",
         "cat_gunnery"
       ],
-      "research_cost": 2,
+      "research_cost": 1,
       "start_year": 1924,
       "name": "dn_gunnery_tech_two",
       "leads_to": [
@@ -13434,12 +13490,12 @@
       ],
       "unit_bonuses": {
         "battleship": {
-          "hg_armor_piercing": 0.0125,
-          "hg_attack": 0.0125
-        },
-        "SH_battleship": {
           "hg_armor_piercing": 0.025,
           "hg_attack": 0.025
+        },
+        "SH_battleship": {
+          "hg_armor_piercing": 0.05,
+          "hg_attack": 0.05
         }
       }
     },
@@ -13451,7 +13507,7 @@
         "ebc_tech",
         "cat_gunnery"
       ],
-      "research_cost": 2,
+      "research_cost": 1,
       "start_year": 1933,
       "name": "dn_gunnery_tech_three",
       "leads_to": [
@@ -13459,12 +13515,12 @@
       ],
       "unit_bonuses": {
         "battleship": {
-          "hg_armor_piercing": 0.0125,
-          "hg_attack": 0.0125
-        },
-        "SH_battleship": {
           "hg_armor_piercing": 0.025,
           "hg_attack": 0.025
+        },
+        "SH_battleship": {
+          "hg_armor_piercing": 0.05,
+          "hg_attack": 0.05
         }
       }
     },
@@ -13476,7 +13532,7 @@
         "ebc_tech",
         "cat_gunnery"
       ],
-      "research_cost": 2,
+      "research_cost": 1,
       "start_year": 1940,
       "name": "dn_gunnery_tech_four",
       "leads_to": [
@@ -13484,12 +13540,12 @@
       ],
       "unit_bonuses": {
         "battleship": {
-          "hg_armor_piercing": 0.0125,
-          "hg_attack": 0.0125
-        },
-        "SH_battleship": {
           "hg_armor_piercing": 0.025,
           "hg_attack": 0.025
+        },
+        "SH_battleship": {
+          "hg_armor_piercing": 0.05,
+          "hg_attack": 0.05
         }
       }
     },
@@ -13501,7 +13557,7 @@
         "ebc_tech",
         "cat_gunnery"
       ],
-      "research_cost": 2,
+      "research_cost": 1,
       "start_year": 1944,
       "name": "dn_gunnery_tech_five",
       "leads_to": [
@@ -13509,12 +13565,12 @@
       ],
       "unit_bonuses": {
         "battleship": {
-          "hg_armor_piercing": 0.0125,
-          "hg_attack": 0.0125
-        },
-        "SH_battleship": {
           "hg_armor_piercing": 0.025,
           "hg_attack": 0.025
+        },
+        "SH_battleship": {
+          "hg_armor_piercing": 0.05,
+          "hg_attack": 0.05
         }
       }
     },
@@ -13527,10 +13583,9 @@
         "shbb_tech"
       ],
       "dependencies": {
-        "nav_infra_two": 1
       },
       "enable_equipment_modules": [
-        "super_heavy_ship_engine_1",
+        "heavy_ship_engine_1",
         "ship_armor_bb_0"
       ],
       "enable_equipments": [
@@ -13553,11 +13608,10 @@
         "shbb_tech"
       ],
       "dependencies": {
-        "dn_gunnery_tech_one": 1,
-        "nav_infra_two": 1
+        "dn_gunnery_tech_one": 1
       },
       "enable_equipment_modules": [
-        "super_heavy_ship_engine_2"
+        "heavy_ship_engine_2"
       ],
       "enable_equipments": [
         "ship_hull_dreadnought_3"
@@ -13580,10 +13634,9 @@
         "shbb_tech"
       ],
       "dependencies": {
-        "nav_infra_three": 1
       },
       "enable_equipment_modules": [
-        "super_heavy_ship_engine_3"
+        "heavy_ship_engine_3"
       ],
       "enable_equipments": [
         "ship_hull_dreadnought_4"
@@ -13605,10 +13658,9 @@
         "shbb_tech"
       ],
       "dependencies": {
-        "nav_infra_three": 1
       },
       "enable_equipment_modules": [
-        "super_heavy_ship_engine_4"
+        "heavy_ship_engine_4"
       ],
       "enable_equipments": [
         "ship_hull_dreadnought_5"
@@ -13630,8 +13682,10 @@
         "shbb_tech"
       ],
       "dependencies": {
-        "nav_infra_three": 1
       },
+      "enable_equipment_modules": [
+        "heavy_ship_engine_5"
+      ],
       "enable_equipments": [
         "ship_hull_dreadnought_6"
       ],
@@ -13855,8 +13909,6 @@
         "cvh_tech"
       ],
       "dependencies": {
-        "nav_av_three": 1,
-        "nav_infra_three": 1
       },
       "enable_equipment_modules": [
         "heavy_ship_engine_3",
@@ -13884,8 +13936,6 @@
         "cvh_tech"
       ],
       "dependencies": {
-        "nav_av_three": 1,
-        "nav_infra_three": 1
       },
       "enable_equipment_modules": [
         "heavy_ship_engine_4",
@@ -13910,8 +13960,6 @@
         "cvh_tech"
       ],
       "dependencies": {
-        "nav_av_three": 1,
-        "nav_infra_three": 1
       },
       "enable_equipment_modules": [
         "heavy_ship_engine_5",
@@ -13941,8 +13989,6 @@
         "cat_gunnery"
       ],
       "dependencies": {
-        "nav_av_two": 1,
-        "nav_infra_one": 1,
         "ps_gun_module_two": 1
       },
       "enable_equipment_modules": [
@@ -14344,7 +14390,6 @@
         "cv_tech"
       ],
       "dependencies": {
-        "nav_av_one": 1
       },
       "enable_equipments": [
 
@@ -14364,8 +14409,6 @@
         "cv_tech"
       ],
       "dependencies": {
-        "nav_av_two": 1,
-        "nav_infra_one": 1
       },
       "enable_equipments": [
         "ship_hull_carrier_3"
@@ -14385,8 +14428,6 @@
         "cv_tech"
       ],
       "dependencies": {
-        "nav_av_three": 1,
-        "nav_infra_two": 1
       },
       "enable_equipments": [
         "ship_hull_carrier_4"
@@ -14406,8 +14447,6 @@
         "cv_tech"
       ],
       "dependencies": {
-        "nav_av_three": 1,
-        "nav_infra_two": 1
       },
       "enable_equipments": [
         "ship_hull_carrier_5"
@@ -14433,7 +14472,6 @@
         "acr_tech"
       ],
       "dependencies": {
-        "nav_infra_one": 1
       },
       "enable_equipments": [
 
@@ -14454,7 +14492,6 @@
         "acr_tech"
       ],
       "dependencies": {
-        "nav_infra_one": 1
       },
       "enable_equipments": [
         "ship_hull_panzerschiff_3"
@@ -14475,7 +14512,6 @@
         "acr_tech"
       ],
       "dependencies": {
-        "nav_infra_two": 1
       },
       "enable_equipment_modules": [
         "cruiser_ship_engine_3"
@@ -14498,7 +14534,6 @@
         "ca_tech"
       ],
       "dependencies": {
-        "nav_infra_two": 1
       },
       "enable_equipments": [
         "ship_hull_panzerschiff_5"
@@ -14518,7 +14553,6 @@
         "ca_tech"
       ],
       "dependencies": {
-        "nav_infra_three": 1
       },
       "enable_equipments": [
         "ship_hull_panzerschiff_6"
@@ -14544,7 +14578,6 @@
         "ebc_tech"
       ],
       "dependencies": {
-        "nav_infra_two": 1
       },
       "enable_equipments": [
         "ship_hull_fast_battleship_1",
@@ -14566,7 +14599,6 @@
         "ebc_tech"
       ],
       "dependencies": {
-        "nav_infra_two": 1
       },
       "enable_equipments": [
         "ship_hull_fast_battleship_3"
@@ -14587,7 +14619,6 @@
         "ebc_tech"
       ],
       "dependencies": {
-        "nav_infra_two": 1
       },
       "enable_equipments": [
         "ship_hull_fast_battleship_4"
@@ -14608,7 +14639,6 @@
         "ebc_tech"
       ],
       "dependencies": {
-        "nav_infra_three": 1
       },
       "enable_equipments": [
         "ship_hull_fast_battleship_5"
@@ -14629,7 +14659,6 @@
         "ebc_tech"
       ],
       "dependencies": {
-        "nav_infra_three": 1
       },
       "enable_equipment_modules": [
         "heavy_ship_engine_5"
@@ -14657,7 +14686,6 @@
         "shbb_tech"
       ],
       "dependencies": {
-        "nav_infra_two": 1
       },
       "enable_equipments": [
 
@@ -14677,7 +14705,6 @@
         "shbb_tech"
       ],
       "dependencies": {
-        "nav_infra_two": 1
       },
       "enable_equipments": [
         "ship_hull_dreadnought_3"
@@ -14698,7 +14725,6 @@
         "shbb_tech"
       ],
       "dependencies": {
-        "nav_infra_two": 1
       },
       "enable_equipment_modules": [
         "heavy_ship_engine_3"
@@ -14721,7 +14747,6 @@
         "shbb_tech"
       ],
       "dependencies": {
-        "nav_infra_three": 1
       },
       "enable_equipment_modules": [
         "heavy_ship_engine_4"
@@ -14744,7 +14769,6 @@
         "shbb_tech"
       ],
       "dependencies": {
-        "nav_infra_three": 1
       },
       "enable_equipments": [
         "ship_hull_dreadnought_6"
@@ -14769,8 +14793,6 @@
         "cvh_tech"
       ],
       "dependencies": {
-        "nav_av_three": 1,
-        "nav_infra_three": 1
       },
       "enable_equipments": [
         "ship_hull_heavy_carrier_1",
@@ -14791,8 +14813,6 @@
         "cvh_tech"
       ],
       "dependencies": {
-        "nav_av_three": 1,
-        "nav_infra_three": 1
       },
       "enable_equipments": [
         "ship_hull_heavy_carrier_3"
@@ -14812,8 +14832,6 @@
         "cvh_tech"
       ],
       "dependencies": {
-        "nav_av_three": 1,
-        "nav_infra_three": 1
       },
       "enable_equipments": [
         "ship_hull_heavy_carrier_4"
@@ -14906,7 +14924,7 @@
       ],
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Air Superiority",
       "leads_to": [
         "infrastructure_destruction",
@@ -14926,7 +14944,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Infrastructure Destruction",
       "leads_to": [
         "naval_strike_tactics"
@@ -14945,7 +14963,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Home Defense",
       "leads_to": [
         "naval_strike_tactics"
@@ -14964,7 +14982,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Naval Strike Tactics",
       "leads_to": [
         "fighter_sweeps",
@@ -14987,7 +15005,7 @@
       ],
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Fighter Sweeps",
       "leads_to": [
         "multialtitude_flying"
@@ -15009,7 +15027,7 @@
       ],
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Dogfighting Experience",
       "leads_to": [
         "multialtitude_flying"
@@ -15027,7 +15045,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Multi-Altitude Flying",
       "leads_to": [
         "logistical_bombing"
@@ -15052,7 +15070,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Logistical Bombing",
       "leads_to": [
         "night_bombing",
@@ -15075,7 +15093,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Night Bombing",
       "leads_to": [
         "massed_bomber_formations"
@@ -15097,7 +15115,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Day Bombing",
       "leads_to": [
         "air_offense"
@@ -15116,7 +15134,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Massed Bomber Formations",
       "leads_to": [
         "flying_fortress"
@@ -15135,7 +15153,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Fighter Escorts",
       "leads_to": [
         "flying_fortress"
@@ -15154,7 +15172,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Flying Fortress",
       "leads_to": [
         "offensive_formations",
@@ -15174,7 +15192,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Offensive Formations",
       "leads_to": [
 
@@ -15193,7 +15211,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Mass Destruction",
       "leads_to": [
 
@@ -15216,7 +15234,7 @@
       ],
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Formation Flying",
       "leads_to": [
         "dive_bombing"
@@ -15235,7 +15253,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Dive Bombing",
       "leads_to": [
         "direct_ground_support"
@@ -15254,7 +15272,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Direct Ground Support",
       "leads_to": [
         "formation_fighting",
@@ -15277,7 +15295,7 @@
       ],
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Formation Fighting",
       "leads_to": [
         "hunt_and_destroy"
@@ -15299,7 +15317,7 @@
       ],
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Fighter Ace Initiative",
       "leads_to": [
         "hunt_and_destroy"
@@ -15318,7 +15336,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Hunt and Destroy",
       "leads_to": [
         "combat_unit_destruction"
@@ -15337,7 +15355,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Combat Unit Destruction",
       "leads_to": [
         "battlefield_support",
@@ -15361,7 +15379,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Battlefield Support",
       "leads_to": [
         "naval_strike_torpedo_tactics"
@@ -15379,7 +15397,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Keypoint Bombing",
       "leads_to": [
         "naval_strike_torpedo_tactics"
@@ -15401,7 +15419,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Ground Support Integration",
       "leads_to": [
         "naval_strike_torpedo_tactics"
@@ -15420,7 +15438,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Naval Strike Torpedo Tactics",
       "leads_to": [
         "strategic_destruction"
@@ -15439,7 +15457,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Strategic Destruction",
       "leads_to": [
         "forward_interception"
@@ -15458,7 +15476,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Forward Interception",
       "leads_to": [
 
@@ -15481,7 +15499,7 @@
       ],
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Force Rotation",
       "leads_to": [
         "fighter_baiting"
@@ -15501,7 +15519,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Fighter Baiting",
       "leads_to": [
         "low_echelon_support"
@@ -15520,7 +15538,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Low Echelon Support",
       "leads_to": [
         "dispersed_fighting"
@@ -15539,7 +15557,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Dispersed Fighting",
       "leads_to": [
         "operational_destruction"
@@ -15558,7 +15576,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Operational Destruction",
       "leads_to": [
         "fighter_veteran_initiative",
@@ -15577,7 +15595,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Fighter Veteran Initiative",
       "leads_to": [
         "naval_strike_torpedo_tactics_oi"
@@ -15602,7 +15620,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Naval Strike Torpedo Tactics",
       "leads_to": [
         "infiltration_bombing"
@@ -15621,7 +15639,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Ground Attack Veteran Initiative",
       "leads_to": [
         "carousel_bombing"
@@ -15639,7 +15657,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Carousel Bombing",
       "leads_to": [
         "infiltration_bombing"
@@ -15661,7 +15679,7 @@
       "strategic_bomb_visibility": -0.5,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Infiltration Bombing",
       "leads_to": [
         "air_skirmish"
@@ -15681,7 +15699,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "Air Skirmish",
       "leads_to": [
         "high_level_bombing"
@@ -15700,7 +15718,7 @@
       "research_cost": 3,
       "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
-      "xp_research_type": "army",
+      "xp_research_type": "air",
       "name": "High Level Bombing",
       "leads_to": [
 
@@ -18418,6 +18436,64 @@
         }
       }
     },
+    "expanded_engineer_corps_tech": {
+      "allow": {
+        "always": false
+      },
+      "research_cost": 1,
+      "name": "expanded_engineer_corps_tech",
+      "leads_to": [
+
+      ],
+      "unit_bonuses": {
+        "engineer": {
+          "entrenchment": 2,
+          "terrain_bonuses": {
+            "fort": {
+              "attack": 0.1,
+              "defence": 0.1
+            }
+          }
+        }
+      }
+    },
+    "crossing_the_rockies_tech": {
+      "allow": {
+        "always": false
+      },
+      "research_cost": 1,
+      "name": "crossing_the_rockies_tech",
+      "leads_to": [
+
+      ],
+      "unit_bonuses": {
+        "infantry": {
+          "terrain_bonuses": {
+            "mountain": {
+              "attack": 0.05,
+              "defence": 0.05,
+              "movement": 0.1
+            }
+          }
+        }
+      }
+    },
+    "improved_recon_units_tech": {
+      "allow": {
+        "always": false
+      },
+      "research_cost": 1,
+      "name": "improved_recon_units_tech",
+      "leads_to": [
+
+      ],
+      "unit_bonuses": {
+        "recon": {
+          "breakthrough": 1,
+          "recon": 1
+        }
+      }
+    },
     "asymmetrical_warfare": {
       "allow": {
         "always": false
@@ -18532,76 +18608,37 @@
         }
       }
     },
-    "nav_infra_one": {
+    "red_dragon": {
       "allow": {
         "always": false
       },
       "research_cost": 1,
-      "name": "nav_infra_one",
+      "name": "red_dragon",
       "leads_to": [
 
       ],
       "unit_bonuses": {
-      }
-    },
-    "nav_infra_two": {
-      "allow": {
-        "always": false
-      },
-      "research_cost": 1,
-      "name": "nav_infra_two",
-      "leads_to": [
-
-      ],
-      "unit_bonuses": {
-      }
-    },
-    "nav_infra_three": {
-      "allow": {
-        "always": false
-      },
-      "research_cost": 1,
-      "name": "nav_infra_three",
-      "leads_to": [
-
-      ],
-      "unit_bonuses": {
-      }
-    },
-    "nav_av_one": {
-      "allow": {
-        "always": false
-      },
-      "research_cost": 1,
-      "name": "nav_av_one",
-      "leads_to": [
-
-      ],
-      "unit_bonuses": {
-      }
-    },
-    "nav_av_two": {
-      "allow": {
-        "always": false
-      },
-      "research_cost": 1,
-      "name": "nav_av_two",
-      "leads_to": [
-
-      ],
-      "unit_bonuses": {
-      }
-    },
-    "nav_av_three": {
-      "allow": {
-        "always": false
-      },
-      "research_cost": 1,
-      "name": "nav_av_three",
-      "leads_to": [
-
-      ],
-      "unit_bonuses": {
+        "artillery": {
+          "terrain_bonuses": {
+            "fort": {
+              "attack": 0.2
+            }
+          }
+        },
+        "artillery_brigade": {
+          "terrain_bonuses": {
+            "fort": {
+              "attack": 0.2
+            }
+          }
+        },
+        "mot_artillery_brigade": {
+          "terrain_bonuses": {
+            "fort": {
+              "attack": 0.2
+            }
+          }
+        }
       }
     },
     "basic_machine_tools": {
@@ -21629,15 +21666,16 @@
         "fleet_in_being_tree",
         "cat_fleet_in_being"
       ],
-      "doctrine": true,
-      "heavy_cruiser": {
-        "max_organisation": 10
+      "destroyer": {
+        "surface_detection": 0.1
       },
+      "doctrine": true,
       "research_cost": 3,
       "xor": [
         "trade_interdiction",
         "base_strike"
       ],
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Fleet In Being",
@@ -21652,6 +21690,12 @@
         },
         "SH_battleship": {
           "max_organisation": 15
+        },
+        "heavy_cruiser": {
+          "max_organisation": 10
+        },
+        "light_cruiser": {
+          "surface_detection": 0.1
         }
       }
     },
@@ -21662,11 +21706,8 @@
         "cat_fleet_in_being"
       ],
       "doctrine": true,
-      "heavy_cruiser": {
-        "max_organisation": 10,
-        "search_and_destroy_coordination": 0.75
-      },
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Battlefleet Concentration",
@@ -21681,6 +21722,10 @@
         "SH_battleship": {
           "max_organisation": 15,
           "search_and_destroy_coordination": 0.5
+        },
+        "heavy_cruiser": {
+          "max_organisation": 10,
+          "search_and_destroy_coordination": 0.75
         }
       }
     },
@@ -21693,6 +21738,7 @@
       "doctrine": true,
       "research_cost": 3,
       "sortie_efficiency": 0.1,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Subsidiary Carrier Role",
@@ -21718,6 +21764,7 @@
       },
       "doctrine": true,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Hunter Killer Groups",
@@ -21740,6 +21787,7 @@
       "doctrine": true,
       "navy_capital_ship_defence_factor": 0.1,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Floating Fortress",
@@ -21760,7 +21808,8 @@
       ],
       "doctrine": true,
       "research_cost": 3,
-      "sortie_efficiency": 0.1,
+      "sortie_efficiency": 0.2,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Floating Airfield",
@@ -21783,12 +21832,11 @@
         "cat_fleet_in_being"
       ],
       "doctrine": true,
-      "heavy_cruiser": {
-        "max_organisation": 20
-      },
+      "mines_planting_by_fleets_factor": 0.1,
       "navy_anti_air_attack_factor": 0.1,
       "navy_capital_ship_attack_factor": 0.1,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Grand Battlefleet",
@@ -21800,6 +21848,9 @@
           "max_organisation": 20
         },
         "SH_battleship": {
+          "max_organisation": 20
+        },
+        "heavy_cruiser": {
           "max_organisation": 20
         }
       }
@@ -21818,6 +21869,7 @@
       },
       "doctrine": true,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Convoy Sailing",
@@ -21841,6 +21893,7 @@
       },
       "doctrine": true,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Convoy Escorts",
@@ -21860,6 +21913,7 @@
       "convoy_escort_efficiency": 0.3,
       "doctrine": true,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Escort Carriers",
@@ -21867,6 +21921,9 @@
         "integrated_convoy_defence"
       ],
       "unit_bonuses": {
+        "carrier": {
+          "sub_detection": 0.25
+        }
       }
     },
     "integrated_convoy_defence": {
@@ -21878,10 +21935,12 @@
       ],
       "convoy_escort_efficiency": 0.25,
       "destroyer": {
-        "max_organisation": 20
+        "max_organisation": 20,
+        "sub_detection": 0.1
       },
       "doctrine": true,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Integrated Convoy Defense",
@@ -21889,6 +21948,13 @@
         "floating_airfield"
       ],
       "unit_bonuses": {
+        "carrier": {
+          "sub_detection": 0.25
+        },
+        "light_cruiser": {
+          "max_organisation": 10,
+          "sub_detection": 0.15
+        }
       }
     },
     "submarine_operations": {
@@ -21899,7 +21965,9 @@
         "cat_fleet_in_being"
       ],
       "doctrine": true,
+      "naval_torpedo_reveal_chance_factor": -0.05,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Submarine Operations",
@@ -21922,6 +21990,7 @@
       ],
       "doctrine": true,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Undersea Blockade",
@@ -21943,7 +22012,9 @@
         "cat_fleet_in_being"
       ],
       "doctrine": true,
+      "naval_torpedo_reveal_chance_factor": -0.1,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Convoy Interdiction",
@@ -21967,6 +22038,7 @@
       ],
       "doctrine": true,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Submarine Offensive",
@@ -21989,15 +22061,12 @@
         "cat_trade_interdiction"
       ],
       "doctrine": true,
-      "heavy_cruiser": {
-        "max_organisation": 10,
-        "surface_detection": 0.1
-      },
       "research_cost": 3,
       "xor": [
         "fleet_in_being",
         "base_strike"
       ],
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Trade Interdiction",
@@ -22007,6 +22076,10 @@
         "carrier_operations"
       ],
       "unit_bonuses": {
+        "heavy_cruiser": {
+          "max_organisation": 10,
+          "surface_detection": 0.1
+        },
         "light_cruiser": {
           "max_organisation": 10,
           "surface_detection": 0.1
@@ -22025,7 +22098,9 @@
         "cat_trade_interdiction"
       ],
       "doctrine": true,
+      "naval_torpedo_reveal_chance_factor": -0.1,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Convoy Interdiction",
@@ -22050,6 +22125,7 @@
       "doctrine": true,
       "navy_submarine_attack_factor": 0.1,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Unrestricted Submarine Warfare",
@@ -22071,7 +22147,9 @@
         "cat_trade_interdiction"
       ],
       "doctrine": true,
+      "naval_torpedo_reveal_chance_factor": -0.15,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Wolf packs",
@@ -22082,7 +22160,7 @@
         "submarine": {
           "convoy_raiding_coordination": 0.4,
           "max_organisation": 10,
-          "surface_detection": 0.25
+          "surface_detection": 0.1
         }
       }
     },
@@ -22096,6 +22174,7 @@
       "doctrine": true,
       "navy_submarine_defence_factor": 0.1,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Advanced Submarine Warfare",
@@ -22106,6 +22185,7 @@
         "submarine": {
           "convoy_raiding_coordination": 0.4,
           "max_organisation": 10,
+          "max_strength": 0.2,
           "surface_detection": 0.25
         }
       }
@@ -22118,12 +22198,8 @@
         "cat_trade_interdiction"
       ],
       "doctrine": true,
-      "heavy_cruiser": {
-        "convoy_raiding_coordination": 0.7,
-        "max_organisation": 10,
-        "surface_detection": 0.25
-      },
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Combined Operations Raiding",
@@ -22132,6 +22208,11 @@
       ],
       "unit_bonuses": {
         "battleship": {
+          "convoy_raiding_coordination": 0.7,
+          "max_organisation": 10,
+          "surface_detection": 0.25
+        },
+        "heavy_cruiser": {
           "convoy_raiding_coordination": 0.7,
           "max_organisation": 10,
           "surface_detection": 0.25
@@ -22155,13 +22236,8 @@
         "cat_trade_interdiction"
       ],
       "doctrine": true,
-      "heavy_cruiser": {
-        "convoy_raiding_coordination": 0.3,
-        "max_organisation": 10,
-        "surface_detection": 0.25,
-        "surface_visibility": -0.25
-      },
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Raider Patrols",
@@ -22170,6 +22246,12 @@
       ],
       "unit_bonuses": {
         "battleship": {
+          "convoy_raiding_coordination": 0.3,
+          "max_organisation": 10,
+          "surface_detection": 0.25,
+          "surface_visibility": -0.25
+        },
+        "heavy_cruiser": {
           "convoy_raiding_coordination": 0.3,
           "max_organisation": 10,
           "surface_detection": 0.25,
@@ -22190,13 +22272,9 @@
         "cat_trade_interdiction"
       ],
       "doctrine": true,
-      "heavy_cruiser": {
-        "convoy_raiding_coordination": 0.6,
-        "max_organisation": 10,
-        "surface_detection": 0.25,
-        "surface_visibility": -0.25
-      },
+      "naval_enemy_fleet_size_ratio_penalty_factor": 0.1,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Capital Ship Raiders",
@@ -22209,6 +22287,12 @@
           "max_organisation": 10,
           "surface_detection": 0.25,
           "surface_visibility": -0.5
+        },
+        "heavy_cruiser": {
+          "convoy_raiding_coordination": 0.6,
+          "max_organisation": 10,
+          "surface_detection": 0.25,
+          "surface_visibility": -0.25
         }
       }
     },
@@ -22219,11 +22303,9 @@
         "cat_trade_interdiction"
       ],
       "doctrine": true,
-      "heavy_cruiser": {
-        "max_organisation": 10,
-        "search_and_destroy_coordination": 0.5
-      },
       "research_cost": 3,
+      "strike_force_movement_org_loss": -0.2,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Battlefleet Concentration",
@@ -22232,6 +22314,10 @@
       ],
       "unit_bonuses": {
         "battleship": {
+          "max_organisation": 10,
+          "search_and_destroy_coordination": 0.5
+        },
+        "heavy_cruiser": {
           "max_organisation": 10,
           "search_and_destroy_coordination": 0.5
         }
@@ -22246,6 +22332,7 @@
       "doctrine": true,
       "navy_capital_ship_defence_factor": 0.1,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Floating Fortress",
@@ -22269,7 +22356,8 @@
       ],
       "doctrine": true,
       "research_cost": 3,
-      "sortie_efficiency": 0.1,
+      "sortie_efficiency": 0.2,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Floating Airfield",
@@ -22296,6 +22384,7 @@
         "naval_strike_targetting_factor": 0.1
       },
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Carrier Operations",
@@ -22322,6 +22411,7 @@
       },
       "doctrine": true,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Convoy Sailing",
@@ -22340,6 +22430,7 @@
       "doctrine": true,
       "research_cost": 3,
       "sortie_efficiency": 0.1,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Subsidiary Carrier Role",
@@ -22363,6 +22454,7 @@
         "naval_strike_targetting_factor": 0.1
       },
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Naval Air Operations",
@@ -22387,6 +22479,7 @@
         "fleet_in_being",
         "trade_interdiction"
       ],
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Base Strike",
@@ -22416,6 +22509,7 @@
       },
       "research_cost": 3,
       "sortie_efficiency": 0.1,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Carrier Primacy",
@@ -22442,6 +22536,7 @@
         "naval_strike_targetting_factor": 0.1
       },
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Carrier Task Forces",
@@ -22468,7 +22563,8 @@
       ],
       "doctrine": true,
       "research_cost": 3,
-      "sortie_efficiency": 0.1,
+      "sortie_efficiency": 0.2,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Floating Airfield",
@@ -22497,6 +22593,7 @@
       },
       "research_cost": 3,
       "sortie_efficiency": 0.2,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Massed Strikes",
@@ -22521,6 +22618,7 @@
       "doctrine": true,
       "navy_capital_ship_defence_factor": 0.1,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Floating Fortress",
@@ -22542,6 +22640,7 @@
       "doctrine": true,
       "navy_carrier_air_agility_factor": 0.1,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Carrier Battlegroups",
@@ -22566,7 +22665,9 @@
         "cat_base_strike"
       ],
       "doctrine": true,
+      "naval_torpedo_reveal_chance_factor": -0.05,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Submarine Operations",
@@ -22587,6 +22688,7 @@
       ],
       "doctrine": true,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Undersea Blockade",
@@ -22606,7 +22708,9 @@
         "cat_base_strike"
       ],
       "doctrine": true,
+      "naval_torpedo_reveal_chance_factor": -0.1,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Convoy Interdiction",
@@ -22628,6 +22732,7 @@
       ],
       "doctrine": true,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Submarine Offensive",
@@ -22655,6 +22760,7 @@
       },
       "doctrine": true,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Convoy Escorts",
@@ -22677,6 +22783,7 @@
       },
       "doctrine": true,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Escort Patrols",
@@ -22703,6 +22810,7 @@
       },
       "doctrine": true,
       "research_cost": 3,
+      "xp_research_bonus": 1.0,
       "xp_research_cost": 100,
       "xp_research_type": "navy",
       "name": "Convoy Sailing",
@@ -22720,7 +22828,8 @@
       ],
       "convoy_escort_efficiency": 0.25,
       "destroyer": {
-        "max_organisation": 20
+        "max_organisation": 20,
+        "sub_detection": 0.1
       },
       "doctrine": true,
       "research_cost": 3,
@@ -22731,6 +22840,13 @@
 
       ],
       "unit_bonuses": {
+        "carrier": {
+          "sub_detection": 0.25
+        },
+        "light_cruiser": {
+          "max_organisation": 10,
+          "sub_detection": 0.15
+        }
       }
     },
     "tech_support": {
@@ -23161,6 +23277,7 @@
       ],
       "unit_bonuses": {
         "logistics_company": {
+          "fuel_consumption_factor": -0.05,
           "supply_consumption_factor": -0.1
         }
       }
@@ -23179,6 +23296,7 @@
       ],
       "unit_bonuses": {
         "logistics_company": {
+          "fuel_consumption_factor": -0.05,
           "supply_consumption_factor": -0.1
         }
       }
@@ -23197,6 +23315,7 @@
       ],
       "unit_bonuses": {
         "logistics_company": {
+          "fuel_consumption_factor": -0.05,
           "supply_consumption_factor": -0.1
         }
       }
