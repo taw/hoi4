@@ -93,6 +93,7 @@ export default class Division {
     return cleanupReport([
       ["Soft Attack", this.soft_attack, this.tooltipForSum("soft_attack")],
       ["Hard Attack", this.hard_attack, this.tooltipForSum("hard_attack")],
+      ["Air Attack", this.air_attack, this.tooltipForSum("air_attack")],
       ["Defense", this.defense, this.tooltipForSum("defense")],
       ["Breakthrough", this.breakthrough, this.tooltipForSum("breakthrough")],
       ["Armor", this.armor, this.tooltipForArmor()],
