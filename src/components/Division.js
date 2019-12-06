@@ -14,7 +14,8 @@ export default class Division extends Component {
     let {dbs} = props;
     this.dbs = dbs;
     let db = this.dbs.vanilla;
-    this.state = {
+
+    let defaultState = {
       modName: "vanilla",
       year: db.default_year,
       doctrine: null,
@@ -23,6 +24,18 @@ export default class Division extends Component {
       upgrades: {},
       divisionName: "",
     }
+
+    if (window.location.hash) {
+      try {
+        console.log("PLEASE LOAD", window.location.hash)
+        let dataFromHash = JSON.parse(atob(window.location.hash.substr(1)));
+        defaultState = {...defaultState, ...dataFromHash};
+      } catch(err) {
+        console.log("Couldn't load division from hash")
+      }
+    }
+
+    this.state = defaultState;
   }
   get db() {
     return this.dbs[this.state.modName];

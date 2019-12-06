@@ -25,6 +25,16 @@ export default class SaveAndLoadDivision extends Component {
       return JSON.parse(saved);
     }
   }
+  copyToClipboard = () => {
+    let data = btoa(JSON.stringify(this.props.saveData));
+    window.history.pushState(null, null, "#" + data);
+    let text = window.location.toString();
+    navigator.clipboard.writeText(text).then(function() {
+      console.log('Async: Copying to clipboard was successful!');
+    }, function(err) {
+      console.error('Async: Could not copy text: ', err);
+    });
+  }
   changeSelection = (event) => {
     this.setState({selection: event.target.value});
   }
@@ -44,6 +54,7 @@ export default class SaveAndLoadDivision extends Component {
     return (
       <div className="save-and-load-controls">
         <button className="btn btn-primary" onClick={this.saveClicked}>Save division</button>
+        <button className="btn btn-primary" onClick={this.copyToClipboard}>Copy to Clipboard</button>
         { loadSelection }
         { loadButton }
       </div>
