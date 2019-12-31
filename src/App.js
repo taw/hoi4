@@ -19,6 +19,10 @@ class App extends Component {
           <h1 className="App-title">Hearts of Iron IV - Division Designer</h1>
         </header>
         <Division dbs={this.dbs} />
+        <div className="footer-space"></div>
+        <footer>
+          If you have any feedback, <a href="mailto:Tomasz.Wegrzanowski@gmail.com">contact the author</a>, or <a href="https://github.com/taw/hoi4/issues">report an issue on github</a>.
+        </footer>
       </div>
     );
   }

@@ -305,3 +305,21 @@ select {
     margin: 5px;
   }
 }
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-space {
+  flex-grow: 1;
+}
+
+footer {
+  text-align: center;
+  background-color: #222;
+  min-height: 50px;
+  padding: 10px;
+  color: white;
+}
