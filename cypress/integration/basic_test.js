@@ -23,9 +23,9 @@ context("Basic tests", () => {
     cy.get(".support :checkbox").eq(3).check()
     cy.get(".equipment-count").then(x => {
       expect(x.text()).to.eq(
-        "Infantry Equipment III" + "700 (490)" +
+        "Infantry Equipment III" + "700 (483)" +
         "Advanced Artillery" + "84 (378)" +
-        "Advanced Rocket Artillery" + "24 (120)"
+        "Advanced Rocket Artillery" + "12 (60)"
       )
     })
   })
