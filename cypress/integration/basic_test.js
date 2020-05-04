@@ -42,25 +42,4 @@ context("Basic tests", () => {
       )
     })
   })
-
-  it("Millennium Dawn mod", () => {
-    cy.get(".mod-selector button").eq(2).click()
-    cy.get(".unit-select input").eq(0).clear().type(6)
-    cy.get(".unit-select select").eq(0).select("Modern Tank")
-    cy.get(".unit-select input").eq(1).clear().type(5)
-    cy.get(".unit-select select").eq(1).select("Light Tank")
-    cy.get(".unit-select input").eq(2).clear().type(4)
-    cy.get(".unit-select select").eq(2).select("Mechanized Infantry")
-    cy.get(".unit-select input").eq(3).clear().type(3)
-    cy.get(".unit-select select").eq(3).select("Light Mechanized")
-    cy.get(".equipment-count").then(x => {
-      expect(x.text()).to.eq(
-        "Modern Gen 3 MBT" + "300 (10800)" +
-        "Modern Gen 3 Light Tank" + "300 (3900)" +
-        "Modern Equipment" + "700 (525)" +
-        "Gen 2 Mechanized" + "400 (8800)" +
-        "Gen 2 Light Mechanized" + "300 (3600)"
-      )
-    })
-  })
 })
