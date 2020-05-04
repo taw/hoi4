@@ -2,10 +2,9 @@ import Country from "./Country";
 import Equipment from "./Equipment";
 import vanilla from "./vanilla.json";
 import kaiserreich from "./kaiserreich.json";
-import millennium_dawn from "./millennium_dawn.json";
 
 let mods = {
-  vanilla, kaiserreich, millennium_dawn,
+  vanilla, kaiserreich,
 };
 
 export default class Database {

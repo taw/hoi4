@@ -9,7 +9,6 @@ class App extends Component {
   dbs = {
     vanilla: new Database("vanilla"),
     kaiserreich: new Database("kaiserreich"),
-    millennium_dawn: new Database("millennium_dawn"),
   }
   render() {
     return (
