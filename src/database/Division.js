@@ -231,12 +231,16 @@ export default class Division {
     return this.units.filter(u => !u.is_frontline)
   }
 
+  get speed_affecting_units() {
+    return this.units.filter((u) => u.is_speed_affecting)
+  }
+
   get speed() {
-    let frontline_units = this.frontline_units;
-    if (frontline_units.length === 0) {
+    let speed_affecting_units = this.speed_affecting_units;
+    if (speed_affecting_units.length === 0) {
       return null;
     }
-    let base = min(frontline_units.map(u => u.speed));
+    let base = min(speed_affecting_units.map(u => u.speed));
     let factor = this.country.divisionBonuses["army_speed_factor"] || 0;
     return round3(base * (1 + factor));
   }
@@ -400,6 +404,10 @@ export default class Division {
     return this.groupUnitStats(field).filter(({unit}) => unit.is_frontline)
   }
 
+  groupSpeedAffectingUnitStats(field) {
+    return this.groupUnitStats(field).filter(({unit}) => unit.is_speed_affecting)
+  }
+
   tooltipForSum(field) {
     return ({
       header: "Sum of:",
@@ -491,8 +499,8 @@ export default class Division {
 
   tooltipForSpeed() {
     let result = {
-      header: "Minimum of frontline units:",
-      unitData: this.groupFrontlineUnitStats("speed").map(({unit,count,value}) => ({unit, count, value: formatSpeed(value)})),
+      header: "Minimum of speed affecting units:",
+      unitData: this.groupSpeedAffectingUnitStats("speed").map(({unit,count,value}) => ({unit, count, value: formatSpeed(value)})),
     };
     let factor = this.country.divisionBonuses["army_speed_factor"];
     if (factor !== 0) {

@@ -127,6 +127,10 @@ export default class Unit {
     return this.combat_width > 0;
   }
 
+  get is_speed_affecting() {
+    return this.unitType.affects_speed !== false;
+  }
+
   get recon() {
     return this.calculateFromUnitTypeAndBonus("recon")
   }
