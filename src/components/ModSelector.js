@@ -7,6 +7,7 @@ export default class ModSelector extends Component {
       <span>Switch mod:</span>
       <button className="btn btn-primary" onClick={() => changeMod("vanilla")}>Vanilla (1.9.1)</button>
       <button className="btn btn-primary" onClick={() => changeMod("kaiserreich")}>Kaiserreich (1.9.1)</button>
+      <button className="btn btn-primary" onClick={() => changeMod("road_to_56")}>The Road to 56 (1.9.3)</button>
     </div>
   }
 }
