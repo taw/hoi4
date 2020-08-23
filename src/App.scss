@@ -184,6 +184,9 @@ document {
 
 .unit-select {
   display: flex;
+  input[type=number] {
+    flex: 0;
+  }
 }
 
 input, select {
