@@ -185,12 +185,12 @@ document {
 .unit-select {
   display: flex;
   input[type=number] {
-    flex: 0;
+    flex-grow: 0;
   }
 }
 
 input, select {
-  flex: 1;
+  flex-grow: 1;
   background-color: #fff;
   color: #495057;
 }
