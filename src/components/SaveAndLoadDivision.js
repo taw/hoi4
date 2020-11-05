@@ -29,18 +29,25 @@ export default class SaveAndLoadDivision extends Component {
     let data = btoa(JSON.stringify(this.props.saveData));
     window.history.pushState(null, null, "#" + data);
     let text = window.location.toString();
-    navigator.clipboard.writeText(text).then(function() {
-      console.log('Async: Copying to clipboard was successful!');
-    }, function(err) {
-      console.error('Async: Could not copy text: ', err);
-    });
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(function() {
+        console.log('Async: Copying to clipboard was successful!');
+      }, function(err) {
+        console.error('Async: Could not copy text: ', err);
+      });
+    } else {
+      console.error('Clipboard is unavailable');
+    }
   }
   changeSelection = (event) => {
     this.setState({selection: event.target.value});
   }
   render() {
     let saved = this.savedDivisions();
-    let loadSelection, loadButton;
+    let loadSelection, loadButton, copyToClipboardButton;
+    if (navigator.clipboard) {
+      copyToClipboardButton = <button className="btn btn-primary" onClick={this.copyToClipboard}>Copy to Clipboard</button>
+    }
     if (saved.length >= 1) {
       loadSelection = <select value={this.state.selection} onChange={this.changeSelection}>
         {
@@ -54,7 +61,7 @@ export default class SaveAndLoadDivision extends Component {
     return (
       <div className="save-and-load-controls">
         <button className="btn btn-primary" onClick={this.saveClicked}>Save division</button>
-        <button className="btn btn-primary" onClick={this.copyToClipboard}>Copy to Clipboard</button>
+        { copyToClipboardButton }
         { loadSelection }
         { loadButton }
       </div>
