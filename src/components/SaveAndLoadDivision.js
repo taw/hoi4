@@ -5,16 +5,7 @@ export default class SaveAndLoadDivision extends Component {
     counter: 1,
     selection: 0,
   }
-  loadClicked = () => {
-    let saved = this.savedDivisions();
-    let selected = saved[this.state.selection];
-    this.props.onLoad(selected);
-  }
-  saveClicked = () => {
-    let saved = this.savedDivisions();
-    saved.push(this.props.saveData);
-    window.localStorage.setItem("saved-hoi4-divisions", JSON.stringify(saved));
-    // Force refresh
+  forceRefresh() {
     this.setState({counter: this.state.counter + 1, selection: 0});
   }
   savedDivisions = () => {
@@ -24,6 +15,16 @@ export default class SaveAndLoadDivision extends Component {
     } else {
       return JSON.parse(saved);
     }
+  }
+  saveToLocalStorage(data) {
+    window.localStorage.setItem("saved-hoi4-divisions", JSON.stringify(data));
+    this.forceRefresh();
+  }
+  // Buttons
+  loadDivision = () => {
+    let saved = this.savedDivisions();
+    let selected = saved[this.state.selection];
+    this.props.onLoad(selected);
   }
   copyToClipboard = () => {
     let data = btoa(JSON.stringify(this.props.saveData));
@@ -40,16 +41,24 @@ export default class SaveAndLoadDivision extends Component {
     }
   }
   changeSelection = (event) => {
-    this.setState({selection: event.target.value});
+    this.setState({selection: parseInt(event.target.value)});
+  }
+  saveDivision = () => {
+    let saved = this.savedDivisions();
+    saved.push(this.props.saveData);
+    this.saveToLocalStorage(saved);
+  }
+  deleteSelected = () => {
+    let saved = this.savedDivisions();
+    saved.splice(this.state.selection, 1);
+    this.saveToLocalStorage(saved);
   }
   deleteAll = () => {
-    window.localStorage.setItem("saved-hoi4-divisions", JSON.stringify([]));
-    // Force refresh
-    this.setState({counter: this.state.counter + 1, selection: 0});
+    this.saveToLocalStorage([]);
   }
   render() {
     let saved = this.savedDivisions();
-    let loadSelection, loadButton, copyToClipboardButton, deleteAllButton;
+    let loadSelection, loadButton, copyToClipboardButton, deleteSelectedButton, deleteAllButton;
     if (navigator.clipboard) {
       copyToClipboardButton = <button className="btn btn-primary" onClick={this.copyToClipboard}>Copy to Clipboard</button>
     }
@@ -61,17 +70,17 @@ export default class SaveAndLoadDivision extends Component {
           ))
         }
       </select>
-      loadButton = <button className="btn btn-primary" onClick={this.loadClicked}>Load division</button>
-    }
-    if (saved.length >= 1) {
+      loadButton = <button className="btn btn-primary" onClick={this.loadDivision}>Load division</button>
+      deleteSelectedButton = <button className="btn btn-danger" onClick={this.deleteSelected}>Delete Selected</button>
       deleteAllButton = <button className="btn btn-danger" onClick={this.deleteAll}>Delete All</button>
     }
     return (
       <div className="save-and-load-controls">
-        <button className="btn btn-primary" onClick={this.saveClicked}>Save division</button>
+        <button className="btn btn-primary" onClick={this.saveDivision}>Save division</button>
         { copyToClipboardButton }
         { loadSelection }
         { loadButton }
+        { deleteSelectedButton }
         { deleteAllButton }
       </div>
     )
