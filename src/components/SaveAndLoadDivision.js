@@ -42,9 +42,14 @@ export default class SaveAndLoadDivision extends Component {
   changeSelection = (event) => {
     this.setState({selection: event.target.value});
   }
+  deleteAll = () => {
+    window.localStorage.setItem("saved-hoi4-divisions", JSON.stringify([]));
+    // Force refresh
+    this.setState({counter: this.state.counter + 1, selection: 0});
+  }
   render() {
     let saved = this.savedDivisions();
-    let loadSelection, loadButton, copyToClipboardButton;
+    let loadSelection, loadButton, copyToClipboardButton, deleteAllButton;
     if (navigator.clipboard) {
       copyToClipboardButton = <button className="btn btn-primary" onClick={this.copyToClipboard}>Copy to Clipboard</button>
     }
@@ -58,12 +63,16 @@ export default class SaveAndLoadDivision extends Component {
       </select>
       loadButton = <button className="btn btn-primary" onClick={this.loadClicked}>Load division</button>
     }
+    if (saved.length >= 1) {
+      deleteAllButton = <button className="btn btn-danger" onClick={this.deleteAll}>Delete All</button>
+    }
     return (
       <div className="save-and-load-controls">
         <button className="btn btn-primary" onClick={this.saveClicked}>Save division</button>
         { copyToClipboardButton }
         { loadSelection }
         { loadButton }
+        { deleteAllButton }
       </div>
     )
   }
