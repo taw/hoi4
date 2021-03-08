@@ -302,6 +302,9 @@ select {
   button {
     margin: 5px;
   }
+  select {
+    max-width: 300px;
+  }
 }
 
 .App {
