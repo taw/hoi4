@@ -24,6 +24,10 @@ let upgradableStats = new Set([
   "sub_detection",
   "sub_visibility",
   "torpedo_attack",
+  // "reliability", - it's equipment-level not division-level, so doesn't fit the UI
+  // R56
+  "defense",
+  "breakthrough",
 ]);
 
 function round6(x) {
