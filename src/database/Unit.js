@@ -207,7 +207,7 @@ export default class Unit {
     let equipment = [...this.equipment.keys()]
     let equipmentSpeeds = equipment.map(e => e.maximum_speed).filter(s => s);
     let equipmentSpeed = equipmentSpeeds.length ? Math.max(...equipmentSpeeds) : 4.0;
-    return equipmentSpeed * (1 + this.unitType.maximum_speed || 0)
+    return equipmentSpeed * (1 + (this.unitType.maximum_speed || 0)) * (1 + (this.country_bonuses["maximum_speed"] || 0))
   }
 
   get terrain_bonuses() {
