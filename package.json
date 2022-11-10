@@ -21,7 +21,7 @@
     "eslint": "eslint src cypress"
   },
   "devDependencies": {
-    "cypress": "^3.4.1",
+    "cypress": "^3.8.3",
     "gh-pages": "^1.2.0"
   },
   "browserslist": [
