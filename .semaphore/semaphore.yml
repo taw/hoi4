@@ -1,0 +1,20 @@
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: 'Block #1'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - checkout
+            - sem-version node 20
+            - cache restore
+            - npm install
+            - npx cypress install
+            - cache store
+            - npm start -- --silent &
+            - npx cypress run
